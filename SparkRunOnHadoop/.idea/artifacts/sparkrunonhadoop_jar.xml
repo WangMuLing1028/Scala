@@ -1,0 +1,9 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="sparkrunonhadoop:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/sparkrunonhadoop_jar</output-path>
+    <root id="archive" name="sparkrunonhadoop.jar">
+      <element id="module-output" name="sparkrunonhadoop" />
+      <element id="extracted-dir" path="$USER_HOME$/Desktop/Scala_中文学习资料_含Scala_2.7.6_API/spark-2.0.0-bin-hadoop2.7/jars/spark-core_2.11-2.0.0.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>
