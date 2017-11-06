@@ -241,10 +241,18 @@ object QF_rate {
   }
 
   def main(args: Array[String]): Unit = {
+import org.apache.spark.sql._
+    val spark = SparkSession.builder().master("local[*]").appName("clear_rate").config("spark.sql.warehouse.dir", "F:/Github/IhaveADream/spark-warehouse").getOrCreate()
+    val sc = spark.sparkContext
+    import spark.implicits._
+    val GPS = sc.textFile("G:\\part-00000").map(x=>{
+         val s = x.split(",")
+         (s(0),s(1).trim.toDouble,s(2).trim.toDouble)
+       }).toDF("carId","number","rate")
 
-       val spark = SparkSession.builder().master("local[*]").appName("clear_rate").config("spark.sql.warehouse.dir", "F:/Github/IhaveADream/spark-warehouse").getOrCreate()
-        val aa = List(1,23,41,5,123,1,512,3,14)
-        for(x <- aa.indices) println(x)
+
+
+
 
   }
 
