@@ -57,8 +57,8 @@ object TaxiODForParquetGPS {
 
       val bTaxiDeal = spark.sparkContext.broadcast(taxiDealClean.collect())
       val taxiDF = spark.read.parquet(taxiGPSArray(i))
-
       val taxiFunc = new TaxiFunc(TaxiDataCleanUtils.apply(taxiDF))
+      //这里为什么不这么用 val taxiFunc = TaxiFunc(TaxiDataCleanUtils(taxiDF))
       taxiFunc.OD(bTaxiDeal).repartition(1).rdd.saveAsTextFile(savePath + "/" + dateArray(i).replaceAll("-", "_"))
     }
   }

@@ -5,7 +5,7 @@ import java.text.SimpleDateFormat
 import java.util.Calendar
 
 import org.apache.hadoop.io.{BytesWritable, Text}
-import org.apache.spark.sql.{DataFrame, SparkSession}
+import org.apache.spark.sql.SparkSession
 import org.apache.spark.sql.functions._
 
 import scala.collection.mutable.ArrayBuffer

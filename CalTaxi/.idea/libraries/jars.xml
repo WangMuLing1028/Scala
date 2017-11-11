@@ -6,6 +6,7 @@
     <JAVADOC />
     <SOURCES>
       <root url="file://$USER_HOME$/Desktop/Scala_中文学习资料_含Scala_2.7.6_API/spark-2.0.0-bin-hadoop2.7/jars" />
+      <root url="jar://$USER_HOME$/.ideaLibSources/spark-sql_2.11-2.0.0-sources.jar!/" />
     </SOURCES>
     <jarDirectory url="file://$USER_HOME$/Desktop/Scala_中文学习资料_含Scala_2.7.6_API/spark-2.0.0-bin-hadoop2.7/jars" recursive="false" />
     <jarDirectory url="file://$USER_HOME$/Desktop/Scala_中文学习资料_含Scala_2.7.6_API/spark-2.0.0-bin-hadoop2.7/jars" recursive="false" type="SOURCES" />

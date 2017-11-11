@@ -66,7 +66,7 @@ class DataFrameUtils {
     * @return
     */
   def col2moreCol(dataFrame: DataFrame, changeCol: String, colsType: Array[String], cols: String*): DataFrame = {
-    require(colsType.length == cols.length)
+    require(colsType.length == cols.length,"closType's length must match cols' length!")
     val one2more = udf { (index: Int, value: String) =>
       value.split(",")(index)
     }
