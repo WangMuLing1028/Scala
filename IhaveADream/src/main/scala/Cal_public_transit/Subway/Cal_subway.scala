@@ -3,7 +3,7 @@ package Cal_public_transit.Subway
 import org.LocationService
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.functions._
-import org.apache.spark.sql.{DataFrame, SparkSession}
+import org.apache.spark.sql.{DataFrame, Row, SparkSession}
 
 import scala.io.Source
 
@@ -17,8 +17,8 @@ class Cal_subway extends Serializable{
     * @param input
     * @return
     */
-  def mkOD(sparkSession: SparkSession,input:String) = {
-    Subway_Clean().getOD(sparkSession,input).asInstanceOf[RDD[OD]]
+  def mkOD(sparkSession: SparkSession,input:String,position:String) = {
+    Subway_Clean().getOD(sparkSession,input,position).asInstanceOf[RDD[OD]]
   }
 
   /**
@@ -27,8 +27,8 @@ class Cal_subway extends Serializable{
     * @param input
     * @return
     */
-  def mkZoneOD(sparkSession: SparkSession,input:String):RDD[OD] = {
-    val getod = mkOD(sparkSession: SparkSession,input:String)
+  def mkZoneOD(sparkSession: SparkSession,input:String,position:String):RDD[OD] = {
+    val getod = mkOD(sparkSession,input,position)
     val newZone = getod.map(line=>{
       val zone1 = Locat10(line.o_station)
       val zone2 = Locat10(line.d_station)
@@ -42,9 +42,9 @@ class Cal_subway extends Serializable{
     * @param sparkSession
     * @param input
     */
-  def everyDayFlow(sparkSession: SparkSession,input:String):DataFrame = {
+  def everyDayFlow(sparkSession: SparkSession,input:String,position:String):DataFrame = {
     import sparkSession.implicits._
-    val od = mkOD(sparkSession,input).toDF()
+    val od = mkOD(sparkSession,input,position).toDF()
     val date = udf((s:String)=>s.split("T")(0))
     val withDate = od.withColumn("date",date(col("o_time")))
     val flow = withDate.groupBy(col("date")).count().orderBy(col("date"))
@@ -57,8 +57,8 @@ class Cal_subway extends Serializable{
     * @param input
     * @return
     */
-  def avgFlow(sparkSession: SparkSession,input:String):DataFrame = {
-    everyDayFlow(sparkSession,input).agg("count" -> "mean")
+  def avgFlow(sparkSession: SparkSession,input:String,position:String):DataFrame = {
+    everyDayFlow(sparkSession,input,position).agg("count" -> "mean")
   }
 
   /**
@@ -68,9 +68,9 @@ class Cal_subway extends Serializable{
     * @param size 粒度可选：5min,10min,15min,30min,hour
     * @return
     */
-  def sizeFlow(sparkSession: SparkSession,input:String,size:String):DataFrame={
+  def sizeFlow(sparkSession: SparkSession,input:String,size:String,position:String):DataFrame={
     import sparkSession.implicits._
-    val od = mkOD(sparkSession,input).toDF()
+    val od = mkOD(sparkSession,input,position).toDF()
     val sizeTime = od.map(line=>{
       val o_time = line.getString(line.fieldIndex("o_time"))
       new TimeUtils().timeChange(o_time,size)
@@ -85,9 +85,9 @@ class Cal_subway extends Serializable{
     * @param input
     * @return
     */
-  def dayODFlow(sparkSession: SparkSession,input:String):DataFrame={
+  def dayODFlow(sparkSession: SparkSession,input:String,position:String):DataFrame={
     import sparkSession.implicits._
-    val od = mkOD(sparkSession,input).toDF()
+    val od = mkOD(sparkSession,input,position).toDF()
     val date = udf((s:String)=>s.split("T")(0))
     val withDate = od.withColumn("date",date(col("o_time")))
     val odFlow = withDate.groupBy(col("date"),col("o_station"),col("d_station")).count().orderBy(col("count").desc)
@@ -100,8 +100,8 @@ class Cal_subway extends Serializable{
     * @param input
     * @return
     */
-  def avgODFlow(sparkSession: SparkSession,input:String):DataFrame={
-    dayODFlow(sparkSession,input).groupBy(col("o_station"),col("d_station")).mean("count").orderBy(col("avg(count)").desc)
+  def avgODFlow(sparkSession: SparkSession,input:String,position:String):DataFrame={
+    dayODFlow(sparkSession,input,position).groupBy(col("o_station"),col("d_station")).mean("count").orderBy(col("avg(count)").desc)
   }
 
   /**
@@ -110,10 +110,10 @@ class Cal_subway extends Serializable{
     * @param input
     * @return
     */
-  def dayStationIOFlow(sparkSession: SparkSession,input:String):DataFrame={
+  def dayStationIOFlow(sparkSession: SparkSession,input:String,position:String):DataFrame={
     import sparkSession.implicits._
     val data = sparkSession.sparkContext.textFile(input)
-    val usefulData = Subway_Clean().GetFiled(data)
+    val usefulData = Subway_Clean().GetFiled(data,position)
     val station = usefulData.groupBy(x=>x.deal_time.split("T")(0)+","+x.station_id).mapValues(line=>{
       val InFlow = line.count(_.Type.matches("21"))
       val OutFlow = line.count(_.Type.matches("22"))
@@ -127,8 +127,8 @@ class Cal_subway extends Serializable{
     * @param input
     * @return
     */
-  def avgStationIOFlow(sparkSession: SparkSession,input:String):DataFrame={
-    dayStationIOFlow(sparkSession,input).groupBy(col("station")).agg("InFlow"->"mean","OutFlow"->"mean").toDF("station","InFlow","OutFlow")
+  def avgStationIOFlow(sparkSession: SparkSession,input:String,position:String):DataFrame={
+    dayStationIOFlow(sparkSession,input,position).groupBy(col("station")).agg("InFlow"->"mean","OutFlow"->"mean").toDF("station","InFlow","OutFlow")
       .orderBy((col("InFlow")+col("OutFlow")).desc)
   }
 
@@ -139,10 +139,10 @@ class Cal_subway extends Serializable{
     * @param size 粒度可选：5min,10min,15min,30min,hour
     * @return
     */
-  def sizeStationIOFlow(sparkSession: SparkSession,input:String,size:String):DataFrame={
+  def sizeStationIOFlow(sparkSession: SparkSession,input:String,size:String,position:String):DataFrame={
     import sparkSession.implicits._
     val data = sparkSession.sparkContext.textFile(input)
-    val usefulData = Subway_Clean().GetFiled(data).map(line=>{
+    val usefulData = Subway_Clean().GetFiled(data,position).map(line=>{
       val changeTime = new TimeUtils().timeChange(line.deal_time,size)
       SZT(line.card_id,changeTime,line.station_id,line.Type)
     })
@@ -195,9 +195,9 @@ class Cal_subway extends Serializable{
     * @param input
     * @return
     */
-  def zoneDayODFlow(sparkSession: SparkSession,input:String):DataFrame={
+  def zoneDayODFlow(sparkSession: SparkSession,input:String,position:String):DataFrame={
     import sparkSession.implicits._
-    val od = mkZoneOD(sparkSession,input).toDF()
+    val od = mkZoneOD(sparkSession,input,position).toDF()
     val date = udf((s:String)=>s.split("T")(0))
     val withDate = od.withColumn("date",date(col("o_time")))
     val odFlow = withDate.groupBy(col("date"),col("o_station"),col("d_station")).count().orderBy(col("count").desc)
@@ -210,8 +210,8 @@ class Cal_subway extends Serializable{
     * @param input
     * @return
     */
-  def zoneAvgODFlow(sparkSession: SparkSession,input:String):DataFrame={
-    zoneDayODFlow(sparkSession,input).groupBy(col("o_station"),col("d_station")).mean("count").orderBy(col("avg(count)").desc)
+  def zoneAvgODFlow(sparkSession: SparkSession,input:String,position:String):DataFrame={
+    zoneDayODFlow(sparkSession,input,position).groupBy(col("o_station"),col("d_station")).mean("count").orderBy(col("avg(count)").desc).filter("o_station <> '-1' and d_station <> '-1'")
   }
 
   /**
@@ -220,15 +220,15 @@ class Cal_subway extends Serializable{
     * @param input
     * @return
     */
-  def zoneDayStationIOFlow(sparkSession: SparkSession,input:String):DataFrame={
+  def zoneDayStationIOFlow(sparkSession: SparkSession,input:String,position:String):DataFrame={
     import sparkSession.implicits._
     val data = sparkSession.sparkContext.textFile(input)
-    val usefulData = Subway_Clean().GetFiled(data).map(x=>SZT(x.card_id,x.deal_time,Locat10(x.station_id),x.Type))
+    val usefulData = Subway_Clean().GetFiled(data,position).map(x=>SZT(x.card_id,x.deal_time,Locat10(x.station_id),x.Type))
     val station = usefulData.groupBy(x=>x.deal_time.split("T")(0)+","+x.station_id).mapValues(line=>{
       val InFlow = line.count(_.Type.matches("21"))
       val OutFlow = line.count(_.Type.matches("22"))
       (InFlow,OutFlow)
-    }).map(x=>(x._1.split(",")(0),x._1.split(",")(1),x._2._1,x._2._2)).toDF("date","station","InFlow","OutFlow").orderBy((col("InFlow")+col("OutFlow")).desc)
+    }).map(x=>(x._1.split(",")(0),x._1.split(",")(1),x._2._1,x._2._2)).toDF("date","station","InFlow","OutFlow").orderBy((col("InFlow")+col("OutFlow")).desc).filter("station <> '-1'")
     station
   }
   /**
@@ -237,9 +237,9 @@ class Cal_subway extends Serializable{
     * @param input
     * @return
     */
-  def zoneAvgStationIOFlow(sparkSession: SparkSession,input:String):DataFrame={
-    zoneDayStationIOFlow(sparkSession,input).groupBy(col("station")).agg("InFlow"->"mean","OutFlow"->"mean").toDF("station","InFlow","OutFlow")
-      .orderBy((col("InFlow")+col("OutFlow")).desc)
+  def zoneAvgStationIOFlow(sparkSession: SparkSession,input:String,position:String):DataFrame={
+    zoneDayStationIOFlow(sparkSession,input,position).groupBy(col("station")).agg("InFlow"->"mean","OutFlow"->"mean").toDF("station","InFlow","OutFlow")
+      .orderBy((col("InFlow")+col("OutFlow")).desc).filter("station <> '-1'")
   }
 
   /**
@@ -250,7 +250,7 @@ class Cal_subway extends Serializable{
     * @param workpath
     * @return
     */
-  def homeWorkZone(sparkSession: SparkSession,homepath:String,workpath:String) ={
+  def homeWorkZone(sparkSession: SparkSession,homepath:String,workpath:String):RDD[Row] ={
     import sparkSession.implicits._
     val home = sparkSession.sparkContext.textFile(homepath).map(line=>{
       val s = line.split(",")
@@ -275,10 +275,8 @@ object Cal_subway{
 
   def main(args: Array[String]): Unit = {
     val sparkSession = SparkSession.builder().config("spark.sql.warehouse.dir", "F:/Github/IhaveADream/spark-warehouse").master("local[2]").getOrCreate()
-//    val input = "G:\\数据\\深圳通地铁\\20170215"
-    val homepath = "G:\\HomeWorkPot\\home_symbol"
-    val workpath = "G:\\HomeWorkPot\\work_symbol"
-    Cal_subway().homeWorkZone(sparkSession,homepath,workpath).coalesce(1).saveAsTextFile("G:\\HomeWorkPot\\zone")
+    val input = "G:\\数据\\深圳通地铁\\20170215"
+    Cal_subway().zoneAvgStationIOFlow(sparkSession,input,"1,4,6,3").show(100,true)
 
 
   }

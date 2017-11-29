@@ -11,19 +11,29 @@ import org.apache.spark.sql.SparkSession
   *       过滤单次出行时间超过3小时的记录，过滤同站进出的记录
   * 以深圳通数据为例：55754,251498261,241013124,22,2017-02-15T06:57:01.000Z,地铁十一号线,红树湾南,OGT-124
   *            字段：JLBM,card_id,ZDBM,Type,deal_time,line_name,station_id,BM
-  *            提取有用字段：card_id,deal_time,station_id,Type
+  *            提取有用字段：card_id,deal_time,station_id,Type ( 1,4,6,3 )
   * Created by WJ on 2017/11/8.
   */
 class Subway_Clean extends Serializable{
+
+
+
+
   /**
-    * 获取深圳通有用字段
-    * @param originData
+    * 不管是TOS数据还是SZT数据，地铁数据都会包含card_id,deal_time,station_id,Type四个有用字段
+    * 从中提取这四个字段进行下一步计算
+    * @param originData 原始数据
+    * @param position 从0开始编号 按顺序记录card_id,deal_time,station_id,Type位置，以逗号隔开
     * @return
     */
-  def GetFiled(originData:RDD[String]):RDD[SZT]={
+  def GetFiled(originData:RDD[String],position:String):RDD[SZT]={
+    val Positions = position.split(",")
     val usefulFiled =originData.map(line=>{
       val s = line.split(",")
-      var Type = s(3)
+      val card_id = s(Positions(0).toInt)
+      val deal_time = s(Positions(1).toInt)
+      val station_id = s(Positions(2).toInt)
+      var Type = s(Positions(3).toInt)
       if (!Type.matches("21|22")){
         Type match {
           case "地铁入站" => Type="21"
@@ -31,7 +41,7 @@ class Subway_Clean extends Serializable{
           case _ =>
         }
       }
-        SZT(s(1),s(4),s(6),Type)
+        SZT(card_id,deal_time,station_id,Type)
     })
     usefulFiled
   }
@@ -68,9 +78,9 @@ class Subway_Clean extends Serializable{
     * @param input 输入路径
     * @return
     */
-  def getOD(sparkSession: SparkSession,input:String) = {
+  def getOD(sparkSession: SparkSession,input:String,positon:String) = {
     val data = sparkSession.sparkContext.textFile(input)
-    GetFiled(data).map(ssplit)
+    GetFiled(data,positon).map(ssplit)
       .groupByKey()
       .flatMap(MakeOD)
       .filter(x => x != None)
