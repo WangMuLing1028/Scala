@@ -53,7 +53,7 @@ class MetroOD extends Serializable {
     }
     )
     val row = ODs.map(line => line.split(",")).map(line => ODS(line(0), line(1), line(2), line(3), line(4), line(5), line(6), line(8), line(9), line(10), line(11), line(12), line(13), line(14), line(15)))
-    row.filter(line => line.transType == "21" && line.outTransType == "22").toDF()
+    row.filter(line => line.transType == "地铁入站" && line.outTransType == "地铁出站").toDF()
   }
 
   /**

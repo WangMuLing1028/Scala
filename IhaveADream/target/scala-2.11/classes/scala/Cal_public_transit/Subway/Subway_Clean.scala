@@ -3,6 +3,7 @@ package Cal_public_transit.Subway
 import java.text.SimpleDateFormat
 
 import org.apache.spark.rdd.RDD
+import org.apache.spark.sql.SparkSession
 
 /**
   *把数据连接为OD数据
@@ -20,7 +21,7 @@ class Subway_Clean extends Serializable{
     * @return
     */
   def GetFiled(originData:RDD[String]):RDD[SZT]={
-    val userfulFiled =originData.map(line=>{
+    val usefulFiled =originData.map(line=>{
       val s = line.split(",")
       var Type = s(3)
       if (!Type.matches("21|22")){
@@ -30,19 +31,12 @@ class Subway_Clean extends Serializable{
           case _ =>
         }
       }
-      if(s.length==8){
         SZT(s(1),s(4),s(6),Type)
-      }else{
-        SZT("0","0","0","0")
-      }
-    }).filter(!_.card_id.equals("0"))
-    userfulFiled
+    })
+    usefulFiled
   }
 
   private def ssplit(x:SZT) = {
-    //x= id,deal_time,station,type
-
-  //  (x.card_id,List(x.deal_time,x.card_id,x.Type,x.station_id).mkString(","))
     (x.card_id,x)
   }
 
@@ -64,12 +58,18 @@ class Subway_Clean extends Serializable{
   private def MakeOD(x:(String,Iterable[SZT])) = {
     val arr = x._2.toArray.sortWith((x,y) => x.deal_time < y.deal_time)
     for{
-      i <- 0 until arr.size - 1;
+      i <- 0 until arr.size -1;
       od = ODRuler(arr(i),arr(i+1))
     } yield od
   }
 
-  def getOD(data:RDD[String]) = {
+  /**
+    * 性能比MetroOD好
+    * @param input 输入路径
+    * @return
+    */
+  def getOD(sparkSession: SparkSession,input:String) = {
+    val data = sparkSession.sparkContext.textFile(input)
     GetFiled(data).map(ssplit)
       .groupByKey()
       .flatMap(MakeOD)
@@ -83,11 +83,11 @@ object Subway_Clean{
 }
 
 /**
-  * 深圳通有用数据
+  * 深圳通有用字段
   * @param card_id 卡号
-  * @param station_id 站点
-  * @param Type 进出站类型
   * @param deal_time 交易时间
+  * @param station_id 站点名称
+  * @param Type 进出站类型
   */
 case class SZT(card_id:String,deal_time:String,station_id:String,Type:String)
 

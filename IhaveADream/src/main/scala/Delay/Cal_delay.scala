@@ -56,8 +56,8 @@ object Cal_delay {
     }).filter(!_.carID.contains("error")).cache()
     val GPStotal = gotData.count()
     val carTotal = gotData.map(_.carID).distinct().count
-    val onTime = gotData.filter(_.timeDiff==0).count()
-    val delayed = gotData.filter(_.timeDiff>0).map(_.timeDiff/60).countByValue().toSeq.sortBy(_._1).foreach(println)
+    val onTime = gotData.filter(x => x.timeDiff>=0 && x.timeDiff<=15).count()
+    val delayed = gotData.filter(x => x.timeDiff>15).map(_.timeDiff/60).countByValue().toSeq.sortBy(_._1).foreach(println)
     val shebei = gotData.filter(_.timeDiff<0).count
     val average_timediff = gotData.filter(_.timeDiff>0).map(_.timeDiff).mean()
     println("总共有"+GPStotal+"条数据"+","+carTotal+"辆车"+","+"准点："+onTime+","+"设备异常数据："+shebei+","+"平均延时:"+average_timediff+"秒")
@@ -124,16 +124,13 @@ object Cal_delay {
     println("0-30s："+Less30s+","+"30-60s："+Less60s+","+","+"60-120s："+Less120s+","+">120s："+More120s+","+"平均时间差:"+average+"秒")
   }
 
+
+
+
   def main(args: Array[String]): Unit = {
-    val spark = SparkSession.builder().master("local[*]").appName("Cal_delay").config("spark.sql.warehouse.dir", "F:/Github/IhaveADream/spark-warehouse").getOrCreate()
+    /*val spark = SparkSession.builder().master("local[*]").appName("Cal_delay").config("spark.sql.warehouse.dir", "F:/Github/IhaveADream/spark-warehouse").getOrCreate()
     val sc = spark.sparkContext
-    import spark.implicits._
-    val input = sc.textFile("G:\\数据\\公交局平台GPS数据\\1010bus.csv").map(line=>{
-      val t = line.split(",")
-      (t(0),t(1),t(2))
-    }).toDF("time1","time2","carID")
-    val received = input.col("time1").cast("String".toLowerCase())
-    input.withColumn("rec",received).show()
+    Basic_info(spark)*/
   }
 
   case class data(carID:String,upTime:String,receiveTime:String)
