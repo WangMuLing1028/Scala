@@ -1,7 +1,7 @@
 package Cal_public_transit.Subway
 
 import java.text.SimpleDateFormat
-import java.util.Date
+import java.util.{Calendar, Date}
 
 import org.joda.time.DateTime
 
@@ -10,7 +10,7 @@ import org.joda.time.DateTime
   * 相当于北京时间1970年1月1日08时00分00秒
   * Created by wing1995 on 2017/5/8.
   */
-class TimeUtils extends Serializable{
+ class TimeUtils extends Serializable{
 
   /**
     * 字符串转换为时间戳
@@ -119,25 +119,83 @@ class TimeUtils extends Serializable{
     }
   }
 
+  /**
+    * 判断是节假日、工作日还是周末
+    * @param date 输入日期
+    * @param format 输入日期格式
+    * @param holiday 手动输入节假日，固定格式：2017-03-24 ，以逗号 , 隔开
+    * @return
+    */
+  def isFestival(date:String,format:String,holiday:String):String={
+    var symbol:Int = -1
+    val sf = new SimpleDateFormat(format)
+    val getDate = sf.parse(date)
+    val cal:Calendar = Calendar.getInstance()
+    cal.setTime(getDate)
+    val holidayList = scala.collection.mutable.ArrayBuffer[Calendar]()
+    val hs = holiday.split(",")
+    hs.foreach(OneHoliday=>{
+        addHoliday(OneHoliday)
+    })
+    def addHoliday(OneHoliday:String): Unit ={
+      val s = new SimpleDateFormat("yyyy-MM-dd").parse(OneHoliday)
+      val Calen = Calendar.getInstance()
+      Calen.setTime(s)
+      holidayList.append(Calen)
+    }
+    for (elem <- holidayList.toArray) {
+      if(cal.equals(elem)) symbol=0
+    }
+    if(symbol == -1){
+      if(cal.get(Calendar.DAY_OF_WEEK) == Calendar.SATURDAY || cal.get(Calendar.DAY_OF_WEEK) == Calendar.SUNDAY) symbol=1
+    }
+    val isHoliday:String = symbol match {
+      case -1 => "workday"
+      case 0 => "holiday"
+      case 1 => "weekend"
+    }
+    isHoliday
+  }
+
+  /**
+    * 求时间为一天的哪个时段
+    * @param time 固定时间格式：2017-03-24T12:03:24.000Z
+    *             holiday 手动输入节假日，固定格式：2017-03-24 ，以逗号 , 隔开
+    */
+  def timePeriod(time:String,holiday:String):String={
+    val date = time.substring(0,10)
+    val Hour = time.substring(11,13).toInt
+    val Min = time.substring(14,16).toInt
+    val isHoliday = isFestival(date,"yyyy-MM-dd",holiday)
+    var period = "-1"
+    isHoliday match {
+      case "workday" => if(Hour==7 || Hour==8 || (Hour==9 && Min<30))
+                          {period="mor"
+                          }else if(Hour==17 || Hour==18|| Hour==19 || (Hour==16 && Min>=30)){
+                            period="eve"
+                          }else if(Hour==20 || (Hour==21 && Min<30)){
+                             period="second"
+                          }else{
+                             period="flat"
+                          }
+      case _ =>  if(Hour>=9 && Hour<20)
+                  {period="peek"
+                  }else if(Hour==20 || (Hour==21 && Min<30)){
+                    period="second"
+                  }else{
+                    period="flat"
+                  }
+    }
+    period
+  }
+
 
 }
 
 object TimeUtils {
-  def apply: TimeUtils = new TimeUtils()
-  //测试返回的是北京时间
-  def main(args: Array[String]): Unit = {
-   /* val timeUtils = new TimeUtils
-    val dayDate = timeUtils.date2Stamp(timeUtils.time2Date("2017-01-02", "yyyy-MM-dd"))
-    val hourDate = timeUtils.date2Stamp(timeUtils.time2Date("06:43:00", "HH:mm:ss"))
-    val newDayDate = dayDate + hourDate
-    println(dayDate)
-    println(hourDate)
-    println(newDayDate)
-    println(timeUtils.stamp2Date(1483248234 + 8 * 60 * 60))*/
+  def apply(): TimeUtils = new TimeUtils()
 
-    //测试时间粒度
-    val time = "2017-03-24T15:42:22.000Z"
-    val timeUtils = new TimeUtils
-    println(timeUtils.timeChange(time,"30min"))
+  def main(args: Array[String]): Unit = {
+   println(TimeUtils().timePeriod("2017-03-24T12:03:24.000Z","2017-03-25"))
   }
 }

@@ -26,12 +26,15 @@ class Subway_Clean extends Serializable{
     * @param position 从0开始编号 按顺序记录card_id,deal_time,station_id,Type位置，以逗号隔开
     * @return
     */
-  def GetFiled(originData:RDD[String],position:String):RDD[SZT]={
+  def GetFiled(originData:RDD[String],timeSF:String,position:String):RDD[SZT]={
     val Positions = position.split(",")
+    val sf = new SimpleDateFormat(timeSF)
+    val newSF = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     val usefulFiled =originData.map(line=>{
       val s = line.split(",")
       val card_id = s(Positions(0).toInt)
       val deal_time = s(Positions(1).toInt)
+      val new_deal_time = newSF.format(sf.parse(deal_time))
       val station_id = s(Positions(2).toInt)
       var Type = s(Positions(3).toInt)
       if (!Type.matches("21|22")){
@@ -41,7 +44,7 @@ class Subway_Clean extends Serializable{
           case _ =>
         }
       }
-        SZT(card_id,deal_time,station_id,Type)
+        SZT(card_id,new_deal_time,station_id,Type)
     })
     usefulFiled
   }
@@ -55,17 +58,51 @@ class Subway_Clean extends Serializable{
     (sdf.parse(t2).getTime - sdf.parse(t1).getTime) / 1000
   }
 
-  private def ODRuler(x:SZT,y:SZT) = {
+  private def ODRuler(x:SZT,y:SZT,ruler:String="all") = {
 
     val difftime = delTime(x.deal_time,y.deal_time)
-    if(
-      ((x.Type == "21") && (y.Type == "22")) &&
-        ( difftime < 10800) && (x.station_id != y.station_id)
-    ) OD(x.card_id,x.station_id,x.deal_time,y.station_id,y.deal_time,difftime)
-    else None
+    ruler match {
+      case "all" => {
+        if (
+          ((x.Type == "21") && (y.Type == "22"))
+        ) {
+
+          OD(x.card_id, x.station_id, x.deal_time, y.station_id, y.deal_time, difftime)
+        }
+        else None
+      }
+      case "inThreeHour" => {
+        if (
+          ((x.Type == "21") && (y.Type == "22")) &&
+            (difftime < 10800)
+        ) {
+
+          OD(x.card_id, x.station_id, x.deal_time, y.station_id, y.deal_time, difftime)
+        }
+        else None
+      }
+      case "NotSameIO" => {
+        if (
+          ((x.Type == "21") && (y.Type == "22")) &&
+            (x.station_id != y.station_id)
+        ) {
+          OD(x.card_id, x.station_id, x.deal_time, y.station_id, y.deal_time, difftime)
+        }
+        else None
+      }
+      case "inThreeHourAndNotSameIO" => {
+        if (
+          ((x.Type == "21") && (y.Type == "22")) &&
+            (x.station_id != y.station_id) && (difftime < 10800)
+        ) {
+          OD(x.card_id, x.station_id, x.deal_time, y.station_id, y.deal_time, difftime)
+        }
+        else None
+      }
+    }
   }
 
-  private def MakeOD(x:(String,Iterable[SZT])) = {
+  private def MakeOD(x:(String,Iterable[SZT]),ruler:String) = {
     val arr = x._2.toArray.sortWith((x,y) => x.deal_time < y.deal_time)
     for{
       i <- 0 until arr.size -1;
@@ -78,11 +115,11 @@ class Subway_Clean extends Serializable{
     * @param input 输入路径
     * @return
     */
-  def getOD(sparkSession: SparkSession,input:String,positon:String) = {
+  def getOD(sparkSession: SparkSession,input:String,deal_timeSF:String,positon:String,ruler:String) = {
     val data = sparkSession.sparkContext.textFile(input)
-    GetFiled(data,positon).map(ssplit)
+    GetFiled(data,deal_timeSF,positon).map(ssplit)
       .groupByKey()
-      .flatMap(MakeOD)
+      .flatMap(x=>MakeOD(x,ruler))
       .filter(x => x != None)
   }
 
