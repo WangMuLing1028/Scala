@@ -2,6 +2,8 @@ package Cal_public_transit.Subway
 
 import java.text.SimpleDateFormat
 
+import org.apache.hadoop.io.{LongWritable,Text}
+import org.apache.hadoop.mapred.TextInputFormat
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.SparkSession
 
@@ -32,6 +34,7 @@ class Subway_Clean extends Serializable{
     val newSF = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     val usefulFiled =originData.map(line=>{
       val s = line.split(",")
+      if(Positions.max.toInt <= s.size+1){
       val card_id = s(Positions(0).toInt)
       val deal_time = s(Positions(1).toInt)
       val new_deal_time = newSF.format(sf.parse(deal_time))
@@ -44,8 +47,10 @@ class Subway_Clean extends Serializable{
           case _ =>
         }
       }
-        SZT(card_id,new_deal_time,station_id,Type)
-    })
+        SZT(card_id,new_deal_time,station_id,Type)}else{
+        SZT(null,null,null,null)
+      }
+    }).filter(szt => !(szt.card_id.isEmpty||szt.station_id.isEmpty||szt.deal_time.isEmpty||szt.Type.isEmpty))
     usefulFiled
   }
 
@@ -115,8 +120,12 @@ class Subway_Clean extends Serializable{
     * @param input 输入路径
     * @return
     */
-  def getOD(sparkSession: SparkSession,input:String,deal_timeSF:String,positon:String,ruler:String) = {
-    val data = sparkSession.sparkContext.textFile(input)
+  def getOD(sparkSession: SparkSession,input:String,deal_timeSF:String,positon:String,ruler:String,BMFS:String) = {
+    var data : RDD[String] = sparkSession.sparkContext.parallelize(List("0,0,0,0,0,0,0,0,0,0,0,0,0"))
+    if(BMFS.matches("GBK")){
+       data = sparkSession.sparkContext.hadoopFile[LongWritable,Text,TextInputFormat](input,1).map(p=> new String(p._2.getBytes,0,p._2.getLength,"GBK")).filter(!_.contains("交易"))
+    }else{
+       data = sparkSession.sparkContext.textFile(input)}
     GetFiled(data,deal_timeSF,positon).map(ssplit)
       .groupByKey()
       .flatMap(x=>MakeOD(x,ruler))

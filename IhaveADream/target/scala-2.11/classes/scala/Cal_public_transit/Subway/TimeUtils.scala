@@ -163,6 +163,7 @@ import org.joda.time.DateTime
     *             holiday 手动输入节假日，固定格式：2017-03-24 ，以逗号 , 隔开
     */
   def timePeriod(time:String,holiday:String):String={
+    if(time.length < 17) return "-1"
     val date = time.substring(0,10)
     val Hour = time.substring(11,13).toInt
     val Min = time.substring(14,16).toInt
