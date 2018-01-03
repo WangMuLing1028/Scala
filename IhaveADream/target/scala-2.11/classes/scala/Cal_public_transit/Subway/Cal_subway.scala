@@ -18,8 +18,8 @@ class Cal_subway extends Serializable {
     * @param input
     * @return
     */
-  def mkOD(sparkSession: SparkSession,input:String,timeSF:String,position:String,ruler:String,BMFS:String) = {
-    Subway_Clean().getOD(sparkSession,input,timeSF,position,ruler,BMFS).asInstanceOf[RDD[OD]]
+  def mkOD(sparkSession: SparkSession,input:String,timeSF:String,position:String,ruler:String,BMFS:String,confFile:Broadcast[Array[String]]) = {
+    Subway_Clean().getOD(sparkSession,input,timeSF,position,ruler,BMFS,confFile).asInstanceOf[RDD[OD]]
   }
 
   /**
@@ -29,7 +29,7 @@ class Cal_subway extends Serializable {
     * @return
     */
   def mkZoneOD(sparkSession:SparkSession,input:String,timeSF:String,position:String,ruler:String,lonlatPath:Broadcast[Array[String]],BMFS:String):RDD[OD] = {
-    val getod = mkOD(sparkSession,input,timeSF,position,ruler,BMFS)
+    val getod = mkOD(sparkSession,input,timeSF,position,ruler,BMFS,lonlatPath)
     getod.map(line=>{
       val zone1 = Locat10(line.o_station,lonlatPath)
       val zone2 = Locat10(line.d_station,lonlatPath)
@@ -42,9 +42,9 @@ class Cal_subway extends Serializable {
     * @param sparkSession
     * @param input
     */
-  def everyDayFlow(sparkSession: SparkSession,input:String,timeSF:String,position:String,ruler:String,BMFS:String):DataFrame = {
+  def everyDayFlow(sparkSession: SparkSession,input:String,timeSF:String,position:String,ruler:String,BMFS:String,confFile:Broadcast[Array[String]]):DataFrame = {
     import sparkSession.implicits._
-    val od = mkOD(sparkSession,input,timeSF,position,ruler,BMFS).toDF()
+    val od = mkOD(sparkSession,input,timeSF,position,ruler,BMFS,confFile).toDF()
     val date = udf((s:String)=>s.split("T")(0))
     val withDate = od.withColumn("date",date(col("o_time")))
     val flow = withDate.groupBy(col("date")).count().orderBy(col("date"))
@@ -57,9 +57,9 @@ class Cal_subway extends Serializable {
     * @param input
     * @return
     */
-  def avgFlow(sparkSession: SparkSession,input:String,timeSF:String,position:String,Holiday:String,ruler:String,BMFS:String):DataFrame = {
+  def avgFlow(sparkSession: SparkSession,input:String,timeSF:String,position:String,Holiday:String,ruler:String,BMFS:String,confFile:Broadcast[Array[String]]):DataFrame = {
     import sparkSession.implicits._
-    everyDayFlow(sparkSession,input,timeSF,position,ruler,BMFS).map(Row=>{
+    everyDayFlow(sparkSession,input,timeSF,position,ruler,BMFS,confFile).map(Row=>{
       val isHoliday = TimeUtils().isFestival(Row.getString(Row.fieldIndex("date")),"yyyy-MM-dd",Holiday)
       (isHoliday,Row.getLong(Row.fieldIndex("count")))
     }).toDF("isFestival","count").groupBy("isFestival").mean("count")
@@ -70,13 +70,14 @@ class Cal_subway extends Serializable {
     * @param input
     * @return
     */
-  def avgPeriodFlow(sparkSession: SparkSession,input:String,timeSF:String,position:String,Holiday:String,ruler:String,BMFS:String):DataFrame = {
+  def avgPeriodFlow(sparkSession: SparkSession,input:String,timeSF:String,position:String,Holiday:String,ruler:String,BMFS:String,confFile:Broadcast[Array[String]]):DataFrame = {
     import sparkSession.implicits._
-    everyDayFlow(sparkSession,input,timeSF,position,ruler,BMFS).map(Row=>{
-      val isHoliday = TimeUtils().isFestival(Row.getString(Row.fieldIndex("date")),"yyyy-MM-dd",Holiday)
-      val period = TimeUtils().timePeriod(Row.getString(Row.fieldIndex("date")),Holiday)
-      (isHoliday,period,Row.getLong(Row.fieldIndex("count")))
-    }).toDF("isFestival","period","count").groupBy("isFestival","period").mean("count").orderBy(col("isFestival"),col("period"))
+    mkOD(sparkSession,input,timeSF,position,ruler,BMFS,confFile).map(od =>{
+      val date = od.o_time.substring(0,10)
+      val isHoliday = TimeUtils().isFestival(date,"yyyy-MM-dd",Holiday)
+      val period = TimeUtils().timePeriod(od.o_time,Holiday)
+      (date,isHoliday,period)
+    }).toDF("date","isFestival","period").groupBy("date","isFestival","period").count.groupBy("isFestival","period").mean("count").orderBy(col("isFestival"),col("period"))
   }
 
   /**
@@ -86,9 +87,9 @@ class Cal_subway extends Serializable {
     * @param size 粒度可选：5min,10min,15min,30min,hour
     * @return
     */
-  def sizeFlow(sparkSession: SparkSession,input:String,size:String,timeSF:String,position:String,ruler:String,BMFS:String):DataFrame={
+  def sizeFlow(sparkSession: SparkSession,input:String,size:String,timeSF:String,position:String,ruler:String,BMFS:String,confFile:Broadcast[Array[String]]):DataFrame={
     import sparkSession.implicits._
-    val od = mkOD(sparkSession,input,timeSF,position,ruler,BMFS).toDF()
+    val od = mkOD(sparkSession,input,timeSF,position,ruler,BMFS,confFile).toDF()
     val sizeTime = od.map(line=>{
       val o_time = line.getString(line.fieldIndex("o_time"))
       new TimeUtils().timeChange(o_time,size)
@@ -103,18 +104,18 @@ class Cal_subway extends Serializable {
     * @param input
     * @return
     */
-  def dayODFlow(sparkSession: SparkSession,input:String,timeSF:String,position:String,ruler:String,BMFS:String):DataFrame={
+  def dayODFlow(sparkSession: SparkSession,input:String,timeSF:String,position:String,ruler:String,BMFS:String,confFile:Broadcast[Array[String]]):DataFrame={
     import sparkSession.implicits._
-    val od = mkOD(sparkSession,input,timeSF,position,ruler,BMFS).toDF()
+    val od = mkOD(sparkSession,input,timeSF,position,ruler,BMFS,confFile).toDF()
     val date = udf((s:String)=>s.split("T")(0))
     val withDate = od.withColumn("date",date(col("o_time")))
     val odFlow = withDate.groupBy(col("date"),col("o_station"),col("d_station")).count().orderBy(col("date"),col("count").desc)
     odFlow
   }
 
-  def sizeODFlow(sparkSession: SparkSession,input:String,size:String,timeSF:String,position:String,ruler:String,BMFS:String):DataFrame={
+  def sizeODFlow(sparkSession: SparkSession,input:String,size:String,timeSF:String,position:String,ruler:String,BMFS:String,confFile:Broadcast[Array[String]]):DataFrame={
     import sparkSession.implicits._
-    val od = mkOD(sparkSession,input,timeSF,position,ruler,BMFS).toDF()
+    val od = mkOD(sparkSession,input,timeSF,position,ruler,BMFS,confFile).toDF()
     val date = udf((s:String)=>TimeUtils().timeChange(s,size))
     val withDate = od.withColumn("date",date(col("o_time")))
     val odFlow = withDate.groupBy(col("date"),col("o_station"),col("d_station")).count().orderBy(col("date"),col("count").desc)
@@ -126,9 +127,9 @@ class Cal_subway extends Serializable {
     * @param input
     * @return
     */
-  def avgODFlow(sparkSession: SparkSession,input:String,timeSF:String,position:String,Holiday:String,ruler:String,BMFS:String):DataFrame={
+  def avgODFlow(sparkSession: SparkSession,input:String,timeSF:String,position:String,Holiday:String,ruler:String,BMFS:String,confFile:Broadcast[Array[String]]):DataFrame={
     import sparkSession.implicits._
-    dayODFlow(sparkSession,input,timeSF,position,ruler,BMFS).map(Row=>{
+    dayODFlow(sparkSession,input,timeSF,position,ruler,BMFS,confFile).map(Row=>{
       val isFestival = TimeUtils().isFestival(Row.getString(Row.fieldIndex("date")),"yyyy-MM-dd",Holiday)
       (isFestival,Row.getString(Row.fieldIndex("o_station")),Row.getString(Row.fieldIndex("d_station")),Row.getLong(Row.fieldIndex("count")))
     }).toDF("isFestival","o_station","d_station","count").groupBy(col("isFestival"),col("o_station"),col("d_station")).mean("count").orderBy(col("isFestival"),col("avg(count)").desc)
@@ -140,13 +141,14 @@ class Cal_subway extends Serializable {
     * @param input
     * @return
     */
-  def avgPeriodODFlow(sparkSession: SparkSession,input:String,timeSF:String,position:String,Holiday:String,ruler:String,BMFS:String):DataFrame={
+  def avgPeriodODFlow(sparkSession: SparkSession,input:String,timeSF:String,position:String,Holiday:String,ruler:String,BMFS:String,confFile:Broadcast[Array[String]]):DataFrame={
     import sparkSession.implicits._
-    dayODFlow(sparkSession,input,timeSF,position,ruler,BMFS).map(Row=>{
-      val isFestival = TimeUtils().isFestival(Row.getString(Row.fieldIndex("date")),"yyyy-MM-dd",Holiday)
-      val period = TimeUtils().timePeriod(Row.getString(Row.fieldIndex("date")),Holiday)
-      (isFestival,period,Row.getString(Row.fieldIndex("o_station")),Row.getString(Row.fieldIndex("d_station")),Row.getLong(Row.fieldIndex("count")))
-    }).toDF("isFestival","period","o_station","d_station","count").groupBy(col("isFestival"),col("period"),col("o_station"),col("d_station")).mean("count").orderBy(col("isFestival"),col("period"),col("avg(count)").desc)
+    mkOD(sparkSession,input,timeSF,position,ruler,BMFS,confFile).map(od =>{
+      val date = od.o_time.substring(0,10)
+      val isFestival = TimeUtils().isFestival(date,"yyyy-MM-dd",Holiday)
+      val period = TimeUtils().timePeriod(od.o_time,Holiday)
+      (date,isFestival,period,od.o_station,od.d_station)
+    }).toDF("date","isFestival","period","o_station","d_station").groupBy(col("date"),col("isFestival"),col("period"),col("o_station"),col("d_station")).count().groupBy(col("isFestival"),col("period"),col("o_station"),col("d_station")).mean("count").orderBy(col("isFestival"),col("period"),col("avg(count)").desc)
   }
 
   /**
@@ -155,14 +157,14 @@ class Cal_subway extends Serializable {
     * @param input
     * @return
     */
-  def dayStationIOFlow(sparkSession: SparkSession,input:String,timeSF:String,position:String,BMFS:String):DataFrame={
+  def dayStationIOFlow(sparkSession: SparkSession,input:String,timeSF:String,position:String,BMFS:String,confFile:Broadcast[Array[String]]):DataFrame={
     import sparkSession.implicits._
     var data : RDD[String] = sparkSession.sparkContext.parallelize(List("0,0,0,0,0,0,0,0,0,0,0,0,0"))
     if(BMFS.matches("GBK")){
       data = sparkSession.sparkContext.hadoopFile[LongWritable,Text,TextInputFormat](input,1).map(p=> new String(p._2.getBytes,0,p._2.getLength,"GBK")).filter(!_.contains("交易"))
     }else{
       data = sparkSession.sparkContext.textFile(input)}
-    val usefulData = Subway_Clean().GetFiled(data,timeSF,position)
+    val usefulData = Subway_Clean().GetFiled(data,timeSF,position,confFile)
     val station = usefulData.groupBy(x=>x.deal_time.split("T")(0)+","+x.station_id).mapValues(line=>{
       val InFlow = line.count(_.Type.matches("21"))
       val OutFlow = line.count(_.Type.matches("22"))
@@ -176,11 +178,11 @@ class Cal_subway extends Serializable {
     * @param input
     * @return
     */
-  def avgStationIOFlow(sparkSession: SparkSession,input:String,timeSF:String,position:String,Holiday:String,BMFS:String):DataFrame={
+  def avgStationIOFlow(sparkSession: SparkSession,input:String,timeSF:String,position:String,Holiday:String,BMFS:String,confFile:Broadcast[Array[String]]):DataFrame={
     import sparkSession.implicits._
-    dayStationIOFlow(sparkSession,input,timeSF,position,BMFS).map(Row=>{
+    dayStationIOFlow(sparkSession,input,timeSF,position,BMFS,confFile).map(Row=>{
       val isFestival = TimeUtils().isFestival(Row.getString(Row.fieldIndex("date")),"yyyy-MM-dd",Holiday)
-      (isFestival,Row.getString(Row.fieldIndex("station")),Row.getLong(Row.fieldIndex("InFlow")),Row.getLong(Row.fieldIndex("OutFlow")))
+      (isFestival,Row.getString(Row.fieldIndex("station")),Row.getInt(Row.fieldIndex("InFlow")),Row.getInt(Row.fieldIndex("OutFlow")))
     }).toDF("isFestival","station","InFlow","OutFlow").groupBy(col("isFestival"),col("station")).agg("InFlow"->"mean","OutFlow"->"mean").toDF("isFestival","station","InFlow","OutFlow")
       .orderBy(col("isFestival"),(col("InFlow")+col("OutFlow")).desc)
   }
@@ -192,14 +194,14 @@ class Cal_subway extends Serializable {
     * @param size 粒度可选：5min,10min,15min,30min,hour
     * @return
     */
-  def sizeStationIOFlow(sparkSession: SparkSession,input:String,size:String,timeSF:String,position:String,BMFS:String):DataFrame={
+  def sizeStationIOFlow(sparkSession: SparkSession,input:String,size:String,timeSF:String,position:String,BMFS:String,confFile:Broadcast[Array[String]]):DataFrame={
     import sparkSession.implicits._
     var data : RDD[String] = sparkSession.sparkContext.parallelize(List("0,0,0,0,0,0,0,0,0,0,0,0,0"))
     if(BMFS.matches("GBK")){
       data = sparkSession.sparkContext.hadoopFile[LongWritable,Text,TextInputFormat](input,1).map(p=> new String(p._2.getBytes,0,p._2.getLength,"GBK")).filter(!_.contains("交易"))
     }else{
       data = sparkSession.sparkContext.textFile(input)}
-    val usefulData = Subway_Clean().GetFiled(data,timeSF,position).map(line=>{
+    val usefulData = Subway_Clean().GetFiled(data,timeSF,position,confFile).map(line=>{
       val changeTime = new TimeUtils().timeChange(line.deal_time,size)
       SZT(line.card_id,changeTime,line.station_id,line.Type)
     }).filter(_.Type.matches("21|22"))
@@ -256,7 +258,7 @@ class Cal_subway extends Serializable {
     val date = udf((s:String)=>s.split("T")(0))
     val withDate = od.withColumn("date",date(col("o_time")))
     val odFlow = withDate.groupBy(col("date"),col("o_station"),col("d_station")).count().orderBy(col("date"),col("count").desc)
-    odFlow.filter("o_station <> '-1' and d_station <> '-1'")
+    odFlow
   }
 
   /**
@@ -270,7 +272,7 @@ class Cal_subway extends Serializable {
     zoneDayODFlow(sparkSession,input,timeSF,position,ruler,lonlatPath,BMFS).map(Row=>{
       val isFestival = TimeUtils().isFestival(Row.getString(Row.fieldIndex("date")),"yyyy-MM-dd",Holiday)
       (isFestival,Row.getString(Row.fieldIndex("o_station")),Row.getString(Row.fieldIndex("d_station")),Row.getLong(Row.fieldIndex("count")))
-    }).toDF("isFestival","o_station","d_station","count").groupBy(col("isFestival"),col("o_station"),col("d_station")).mean("count").orderBy(col("isFestival"),col("avg(count)").desc).filter("o_station <> '-1' and d_station <> '-1'")
+    }).toDF("isFestival","o_station","d_station","count").groupBy(col("isFestival"),col("o_station"),col("d_station")).mean("count").orderBy(col("isFestival"),col("avg(count)").desc)
   }
 
   /**
@@ -286,7 +288,7 @@ class Cal_subway extends Serializable {
       data = sparkSession.sparkContext.hadoopFile[LongWritable,Text,TextInputFormat](input,1).map(p=> new String(p._2.getBytes,0,p._2.getLength,"GBK")).filter(!_.contains("交易"))
     }else{
       data = sparkSession.sparkContext.textFile(input)}
-    val usefulData = Subway_Clean().GetFiled(data,timeSF,position).map(x=>SZT(x.card_id,x.deal_time,Locat10(x.station_id,lonlatPath),x.Type))
+    val usefulData = Subway_Clean().GetFiled(data,timeSF,position,lonlatPath).map(x=>SZT(x.card_id,x.deal_time,Locat10(x.station_id,lonlatPath),x.Type))
     val station = usefulData.groupBy(x=>x.deal_time.split("T")(0)+","+x.station_id).mapValues(line=>{
       val InFlow = line.count(_.Type.matches("21"))
       val OutFlow = line.count(_.Type.matches("22"))
@@ -304,7 +306,7 @@ class Cal_subway extends Serializable {
     import sparkSession.implicits._
     zoneDayStationIOFlow(sparkSession,input,timeSF,position,lonlatPath,BMFS).map(Row=>{
       val isFestival = TimeUtils().isFestival(Row.getString(Row.fieldIndex("date")),"yyyy-MM-dd",Holiday)
-      (isFestival,Row.getString(Row.fieldIndex("station")),Row.getLong(Row.fieldIndex("InFlow")),Row.getLong(Row.fieldIndex("OutFlow")))
+      (isFestival,Row.getString(Row.fieldIndex("station")),Row.getInt(Row.fieldIndex("InFlow")),Row.getInt(Row.fieldIndex("OutFlow")))
     }).toDF("isFestival","station","InFlow","OutFlow").groupBy(col("isFestival"),col("station")).agg("InFlow"->"mean","OutFlow"->"mean").toDF("isFestival","station","InFlow","OutFlow")
       .orderBy(col("isFestival"),(col("InFlow")+col("OutFlow")).desc).filter("station <> '-1'")
   }
@@ -315,13 +317,21 @@ object Cal_subway{
   def apply() : Cal_subway = new Cal_subway()
 
   def main(args: Array[String]): Unit = {
-    val sparkSession = SparkSession.builder().config("spark.yarn.dist.files","C:\\Users\\Lhh\\Documents\\地铁_static\\subway_zdbm_station").config("spark.sql.warehouse.dir", "F:/Github/IhaveADream/spark-warehouse")/*.config("spark.serializer", "org.apache.spark.serializer.KryoSerializer")*/.master("local[*]").getOrCreate()
+    val sparkSession = SparkSession
+      .builder()
+      .config("spark.yarn.dist.files","C:\\Users\\Lhh\\Documents\\地铁_static\\subway_zdbm_station")
+      .config("spark.sql.warehouse.dir", "F:/Github/IhaveADream/spark-warehouse")
+      .master("local[*]").getOrCreate()
     val sc = sparkSession.sparkContext
     val input = "G:\\数据\\深圳通地铁\\20170215"
     val path = "subway_zdbm_station.txt"
     val file = sc.textFile(path).collect()
     val broadcastvar = sc.broadcast(file)
-    Cal_subway().mkZoneOD(sparkSession,input,"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'","1,4,6,3","all",broadcastvar,"utf-8").take(100).foreach(println)
+    //Cal_subway().everyDayFlow(sparkSession,input,"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'","1,4,6,3","all","utf",broadcastvar).show()
+    /*val data  = Cal_subway().mkOD(sparkSession,input,"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'","1,4,2,3","all","utf",broadcastvar).toDF().select("o_station","card_id")
+    val data2 = sparkSession.read.textFile(path).map(_.split(",")).map(s=>(s(0),s(1))).toDF("id","name")
+    data2.join(data,data2("name") === data("o_station")).select("name","card_id").rdd.foreach(println)*/
+    file.map(_.split(",")).map(_.slice(0,2).mkString(",")).foreach(println)
 
   }
 }

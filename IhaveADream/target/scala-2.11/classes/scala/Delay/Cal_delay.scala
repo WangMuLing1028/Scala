@@ -128,9 +128,8 @@ object Cal_delay {
 
 
   def main(args: Array[String]): Unit = {
-    /*val spark = SparkSession.builder().master("local[*]").appName("Cal_delay").config("spark.sql.warehouse.dir", "F:/Github/IhaveADream/spark-warehouse").getOrCreate()
-    val sc = spark.sparkContext
-    Basic_info(spark)*/
+    while (true){val get1 = scala.io.StdIn.readBoolean()
+      println(get1)}
   }
 
   case class data(carID:String,upTime:String,receiveTime:String)

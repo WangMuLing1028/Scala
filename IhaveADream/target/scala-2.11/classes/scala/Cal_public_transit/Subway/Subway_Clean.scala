@@ -2,8 +2,9 @@ package Cal_public_transit.Subway
 
 import java.text.SimpleDateFormat
 
-import org.apache.hadoop.io.{LongWritable,Text}
+import org.apache.hadoop.io.{LongWritable, Text}
 import org.apache.hadoop.mapred.TextInputFormat
+import org.apache.spark.broadcast.Broadcast
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.SparkSession
 
@@ -28,7 +29,7 @@ class Subway_Clean extends Serializable{
     * @param position 从0开始编号 按顺序记录card_id,deal_time,station_id,Type位置，以逗号隔开
     * @return
     */
-  def GetFiled(originData:RDD[String],timeSF:String,position:String):RDD[SZT]={
+  def GetFiled(originData:RDD[String],timeSF:String,position:String,confFile:Broadcast[Array[String]]):RDD[SZT]={
     val Positions = position.split(",")
     val sf = new SimpleDateFormat(timeSF)
     val newSF = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
@@ -38,7 +39,8 @@ class Subway_Clean extends Serializable{
       val card_id = s(Positions(0).toInt)
       val deal_time = s(Positions(1).toInt)
       val new_deal_time = newSF.format(sf.parse(deal_time))
-      val station_id = s(Positions(2).toInt)
+      val org_station_id = s(Positions(2).toInt)
+        val station_id = ChangeStationName(org_station_id,confFile)
       var Type = s(Positions(3).toInt)
       if (!Type.matches("21|22")){
         Type match {
@@ -54,6 +56,32 @@ class Subway_Clean extends Serializable{
     usefulFiled
   }
 
+  /**
+    * 把各种形式的站点ID转化为名称
+    * @param originId
+    * @param confFile
+    */
+  def ChangeStationName(originId:String,confFile:Broadcast[Array[String]]) ={
+   val id_name = scala.collection.mutable.Map[String,String]()
+    confFile.value.foreach(line=>{
+      val s = line.split(",")
+      val id = s(0)
+      val name = s(1)
+      id_name.put(id,name)
+    })
+   var gotName = ""
+   if(originId.matches("^2\\d+$")&&originId.length>=6){
+      val changeID = originId.substring(0,6)
+     gotName = id_name(changeID)
+   }else if(originId.matches("^(12)\\d+$")&&originId.length>=7){
+     val changeID = originId.substring(1,7)
+     gotName = id_name(changeID)
+   }else{
+     gotName = originId
+   }
+     gotName
+  }
+
   private def ssplit(x:SZT) = {
     (x.card_id,x)
   }
@@ -63,7 +91,7 @@ class Subway_Clean extends Serializable{
     (sdf.parse(t2).getTime - sdf.parse(t1).getTime) / 1000
   }
 
-  private def ODRuler(x:SZT,y:SZT,ruler:String="all") = {
+  private def ODRuler(x:SZT,y:SZT,ruler:String) = {
 
     val difftime = delTime(x.deal_time,y.deal_time)
     ruler match {
@@ -111,7 +139,7 @@ class Subway_Clean extends Serializable{
     val arr = x._2.toArray.sortWith((x,y) => x.deal_time < y.deal_time)
     for{
       i <- 0 until arr.size -1;
-      od = ODRuler(arr(i),arr(i+1))
+      od = ODRuler(arr(i),arr(i+1),ruler)
     } yield od
   }
 
@@ -120,13 +148,13 @@ class Subway_Clean extends Serializable{
     * @param input 输入路径
     * @return
     */
-  def getOD(sparkSession: SparkSession,input:String,deal_timeSF:String,positon:String,ruler:String,BMFS:String) = {
+  def getOD(sparkSession: SparkSession,input:String,deal_timeSF:String,positon:String,ruler:String,BMFS:String,confFile:Broadcast[Array[String]]) = {
     var data : RDD[String] = sparkSession.sparkContext.parallelize(List("0,0,0,0,0,0,0,0,0,0,0,0,0"))
-    if(BMFS.matches("GBK")){
+    if(BMFS.toUpperCase().matches("GBK")){
        data = sparkSession.sparkContext.hadoopFile[LongWritable,Text,TextInputFormat](input,1).map(p=> new String(p._2.getBytes,0,p._2.getLength,"GBK")).filter(!_.contains("交易"))
     }else{
        data = sparkSession.sparkContext.textFile(input)}
-    GetFiled(data,deal_timeSF,positon).map(ssplit)
+    GetFiled(data,deal_timeSF,positon,confFile).map(ssplit)
       .groupByKey()
       .flatMap(x=>MakeOD(x,ruler))
       .filter(x => x != None)
@@ -136,6 +164,14 @@ class Subway_Clean extends Serializable{
 }
 object Subway_Clean{
   def apply(): Subway_Clean = new Subway_Clean()
+
+  def main(args: Array[String]): Unit = {
+    val sc = SparkSession.builder().master("local").getOrCreate().sparkContext
+    val path = "subway_zdbm_station.txt"
+    val file = sc.textFile(path).collect()
+    val broadcastvar = sc.broadcast(file)
+   println(Subway_Clean().ChangeStationName("1260029000",broadcastvar))
+  }
 }
 
 /**
