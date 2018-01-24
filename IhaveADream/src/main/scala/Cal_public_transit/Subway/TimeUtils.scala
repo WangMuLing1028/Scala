@@ -31,8 +31,7 @@ import org.joda.time.DateTime
     * @return timeString
     */
   def stamp2time(timeStamp: Long, timeFormat: String): String = {
-    val timeString = new DateTime((timeStamp - 8 * 60 * 60) * 1000L).toString(timeFormat)
-    timeString
+    new DateTime((timeStamp - 8 * 60 * 60) * 1000L).toString(timeFormat)
   }
 
   def time2Date(time: String, timeFormat: String): Date = {
@@ -198,5 +197,12 @@ object TimeUtils {
 
   def main(args: Array[String]): Unit = {
    println(TimeUtils().timePeriod("2017-03-24T12:03:24.000Z","2017-03-25"))
+    val timesmp = 423456789456L
+    val sf = "yyyy-MM-dd HH:mm:ss"
+    val sfm = new SimpleDateFormat(sf)
+    val time1 = new DateTime(timesmp).toString(sf)
+    val time2 = sfm.format(new Date(timesmp))
+    println(time1)
+    println(time2)
   }
 }

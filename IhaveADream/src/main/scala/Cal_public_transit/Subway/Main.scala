@@ -1,5 +1,7 @@
 package Cal_public_transit.Subway
 
+import Cal_public_transit.Subway.section.Cal_Section
+import org.apache.spark.broadcast.Broadcast
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql._
 
@@ -28,12 +30,15 @@ object Main {
       case Array(appName,"zoneAvgODFlow",input,output,timeSF,position,ruler,holiday,lonlatPath,bmfs) => functions("zoneAvgODFlow")(appName,input,output,timeSF,position,ruler,holiday,"",lonlatPath,bmfs)
       case Array(appName,"zoneDayStationIOFlow",input,output,timeSF,position,lonlatPath,bmfs) => functions("zoneDayStationIOFlow")(appName,input,output,timeSF,position,"","","",lonlatPath,bmfs)
       case Array(appName,"zoneAvgStationIOFlow",input,output,timeSF,position,holiday,lonlatPath,bmfs) => functions("zoneAvgStationIOFlow")(appName,input,output,timeSF,position,"",holiday,"",lonlatPath,bmfs)
+      case Array(appName,"SectionFlow",input,output,timeSF,position,confpath,bmfs) => Section("SectionFlow")(appName,input,output,timeSF,position,confpath, bmfs)
+      case Array(appName,"LineFlow",input,output,timeSF,position,confpath,bmfs) => Section("LineFlow")(appName,input,output,timeSF,position,confpath, bmfs)
+      case Array(appName,"LineDisPrice",input,output,timeSF,position,confpath,bmfs) => Section("LineDisPrice")(appName,input,output,timeSF,position,confpath, bmfs)
       case _ => println("Error Input Format!!")
     }
-    def functions(func:String)(appName:String,input:String,output:String,timeSF:String,position:String,ruler:String,Holiday:String,size:String,lonlatPath:String, BMFS:String) ={
+    def functions(func:String)(appName:String,input:String,output:String,timeSF:String,position:String,ruler:String,Holiday:String,size:String,ConfPath:String, BMFS:String) ={
       val spark = setApp(appName)
       val sc = spark.sparkContext
-      val lonlatconf = sc.textFile(lonlatPath).collect()
+      val lonlatconf = sc.textFile(ConfPath+"/subway_zdbm_station.txt").collect()
       val confBroadcast = sc.broadcast(lonlatconf)
       val get =  func match {
         case "mkOD" => Cal_subway().mkOD(spark,input,timeSF,position,ruler,BMFS,confBroadcast)
@@ -59,6 +64,29 @@ object Main {
         case b:DataFrame => b.coalesce(1).rdd.saveAsTextFile(output)
         case None =>
       }
+    }
+
+    def Section(func:String)(appName:String,input:String,output:String,timeSF:String,position:String,ConfPath:String, BMFS:String)={
+      val spark = setApp(appName)
+      val no2name = mkBroadcast(spark,ConfPath+"/subway_zdbm_station.txt")
+      val name2no = mkBroadcast(spark,ConfPath+"/Subway_no2name")
+      val ods = Cal_Section().CleanData(spark,input,timeSF,position,BMFS)(no2name,name2no)
+      val get =  func match {
+        case "SectionFlow" => Cal_Section().SectionFlow(ods,spark,ConfPath)
+        case "LineFlow" => Cal_Section().LineFlow(ods,spark,ConfPath)
+        case "LineDisPrice" => Cal_Section().LineDisPrice(ods,spark,ConfPath)
+      }
+      get match {
+        case c:RDD[OD] => c.coalesce(1).saveAsTextFile(output)
+        case b:DataFrame => b.coalesce(1).rdd.saveAsTextFile(output)
+        case None =>
+      }
+    }
+
+     def mkBroadcast(sparkSession: SparkSession,path:String):Broadcast[Array[String]]={
+      val sc = sparkSession.sparkContext
+      val input = sc.textFile(path).collect()
+      sc.broadcast(input)
     }
   }
 }

@@ -27,5 +27,6 @@
     <orderEntry type="library" name="jars" level="project" />
     <orderEntry type="library" name="jar包" level="project" />
     <orderEntry type="library" name="Locate2" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-5.1.7-bin" level="project" />
   </component>
 </module>

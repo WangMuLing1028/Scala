@@ -128,11 +128,19 @@ object Cal_delay {
 
 
   def main(args: Array[String]): Unit = {
-    while (true){val get1 = scala.io.StdIn.readBoolean()
-      println(get1)}
+    val spark = SparkSession.builder().master("local[*]").getOrCreate()
+    val sc = spark.sparkContext
+    val input = sc.hadoopFile[LongWritable,Text,TextInputFormat]("F:\\深圳通大数据\\数据",1).map(p=> new String(p._2.getBytes,0,p._2.getLength,"GBK"))//.filter(!_.contains("交易"))
+    input.map(_.replaceAll(" ","")).filter(x=>{
+      val s = x.split(",")
+      s(2).matches("小额") && s(3).toDouble > 600
+    }).foreach(println)
+
   }
 
-  case class data(carID:String,upTime:String,receiveTime:String)
+  case class data(carID:String,upTime:String,receiveTime:String){
+    override def toString: String = carID+upTime+receiveTime
+  }
   case class delay(carID:String,upTime:String,receiveTime:String,timeDiff:Long)
   case class delay1(carID:String,timeDiff:Long)
 }

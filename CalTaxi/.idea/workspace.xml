@@ -35,22 +35,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="TaxiODForParquetGPS.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/taxi/app/TaxiODForParquetGPS.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1083">
-              <caret line="63" column="3" selection-start-line="63" selection-start-column="3" selection-end-line="63" selection-end-column="3" />
-              <folding>
-                <element signature="e#18#51#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="TaxiTotal.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/taxi/TaxiTotal.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1311">
+            <state relative-caret-position="-125">
               <caret line="73" column="10" selection-start-line="73" selection-start-column="10" selection-end-line="73" selection-end-column="10" />
               <folding>
                 <element signature="e#14#47#0" expanded="true" />
@@ -59,208 +47,94 @@
           </provider>
         </entry>
       </file>
+      <file leaf-file-name="Test.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/taxi/Test.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="95">
+              <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ZipFileInputFormat.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/taxi/ZipFileInputFormat.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+              <folding>
+                <element signature="e#14#63#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ZipFileRecordReader.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/taxi/ZipFileRecordReader.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-415">
+              <caret line="50" column="31" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="31" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EarthMoversDistance.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/Desktop/Scala_中文学习资料_含Scala_2.7.6_API/spark-2.0.0-bin-hadoop2.7/jars/commons-math3-3.4.1.jar!/org/apache/commons/math3/ml/distance/EarthMoversDistance.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DateUtils.scala" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/taxi/DateUtils.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="554">
+              <caret line="33" column="6" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EditDistance.class" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_101/jre/lib/rt.jar!/com/sun/xml/internal/bind/v2/util/EditDistance.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DistanceMeasure.class" pinned="false" current-in-tab="false">
+        <entry file="jar://$USER_HOME$/Desktop/Scala_中文学习资料_含Scala_2.7.6_API/spark-2.0.0-bin-hadoop2.7/jars/commons-math3-3.4.1.jar!/org/apache/commons/math3/ml/distance/DistanceMeasure.class">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="114">
+              <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="TaxiFunc.scala" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/scala/taxi/TaxiFunc.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="711">
-              <caret line="136" column="1" selection-start-line="136" selection-start-column="1" selection-end-line="136" selection-end-column="1" />
+            <state relative-caret-position="-1683">
+              <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="TaxiDealCleanUtils.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/taxi/TaxiDealCleanUtils.scala">
+      <file leaf-file-name="TaxiODTest.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/taxi/TaxiODTest.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3800">
-              <caret line="203" column="11" selection-start-line="203" selection-start-column="11" selection-end-line="203" selection-end-column="11" />
+            <state relative-caret-position="-714">
+              <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DataFrameUtils.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/taxi/DataFrameUtils.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
-              <folding>
-                <element signature="e#14#62#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="DateUtils.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/taxi/DateUtils.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ReadTaxiGPSToHDFS.scala" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/taxi/ReadTaxiGPSToHDFS.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2576">
-              <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-              <folding>
-                <element signature="e#14#40#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="TaxiDataCleanUtils.scala" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/taxi/TaxiDataCleanUtils.scala">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-912">
-              <caret line="68" column="45" selection-start-line="68" selection-start-column="45" selection-end-line="68" selection-end-column="45" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Calendar.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_101/src.zip!/java/util/Calendar.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="4864">
-              <caret line="312" column="22" selection-start-line="312" selection-start-column="22" selection-end-line="312" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#142334#0" expanded="false" />
-                <element signature="imports" expanded="false" />
-                <element signature="e#44847#44848#0" expanded="false" />
-                <element signature="e#44933#44934#0" expanded="false" />
-                <element signature="e#64001#64002#0" expanded="false" />
-                <element signature="e#64053#64054#0" expanded="false" />
-                <element signature="e#64097#64098#0" expanded="false" />
-                <element signature="e#64167#64168#0" expanded="false" />
-                <element signature="e#64226#64227#0" expanded="false" />
-                <element signature="e#64280#64281#0" expanded="false" />
-                <element signature="e#66340#66341#0" expanded="false" />
-                <element signature="e#66409#66410#0" expanded="false" />
-                <element signature="e#69447#69448#0" expanded="false" />
-                <element signature="e#69502#69503#0" expanded="false" />
-                <element signature="e#70577#70578#0" expanded="false" />
-                <element signature="e#70627#70628#0" expanded="false" />
-                <element signature="e#71057#71058#0" expanded="false" />
-                <element signature="e#71104#71105#0" expanded="false" />
-                <element signature="e#73319#73320#0" expanded="false" />
-                <element signature="e#73355#73356#0" expanded="false" />
-                <element signature="e#73857#73858#0" expanded="false" />
-                <element signature="e#73894#73895#0" expanded="false" />
-                <element signature="e#80819#80820#0" expanded="false" />
-                <element signature="e#80863#80864#0" expanded="false" />
-                <element signature="e#92140#92141#0" expanded="false" />
-                <element signature="e#92197#92198#0" expanded="false" />
-                <element signature="e#95474#95475#0" expanded="false" />
-                <element signature="e#95529#95530#0" expanded="false" />
-                <element signature="e#95675#95676#0" expanded="false" />
-                <element signature="e#95729#95730#0" expanded="false" />
-                <element signature="e#95823#95824#0" expanded="false" />
-                <element signature="e#95877#95878#0" expanded="false" />
-                <element signature="e#96052#96053#0" expanded="false" />
-                <element signature="e#96106#96107#0" expanded="false" />
-                <element signature="e#103240#103241#0" expanded="false" />
-                <element signature="e#103287#103288#0" expanded="false" />
-                <element signature="e#103335#103336#0" expanded="false" />
-                <element signature="e#103381#103382#0" expanded="false" />
-                <element signature="e#103433#103434#0" expanded="false" />
-                <element signature="e#103486#103487#0" expanded="false" />
-                <element signature="e#103534#103535#0" expanded="false" />
-                <element signature="e#103609#103610#0" expanded="false" />
-                <element signature="e#103663#103664#0" expanded="false" />
-                <element signature="e#103708#103709#0" expanded="false" />
-                <element signature="e#104948#104949#0" expanded="false" />
-                <element signature="e#104997#104998#0" expanded="false" />
-                <element signature="e#106192#106193#0" expanded="false" />
-                <element signature="e#106240#106241#0" expanded="false" />
-                <element signature="e#111238#111239#0" expanded="false" />
-                <element signature="e#111300#111301#0" expanded="false" />
-                <element signature="e#115544#115545#0" expanded="false" />
-                <element signature="e#115571#115572#0" expanded="false" />
-                <element signature="e#115685#115686#0" expanded="false" />
-                <element signature="e#115720#115721#0" expanded="false" />
-                <element signature="e#116357#116358#0" expanded="false" />
-                <element signature="e#116395#116396#0" expanded="false" />
-                <element signature="e#116679#116680#0" expanded="false" />
-                <element signature="e#116709#116710#0" expanded="false" />
-                <element signature="e#117482#117483#0" expanded="false" />
-                <element signature="e#117519#117520#0" expanded="false" />
-                <element signature="e#118656#118657#0" expanded="false" />
-                <element signature="e#118701#118702#0" expanded="false" />
-                <element signature="e#119147#119148#0" expanded="false" />
-                <element signature="e#119175#119176#0" expanded="false" />
-                <element signature="e#119914#119915#0" expanded="false" />
-                <element signature="e#119971#119972#0" expanded="false" />
-                <element signature="e#121546#121547#0" expanded="false" />
-                <element signature="e#121603#121604#0" expanded="false" />
-                <element signature="e#122224#122225#0" expanded="false" />
-                <element signature="e#122281#122282#0" expanded="false" />
-                <element signature="e#130990#130991#0" expanded="false" />
-                <element signature="e#131030#131031#0" expanded="false" />
-                <element signature="e#140471#140727#0" expanded="false" />
-                <element signature="e#140726#140727#0" expanded="false" />
-                <element signature="e#142268#142269#0" expanded="false" />
-                <element signature="e#142330#142331#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Date.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_101/src.zip!/java/util/Date.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="16682">
-              <caret line="956" column="22" selection-start-line="956" selection-start-column="22" selection-end-line="956" selection-end-column="22" />
-              <folding>
-                <element signature="e#0#57201#0" expanded="false" />
-                <element signature="imports" expanded="false" />
-                <element signature="e#6390#6391#0" expanded="false" />
-                <element signature="e#6438#6439#0" expanded="false" />
-                <element signature="e#6844#6845#0" expanded="false" />
-                <element signature="e#6875#6876#0" expanded="false" />
-                <element signature="e#7577#7578#0" expanded="false" />
-                <element signature="e#7625#7626#0" expanded="false" />
-                <element signature="e#8526#8527#0" expanded="false" />
-                <element signature="e#8578#8579#0" expanded="false" />
-                <element signature="e#10720#10721#0" expanded="false" />
-                <element signature="e#10750#10751#0" expanded="false" />
-                <element signature="e#28620#28621#0" expanded="false" />
-                <element signature="e#28671#28672#0" expanded="false" />
-                <element signature="e#29442#29443#0" expanded="false" />
-                <element signature="e#29506#29507#0" expanded="false" />
-                <element signature="e#30042#30043#0" expanded="false" />
-                <element signature="e#30120#30121#0" expanded="false" />
-                <element signature="e#31971#31972#0" expanded="false" />
-                <element signature="e#32021#32022#0" expanded="false" />
-                <element signature="e#32819#32820#0" expanded="false" />
-                <element signature="e#32872#32873#0" expanded="false" />
-                <element signature="e#33584#33585#0" expanded="false" />
-                <element signature="e#33655#33656#0" expanded="false" />
-                <element signature="e#34244#34245#0" expanded="false" />
-                <element signature="e#34289#34290#0" expanded="false" />
-                <element signature="e#34885#34886#0" expanded="false" />
-                <element signature="e#34934#34935#0" expanded="false" />
-                <element signature="e#35418#35419#0" expanded="false" />
-                <element signature="e#35465#35466#0" expanded="false" />
-                <element signature="e#36078#36079#0" expanded="false" />
-                <element signature="e#36131#36132#0" expanded="false" />
-                <element signature="e#36717#36718#0" expanded="false" />
-                <element signature="e#36764#36765#0" expanded="false" />
-                <element signature="e#37365#37366#0" expanded="false" />
-                <element signature="e#37418#37419#0" expanded="false" />
-                <element signature="e#37718#37719#0" expanded="false" />
-                <element signature="e#37754#37755#0" expanded="false" />
-                <element signature="e#38710#38711#0" expanded="false" />
-                <element signature="e#38770#38771#0" expanded="false" />
-                <element signature="e#39988#39989#0" expanded="false" />
-                <element signature="e#40069#40070#0" expanded="false" />
-                <element signature="e#57143#57144#0" expanded="false" />
-                <element signature="e#57197#57198#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -297,10 +171,17 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="Bundled (Maven 3)" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
   <component name="ProjectFrameBounds">
     <option name="x" value="-8" />
     <option name="y" value="-8" />
-    <option name="width" value="1936" />
+    <option name="width" value="1932" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
@@ -338,6 +219,328 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CalTaxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CalTaxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CalTaxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CalTaxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CalTaxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CalTaxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CalTaxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CalTaxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CalTaxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CalTaxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CalTaxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CalTaxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="ZipFileInputFormat.scala" />
+              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CalTaxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CalTaxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TaxiODTest.scala" />
+              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CalTaxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CalTaxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TaxiFunc.scala" />
+              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CalTaxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CalTaxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TaxiDealCleanUtils.scala" />
+              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CalTaxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CalTaxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TaxiDataInfo.scala" />
+              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CalTaxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CalTaxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="TaxiDataCleanUtils.scala" />
+              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CalTaxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CalTaxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="DataFrameUtils.scala" />
+              <option name="myItemType" value="org.jetbrains.plugins.scala.components.ScalaDefsProjectViewProvider$ScalaFileTreeNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CalTaxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="CalTaxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scala" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="taxi" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scratches" />
@@ -346,13 +549,14 @@
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="File.Encoding" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15400553" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
+    <property name="SearchEverywhereHistoryKey" value="distance&#9;null&#9;null&#10;Distance&#9;PSI&#9;JAVA://org.apache.commons.math3.ml.distance.EarthMoversDistance" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -890,15 +1094,17 @@
       <workItem from="1509610120912" duration="4038000" />
       <workItem from="1510103495001" duration="15911000" />
       <workItem from="1510133836598" duration="7500000" />
+      <workItem from="1512204508446" duration="979000" />
+      <workItem from="1516674670295" duration="778000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29025000" />
+    <option name="totallyTimeSpent" value="30782000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="false" />
+    <frame x="-8" y="-8" width="1932" height="1056" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -908,12 +1114,12 @@
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -950,13 +1156,35 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/taxi/TaxiDataCleanUtils.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_101/src.zip!/java/util/Calendar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5928">
+          <caret line="312" column="22" selection-start-line="312" selection-start-column="22" selection-end-line="312" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_101/src.zip!/java/util/Date.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16682">
+          <caret line="956" column="22" selection-start-line="956" selection-start-column="22" selection-end-line="956" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/taxi/app/TaxiODForParquetGPS.scala">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1083">
           <caret line="63" column="3" selection-start-line="63" selection-start-column="3" selection-end-line="63" selection-end-column="3" />
-          <folding>
-            <element signature="e#18#51#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -982,7 +1210,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -999,7 +1226,7 @@
         <state relative-caret-position="209">
           <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
           <folding>
-            <element signature="e#14#62#0" expanded="true" />
+            <element signature="e#14#62#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1017,7 +1244,7 @@
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#14#40#0" expanded="true" />
+            <element signature="e#14#40#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1026,84 +1253,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="5928">
           <caret line="312" column="22" selection-start-line="312" selection-start-column="22" selection-end-line="312" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#142334#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#44847#44848#0" expanded="false" />
-            <element signature="e#44933#44934#0" expanded="false" />
-            <element signature="e#64001#64002#0" expanded="false" />
-            <element signature="e#64053#64054#0" expanded="false" />
-            <element signature="e#64097#64098#0" expanded="false" />
-            <element signature="e#64167#64168#0" expanded="false" />
-            <element signature="e#64226#64227#0" expanded="false" />
-            <element signature="e#64280#64281#0" expanded="false" />
-            <element signature="e#66340#66341#0" expanded="false" />
-            <element signature="e#66409#66410#0" expanded="false" />
-            <element signature="e#69447#69448#0" expanded="false" />
-            <element signature="e#69502#69503#0" expanded="false" />
-            <element signature="e#70577#70578#0" expanded="false" />
-            <element signature="e#70627#70628#0" expanded="false" />
-            <element signature="e#71057#71058#0" expanded="false" />
-            <element signature="e#71104#71105#0" expanded="false" />
-            <element signature="e#73319#73320#0" expanded="false" />
-            <element signature="e#73355#73356#0" expanded="false" />
-            <element signature="e#73857#73858#0" expanded="false" />
-            <element signature="e#73894#73895#0" expanded="false" />
-            <element signature="e#80819#80820#0" expanded="false" />
-            <element signature="e#80863#80864#0" expanded="false" />
-            <element signature="e#92140#92141#0" expanded="false" />
-            <element signature="e#92197#92198#0" expanded="false" />
-            <element signature="e#95474#95475#0" expanded="false" />
-            <element signature="e#95529#95530#0" expanded="false" />
-            <element signature="e#95675#95676#0" expanded="false" />
-            <element signature="e#95729#95730#0" expanded="false" />
-            <element signature="e#95823#95824#0" expanded="false" />
-            <element signature="e#95877#95878#0" expanded="false" />
-            <element signature="e#96052#96053#0" expanded="false" />
-            <element signature="e#96106#96107#0" expanded="false" />
-            <element signature="e#103240#103241#0" expanded="false" />
-            <element signature="e#103287#103288#0" expanded="false" />
-            <element signature="e#103335#103336#0" expanded="false" />
-            <element signature="e#103381#103382#0" expanded="false" />
-            <element signature="e#103433#103434#0" expanded="false" />
-            <element signature="e#103486#103487#0" expanded="false" />
-            <element signature="e#103534#103535#0" expanded="false" />
-            <element signature="e#103609#103610#0" expanded="false" />
-            <element signature="e#103663#103664#0" expanded="false" />
-            <element signature="e#103708#103709#0" expanded="false" />
-            <element signature="e#104948#104949#0" expanded="false" />
-            <element signature="e#104997#104998#0" expanded="false" />
-            <element signature="e#106192#106193#0" expanded="false" />
-            <element signature="e#106240#106241#0" expanded="false" />
-            <element signature="e#111238#111239#0" expanded="false" />
-            <element signature="e#111300#111301#0" expanded="false" />
-            <element signature="e#115544#115545#0" expanded="false" />
-            <element signature="e#115571#115572#0" expanded="false" />
-            <element signature="e#115685#115686#0" expanded="false" />
-            <element signature="e#115720#115721#0" expanded="false" />
-            <element signature="e#116357#116358#0" expanded="false" />
-            <element signature="e#116395#116396#0" expanded="false" />
-            <element signature="e#116679#116680#0" expanded="false" />
-            <element signature="e#116709#116710#0" expanded="false" />
-            <element signature="e#117482#117483#0" expanded="false" />
-            <element signature="e#117519#117520#0" expanded="false" />
-            <element signature="e#118656#118657#0" expanded="false" />
-            <element signature="e#118701#118702#0" expanded="false" />
-            <element signature="e#119147#119148#0" expanded="false" />
-            <element signature="e#119175#119176#0" expanded="false" />
-            <element signature="e#119914#119915#0" expanded="false" />
-            <element signature="e#119971#119972#0" expanded="false" />
-            <element signature="e#121546#121547#0" expanded="false" />
-            <element signature="e#121603#121604#0" expanded="false" />
-            <element signature="e#122224#122225#0" expanded="false" />
-            <element signature="e#122281#122282#0" expanded="false" />
-            <element signature="e#130990#130991#0" expanded="false" />
-            <element signature="e#131030#131031#0" expanded="false" />
-            <element signature="e#140471#140727#0" expanded="false" />
-            <element signature="e#140726#140727#0" expanded="false" />
-            <element signature="e#142268#142269#0" expanded="false" />
-            <element signature="e#142330#142331#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1111,52 +1261,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="16682">
           <caret line="956" column="22" selection-start-line="956" selection-start-column="22" selection-end-line="956" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#57201#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#6390#6391#0" expanded="false" />
-            <element signature="e#6438#6439#0" expanded="false" />
-            <element signature="e#6844#6845#0" expanded="false" />
-            <element signature="e#6875#6876#0" expanded="false" />
-            <element signature="e#7577#7578#0" expanded="false" />
-            <element signature="e#7625#7626#0" expanded="false" />
-            <element signature="e#8526#8527#0" expanded="false" />
-            <element signature="e#8578#8579#0" expanded="false" />
-            <element signature="e#10720#10721#0" expanded="false" />
-            <element signature="e#10750#10751#0" expanded="false" />
-            <element signature="e#28620#28621#0" expanded="false" />
-            <element signature="e#28671#28672#0" expanded="false" />
-            <element signature="e#29442#29443#0" expanded="false" />
-            <element signature="e#29506#29507#0" expanded="false" />
-            <element signature="e#30042#30043#0" expanded="false" />
-            <element signature="e#30120#30121#0" expanded="false" />
-            <element signature="e#31971#31972#0" expanded="false" />
-            <element signature="e#32021#32022#0" expanded="false" />
-            <element signature="e#32819#32820#0" expanded="false" />
-            <element signature="e#32872#32873#0" expanded="false" />
-            <element signature="e#33584#33585#0" expanded="false" />
-            <element signature="e#33655#33656#0" expanded="false" />
-            <element signature="e#34244#34245#0" expanded="false" />
-            <element signature="e#34289#34290#0" expanded="false" />
-            <element signature="e#34885#34886#0" expanded="false" />
-            <element signature="e#34934#34935#0" expanded="false" />
-            <element signature="e#35418#35419#0" expanded="false" />
-            <element signature="e#35465#35466#0" expanded="false" />
-            <element signature="e#36078#36079#0" expanded="false" />
-            <element signature="e#36131#36132#0" expanded="false" />
-            <element signature="e#36717#36718#0" expanded="false" />
-            <element signature="e#36764#36765#0" expanded="false" />
-            <element signature="e#37365#37366#0" expanded="false" />
-            <element signature="e#37418#37419#0" expanded="false" />
-            <element signature="e#37718#37719#0" expanded="false" />
-            <element signature="e#37754#37755#0" expanded="false" />
-            <element signature="e#38710#38711#0" expanded="false" />
-            <element signature="e#38770#38771#0" expanded="false" />
-            <element signature="e#39988#39989#0" expanded="false" />
-            <element signature="e#40069#40070#0" expanded="false" />
-            <element signature="e#57143#57144#0" expanded="false" />
-            <element signature="e#57197#57198#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1164,9 +1269,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
-          <folding>
-            <element signature="e#18#51#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1192,7 +1295,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="152">
           <caret line="8" column="7" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="7" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1208,9 +1310,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
-          <folding>
-            <element signature="e#18#51#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1228,9 +1328,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="4" column="7" selection-start-line="4" selection-start-column="7" selection-end-line="4" selection-end-column="7" />
-          <folding>
-            <element signature="e#18#51#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1293,6 +1391,73 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="209" column="6" selection-start-line="209" selection-start-column="6" selection-end-line="209" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_101/src.zip!/java/util/Date.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16682">
+          <caret line="956" column="22" selection-start-line="956" selection-start-column="22" selection-end-line="956" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_101/src.zip!/java/util/Calendar.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4864">
+          <caret line="312" column="22" selection-start-line="312" selection-start-column="22" selection-end-line="312" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/taxi/app/TaxiODForParquetGPS.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-586">
+          <caret line="63" column="3" selection-start-line="63" selection-start-column="3" selection-end-line="63" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/taxi/DataFrameUtils.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-928">
+          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
+          <folding>
+            <element signature="e#14#62#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/taxi/ReadTaxiGPSToHDFS.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1209">
+          <caret line="179" column="129" selection-start-line="179" selection-start-column="39" selection-end-line="179" selection-end-column="129" />
+          <folding>
+            <element signature="e#14#40#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/taxi/TaxiDataCleanUtils.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4769">
+          <caret line="256" column="11" selection-start-line="256" selection-start-column="11" selection-end-line="256" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/taxi/TaxiDataInfo.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="76">
+          <caret line="7" column="11" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/taxi/TaxiDealCleanUtils.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3800">
+          <caret line="203" column="11" selection-start-line="203" selection-start-column="11" selection-end-line="203" selection-end-column="11" />
           <folding />
         </state>
       </provider>
@@ -1305,9 +1470,25 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/taxi/TaxiFunc.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1683">
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/taxi/TaxiODTest.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-714">
+          <caret line="13" column="11" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/taxi/TaxiTotal.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1311">
+        <state relative-caret-position="-125">
           <caret line="73" column="10" selection-start-line="73" selection-start-column="10" selection-end-line="73" selection-end-column="10" />
           <folding>
             <element signature="e#14#47#0" expanded="true" />
@@ -1315,202 +1496,60 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/taxi/TaxiDealCleanUtils.scala">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/taxi/Test.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3800">
-          <caret line="203" column="11" selection-start-line="203" selection-start-column="11" selection-end-line="203" selection-end-column="11" />
+        <state relative-caret-position="95">
+          <caret line="5" column="7" selection-start-line="5" selection-start-column="7" selection-end-line="5" selection-end-column="7" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_101/src.zip!/java/util/Date.java">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/taxi/ZipFileInputFormat.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="16682">
-          <caret line="956" column="22" selection-start-line="956" selection-start-column="22" selection-end-line="956" selection-end-column="22" />
+        <state relative-caret-position="152">
+          <caret line="10" column="6" selection-start-line="10" selection-start-column="6" selection-end-line="10" selection-end-column="6" />
           <folding>
-            <element signature="e#0#57201#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#6390#6391#0" expanded="false" />
-            <element signature="e#6438#6439#0" expanded="false" />
-            <element signature="e#6844#6845#0" expanded="false" />
-            <element signature="e#6875#6876#0" expanded="false" />
-            <element signature="e#7577#7578#0" expanded="false" />
-            <element signature="e#7625#7626#0" expanded="false" />
-            <element signature="e#8526#8527#0" expanded="false" />
-            <element signature="e#8578#8579#0" expanded="false" />
-            <element signature="e#10720#10721#0" expanded="false" />
-            <element signature="e#10750#10751#0" expanded="false" />
-            <element signature="e#28620#28621#0" expanded="false" />
-            <element signature="e#28671#28672#0" expanded="false" />
-            <element signature="e#29442#29443#0" expanded="false" />
-            <element signature="e#29506#29507#0" expanded="false" />
-            <element signature="e#30042#30043#0" expanded="false" />
-            <element signature="e#30120#30121#0" expanded="false" />
-            <element signature="e#31971#31972#0" expanded="false" />
-            <element signature="e#32021#32022#0" expanded="false" />
-            <element signature="e#32819#32820#0" expanded="false" />
-            <element signature="e#32872#32873#0" expanded="false" />
-            <element signature="e#33584#33585#0" expanded="false" />
-            <element signature="e#33655#33656#0" expanded="false" />
-            <element signature="e#34244#34245#0" expanded="false" />
-            <element signature="e#34289#34290#0" expanded="false" />
-            <element signature="e#34885#34886#0" expanded="false" />
-            <element signature="e#34934#34935#0" expanded="false" />
-            <element signature="e#35418#35419#0" expanded="false" />
-            <element signature="e#35465#35466#0" expanded="false" />
-            <element signature="e#36078#36079#0" expanded="false" />
-            <element signature="e#36131#36132#0" expanded="false" />
-            <element signature="e#36717#36718#0" expanded="false" />
-            <element signature="e#36764#36765#0" expanded="false" />
-            <element signature="e#37365#37366#0" expanded="false" />
-            <element signature="e#37418#37419#0" expanded="false" />
-            <element signature="e#37718#37719#0" expanded="false" />
-            <element signature="e#37754#37755#0" expanded="false" />
-            <element signature="e#38710#38711#0" expanded="false" />
-            <element signature="e#38770#38771#0" expanded="false" />
-            <element signature="e#39988#39989#0" expanded="false" />
-            <element signature="e#40069#40070#0" expanded="false" />
-            <element signature="e#57143#57144#0" expanded="false" />
-            <element signature="e#57197#57198#0" expanded="false" />
+            <element signature="e#14#63#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_101/src.zip!/java/util/Calendar.java">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/taxi/ZipFileRecordReader.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4864">
-          <caret line="312" column="22" selection-start-line="312" selection-start-column="22" selection-end-line="312" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#142334#0" expanded="false" />
-            <element signature="imports" expanded="false" />
-            <element signature="e#44847#44848#0" expanded="false" />
-            <element signature="e#44933#44934#0" expanded="false" />
-            <element signature="e#64001#64002#0" expanded="false" />
-            <element signature="e#64053#64054#0" expanded="false" />
-            <element signature="e#64097#64098#0" expanded="false" />
-            <element signature="e#64167#64168#0" expanded="false" />
-            <element signature="e#64226#64227#0" expanded="false" />
-            <element signature="e#64280#64281#0" expanded="false" />
-            <element signature="e#66340#66341#0" expanded="false" />
-            <element signature="e#66409#66410#0" expanded="false" />
-            <element signature="e#69447#69448#0" expanded="false" />
-            <element signature="e#69502#69503#0" expanded="false" />
-            <element signature="e#70577#70578#0" expanded="false" />
-            <element signature="e#70627#70628#0" expanded="false" />
-            <element signature="e#71057#71058#0" expanded="false" />
-            <element signature="e#71104#71105#0" expanded="false" />
-            <element signature="e#73319#73320#0" expanded="false" />
-            <element signature="e#73355#73356#0" expanded="false" />
-            <element signature="e#73857#73858#0" expanded="false" />
-            <element signature="e#73894#73895#0" expanded="false" />
-            <element signature="e#80819#80820#0" expanded="false" />
-            <element signature="e#80863#80864#0" expanded="false" />
-            <element signature="e#92140#92141#0" expanded="false" />
-            <element signature="e#92197#92198#0" expanded="false" />
-            <element signature="e#95474#95475#0" expanded="false" />
-            <element signature="e#95529#95530#0" expanded="false" />
-            <element signature="e#95675#95676#0" expanded="false" />
-            <element signature="e#95729#95730#0" expanded="false" />
-            <element signature="e#95823#95824#0" expanded="false" />
-            <element signature="e#95877#95878#0" expanded="false" />
-            <element signature="e#96052#96053#0" expanded="false" />
-            <element signature="e#96106#96107#0" expanded="false" />
-            <element signature="e#103240#103241#0" expanded="false" />
-            <element signature="e#103287#103288#0" expanded="false" />
-            <element signature="e#103335#103336#0" expanded="false" />
-            <element signature="e#103381#103382#0" expanded="false" />
-            <element signature="e#103433#103434#0" expanded="false" />
-            <element signature="e#103486#103487#0" expanded="false" />
-            <element signature="e#103534#103535#0" expanded="false" />
-            <element signature="e#103609#103610#0" expanded="false" />
-            <element signature="e#103663#103664#0" expanded="false" />
-            <element signature="e#103708#103709#0" expanded="false" />
-            <element signature="e#104948#104949#0" expanded="false" />
-            <element signature="e#104997#104998#0" expanded="false" />
-            <element signature="e#106192#106193#0" expanded="false" />
-            <element signature="e#106240#106241#0" expanded="false" />
-            <element signature="e#111238#111239#0" expanded="false" />
-            <element signature="e#111300#111301#0" expanded="false" />
-            <element signature="e#115544#115545#0" expanded="false" />
-            <element signature="e#115571#115572#0" expanded="false" />
-            <element signature="e#115685#115686#0" expanded="false" />
-            <element signature="e#115720#115721#0" expanded="false" />
-            <element signature="e#116357#116358#0" expanded="false" />
-            <element signature="e#116395#116396#0" expanded="false" />
-            <element signature="e#116679#116680#0" expanded="false" />
-            <element signature="e#116709#116710#0" expanded="false" />
-            <element signature="e#117482#117483#0" expanded="false" />
-            <element signature="e#117519#117520#0" expanded="false" />
-            <element signature="e#118656#118657#0" expanded="false" />
-            <element signature="e#118701#118702#0" expanded="false" />
-            <element signature="e#119147#119148#0" expanded="false" />
-            <element signature="e#119175#119176#0" expanded="false" />
-            <element signature="e#119914#119915#0" expanded="false" />
-            <element signature="e#119971#119972#0" expanded="false" />
-            <element signature="e#121546#121547#0" expanded="false" />
-            <element signature="e#121603#121604#0" expanded="false" />
-            <element signature="e#122224#122225#0" expanded="false" />
-            <element signature="e#122281#122282#0" expanded="false" />
-            <element signature="e#130990#130991#0" expanded="false" />
-            <element signature="e#131030#131031#0" expanded="false" />
-            <element signature="e#140471#140727#0" expanded="false" />
-            <element signature="e#140726#140727#0" expanded="false" />
-            <element signature="e#142268#142269#0" expanded="false" />
-            <element signature="e#142330#142331#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/taxi/TaxiFunc.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="711">
-          <caret line="136" column="1" selection-start-line="136" selection-start-column="1" selection-end-line="136" selection-end-column="1" />
+        <state relative-caret-position="-415">
+          <caret line="50" column="31" selection-start-line="50" selection-start-column="26" selection-end-line="50" selection-end-column="31" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/taxi/app/TaxiODForParquetGPS.scala">
+    <entry file="jar://$USER_HOME$/Desktop/Scala_中文学习资料_含Scala_2.7.6_API/spark-2.0.0-bin-hadoop2.7/jars/commons-math3-3.4.1.jar!/org/apache/commons/math3/ml/distance/EarthMoversDistance.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1083">
-          <caret line="63" column="3" selection-start-line="63" selection-start-column="3" selection-end-line="63" selection-end-column="3" />
-          <folding>
-            <element signature="e#18#51#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="114">
+          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/taxi/DataFrameUtils.scala">
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_101/jre/lib/rt.jar!/com/sun/xml/internal/bind/v2/util/EditDistance.class">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="13" column="6" selection-start-line="13" selection-start-column="6" selection-end-line="13" selection-end-column="6" />
-          <folding>
-            <element signature="e#14#62#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="114">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/Desktop/Scala_中文学习资料_含Scala_2.7.6_API/spark-2.0.0-bin-hadoop2.7/jars/commons-math3-3.4.1.jar!/org/apache/commons/math3/ml/distance/DistanceMeasure.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="9" column="17" selection-start-line="9" selection-start-column="17" selection-end-line="9" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/scala/taxi/DateUtils.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="24" column="0" selection-start-line="24" selection-start-column="0" selection-end-line="24" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/taxi/ReadTaxiGPSToHDFS.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2576">
-          <caret line="20" column="5" selection-start-line="20" selection-start-column="5" selection-end-line="20" selection-end-column="5" />
-          <folding>
-            <element signature="e#14#40#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/taxi/TaxiDataCleanUtils.scala">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-912">
-          <caret line="68" column="45" selection-start-line="68" selection-start-column="45" selection-end-line="68" selection-end-column="45" />
+        <state relative-caret-position="554">
+          <caret line="33" column="6" selection-start-line="33" selection-start-column="6" selection-end-line="33" selection-end-column="6" />
           <folding />
         </state>
       </provider>

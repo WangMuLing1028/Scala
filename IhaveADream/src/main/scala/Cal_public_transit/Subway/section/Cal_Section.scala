@@ -47,22 +47,31 @@ class Cal_Section {
 
   /**
     * 计算线路客流
-    * @param ods
-    * @param sparkSession
-    * @param confPath
+    *
     */
   def LineFlow(ods:RDD[String], sparkSession: SparkSession, confPath:String) ={
-    val pathtime = PathTIME(ods,sparkSession,confPath)//获取乘客最有可能乘坐的一条路径：数组7以后是该路径的站点和时间，S1，S2,T1,T2,S2,S3,T2,T3.....
-    LineFlowCounter.getLineCounter(pathtime) //这个方法不好，还是通过数组找比较好
+    val pathtime = PathTIME(ods,sparkSession,confPath)
+    val lineConf = sparkSession.sparkContext.textFile(confPath+"/sec2line.csv")
+    LineFlowCounter.getLineCounter(pathtime)
   }
 
-
+  /**
+    * 计算每条线路平均运距和票价
+    *
+    */
+  def LineDisPrice(ods:RDD[String], sparkSession: SparkSession, confPath:String) ={
+    val sc = sparkSession.sparkContext
+    val dis = sc.textFile(confPath+"/routeLength_after")
+    val price = sc.textFile(confPath+"/subway_price_20171228")
+    val section2Line = sc.textFile(confPath+"/sec2line.csv")
+    val no2Name = sc.broadcast(sc.textFile(confPath+"/subway_zdbm_station.txt").collect)
+    val pathtime = PathTIME(ods,sparkSession,confPath)
+    meanDisPrice.getMeanDisPice(sparkSession,pathtime,dis,price,section2Line,no2Name)
+  }
 
   /**
     * 把输入清洗成需要的格式 card_id,deal_tim(2017-03-24 12:00:00),station(126256000),type(21,22)
-    * @param sparkSession
-    * @param input
-    * @param conf1
+    *
     */
   def CleanData(sparkSession: SparkSession,input:String,deal_timeSF:String,position:String,BMFS:String)(conf1:Broadcast[Array[String]],conf2:Broadcast[Array[String]]):RDD[String]={
     val od = Cal_subway().mkOD(sparkSession,input,deal_timeSF,position,"inThreeHourAndNotSameIO",BMFS,conf1)
@@ -89,7 +98,7 @@ object Cal_Section{
   def apply():Cal_Section = new Cal_Section()
 
   def main(args: Array[String]): Unit = {
-    val spark = SparkSession.builder().master("local").config("spark.sql.warehouse.dir", "F:/Github/IhaveADream/spark-warehouse").getOrCreate()
+    val spark = SparkSession.builder().master("local[*]").config("spark.sql.warehouse.dir", "F:/Github/IhaveADream/spark-warehouse").getOrCreate()
     val input = "G:\\数据\\深圳通地铁\\20170215"
     val conf1 = "subway_zdbm_station.txt"
     val conf2 = "C:\\Users\\Lhh\\Documents\\地铁_static\\Subway_no2name"
@@ -98,7 +107,6 @@ object Cal_Section{
     val conf1Broadcast = spark.sparkContext.broadcast(confA1)
     val conf2Broadcast = spark.sparkContext.broadcast(confA2)
     val ods = Cal_Section().CleanData(spark,input,"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'","1,4,2,3","utf-8")(conf1Broadcast,conf2Broadcast)
-    //ALLPathChooser.getODAllpath(spark,ods,spark.sparkContext.textFile("SubwayFlowConf/AllPath")).asInstanceOf[RDD[String]].sortBy(_.split(",")(0)).foreach(println)
-   Cal_Section().LineFlow(ods,spark,"SubwayFlowConf").foreach(println)
+   Cal_Section().SectionFlow(ods,spark,"SubwayFlowConf").foreach(println)
   }
 }
