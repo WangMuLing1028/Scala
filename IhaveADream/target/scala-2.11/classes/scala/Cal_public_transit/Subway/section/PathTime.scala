@@ -37,7 +37,7 @@ object PathTime{
                          querynext:(String,String,String) => (String,String))
                       (x:String):List[String] = {
     val L = x.split(",")
-    val path = L.slice(7,L.size)
+    val path = L.slice(8,L.size)
     val res = scala.collection.mutable.ArrayBuffer[String]()
 
     var sst = querynext(path(0),path(1),addWalkInTime(L(1),L(2)))
@@ -49,7 +49,7 @@ object PathTime{
       res += path(i) += path(i+1) += sst._1 += sst._2
       starttime = sst._2
     }
-    L.slice(0,7).toList:::(res.toList)
+    L.slice(0,8).toList:::(res.toList)
 
   }
 

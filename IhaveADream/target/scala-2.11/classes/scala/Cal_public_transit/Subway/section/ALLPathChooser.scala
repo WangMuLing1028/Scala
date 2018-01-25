@@ -13,7 +13,8 @@ object ALLPathChooser {
                 odstart:String,
                 odendtime:String,
                 odend:String,
-                duringtime:Int)
+                duringtime:Int,
+                date:String)
 
   case class ALLPath(apstart:String,
                       apend:String,
@@ -29,7 +30,8 @@ object ALLPathChooser {
                         arr(2),
                         arr(3).substring(arr(1).length-8,arr(1).length),
                         arr(4),
-                        arr(5).toInt)).toDF
+                        arr(5).toInt,
+                        SectionFlowCounter.getDate(arr(1)))).toDF
   }
 
   private def ALLPathSql(sparkSession: SparkSession,data:RDD[String]) = {
@@ -53,7 +55,7 @@ object ALLPathChooser {
                         "odend",
                         "odendtime",
                         "duringtime",
-                        "aptime",
+                        "aptime","date",
                         "appath")
   }
 
@@ -67,6 +69,7 @@ object ALLPathChooser {
                                           col("odendtime"),
                                           col("duringtime"),
                                           col("aptime"),
+                                          col("date"),
                                           col("appath"))).rdd
                                           .map(x => x(0))
   }

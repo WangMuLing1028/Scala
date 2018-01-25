@@ -15,7 +15,7 @@ object LineFlowCounter {
 
   def flatLine(x:String)={
     val L = x.split(",")
-    val path = L.slice(7,L.size)
+    val path = L.slice(8,L.size)
     val getLinePath = scala.collection.mutable.ArrayBuffer[String]()
     var start = path(0)
     val stop = path(path.size-3)
@@ -63,30 +63,39 @@ object LineFlowCounter {
     */
   def getLineCounter2(data:RDD[String],conf:RDD[String])={
     val lineMap = getLineMap(conf)
-    data.flatMap(flatLineMethod2(_,lineMap)).countByValue().map(x=>{
-      val line = x._1
+    data.flatMap(flatLineMethod2(_,lineMap)).map(x=>{val s =x.split(",");(s(0),s(1))}).countByValue().map(x=>{
+      val date = x._1._1
+      val line = x._1._2
       val lineName = line match {
-        case "268" => "一号线"
-        case "260" => "二号线"
-        case "261" => "三号线"
-        case "262" => "四号线"
-        case "263" => "五号线"
-        case "241" => "十一号线"
-        case "265" => "七号线"
-        case "267" => "九号线"
+        case "2680" => "一号线(上行)"
+        case "2681" => "一号线(下行)"
+        case "2600" => "二号线(上行)"
+        case "2601" => "二号线(下行)"
+        case "2610" => "三号线(上行)"
+        case "2611" => "三号线(下行)"
+        case "2620" => "四号线(上行)"
+        case "2621" => "四号线(下行)"
+        case "2630" => "五号线(上行)"
+        case "2631" => "五号线(下行)"
+        case "2410" => "十一号线(上行)"
+        case "2411" => "十一号线(下行)"
+        case "2650" => "七号线(上行)"
+        case "2651" => "七号线(下行)"
+        case "2670" => "九号线(上行)"
+        case "2671" => "九号线(下行)"
         case _ => "NoMatch"
       }
-      lineName+","+x._2
+      date+","+lineName+","+x._2
     })
   }
 
   def flatLineMethod2(x:String,lineMap:scala.collection.mutable.Map[String,String])={
     val L = x.split(",")
-    val path = L.slice(7,L.size)
+    val path = L.slice(8,L.size)
     val line = for{
       i <- 0 until path.size if(i%4==0);
       od =  path(i)+path(i+1)
-      getLined = lineMap(od)
+      getLined = L(7)+","+lineMap(od)
     } yield getLined
     line.distinct
   }
@@ -95,7 +104,7 @@ object LineFlowCounter {
     val map = Map[String,String]()
     for{i <- data.collect()
         line = i.split(",")
-    } map += (line(1)+line(2) -> line(0).substring(0,3))
+    } map += (line(1)+line(2) -> line(0))
     map
   }
 
@@ -104,7 +113,7 @@ object LineFlowCounter {
 
   def main(args: Array[String]): Unit = {
       val map = scala.collection.mutable.Map[String,String]("12610200001261019000"->"1","12610190001261018000"->"1","12610180001263031000"->"2","12630310001263030000"->"2","12630300001263029000"->"3","12630290001263028000"->"3","12630280001263027000"->"3","12630270001263026000"->"3","12630260001263025000"->"3","12630250001262016000"->"3")
-    flatLineMethod2("323331909,1261020000,06:31:30,1262016000,07:04:09,1959,1623 ,1261020000,1261019000,06:59:47,07:01:58,1261019000,1261018000,07:01:58,07:04:14,1261018000,1263031000,07:06:40,07:08:52,1263031000,1263030000,07:08:52,07:10:44,1263030000,1263029000,07:10:44,07:12:39,1263029000,1263028000,07:12:39,07:15:59,1263028000,1263027000,07:15:59,07:17:54,1263027000,1263026000,07:17:54,07:20:07,1263026000,1263025000,07:20:07,07:23:27,1263025000,1262016000,07:23:27,07:25:46",map)
+    flatLineMethod2("323331909,1261020000,06:31:30,1262016000,07:04:09,1959,1623,2017-02-15,1261020000,1261019000,06:59:47,07:01:58,1261019000,1261018000,07:01:58,07:04:14,1261018000,1263031000,07:06:40,07:08:52,1263031000,1263030000,07:08:52,07:10:44,1263030000,1263029000,07:10:44,07:12:39,1263029000,1263028000,07:12:39,07:15:59,1263028000,1263027000,07:15:59,07:17:54,1263027000,1263026000,07:17:54,07:20:07,1263026000,1263025000,07:20:07,07:23:27,1263025000,1262016000,07:23:27,07:25:46",map)
       .foreach(println)
     println(findLine("1261020000,1261018000"))
     println(findLine("1262019000,1267026000"))

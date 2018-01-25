@@ -45,10 +45,17 @@ class Cal_subway extends Serializable {
   def everyDayFlow(sparkSession: SparkSession,input:String,timeSF:String,position:String,ruler:String,BMFS:String,confFile:Broadcast[Array[String]]):DataFrame = {
     import sparkSession.implicits._
     val od = mkOD(sparkSession,input,timeSF,position,ruler,BMFS,confFile).toDF()
-    val date = udf((s:String)=>s.split("T")(0))
+    val date = udf((s:String)=>getDate(s))
     val withDate = od.withColumn("date",date(col("o_time")))
     val flow = withDate.groupBy(col("date")).count().orderBy(col("date"))
     flow
+  }
+
+  /**
+    *凌晨四点之前的记录算作前一天的数据,时间格式 yyyy-MM-dd'T'HH:mm:ss.SSS'Z'
+    */
+  def getDate(s:String):String={
+    if(s.split("T")(1) >= "04:00:00") s.split("T")(0) else TimeUtils().addtime(s.split("T")(0),-1)
   }
 
   /**
@@ -73,7 +80,7 @@ class Cal_subway extends Serializable {
   def avgPeriodFlow(sparkSession: SparkSession,input:String,timeSF:String,position:String,Holiday:String,ruler:String,BMFS:String,confFile:Broadcast[Array[String]]):DataFrame = {
     import sparkSession.implicits._
     mkOD(sparkSession,input,timeSF,position,ruler,BMFS,confFile).map(od =>{
-      val date = od.o_time.substring(0,10)
+      val date = getDate(od.o_time)
       val isHoliday = TimeUtils().isFestival(date,"yyyy-MM-dd",Holiday)
       val period = TimeUtils().timePeriod(od.o_time,Holiday)
       (date,isHoliday,period)
@@ -165,7 +172,7 @@ class Cal_subway extends Serializable {
     }else{
       data = sparkSession.sparkContext.textFile(input)}
     val usefulData = Subway_Clean().GetFiled(data,timeSF,position,confFile)
-    val station = usefulData.groupBy(x=>x.deal_time.split("T")(0)+","+x.station_id).mapValues(line=>{
+    val station = usefulData.groupBy(x=>getDate(x.deal_time)+","+x.station_id).mapValues(line=>{
       val InFlow = line.count(_.Type.matches("21"))
       val OutFlow = line.count(_.Type.matches("22"))
       (InFlow,OutFlow)
@@ -255,7 +262,7 @@ class Cal_subway extends Serializable {
   def zoneDayODFlow(sparkSession: SparkSession,input:String,timeSF:String,position:String,ruler:String,lonlatPath:Broadcast[Array[String]],BMFS:String):DataFrame={
     import sparkSession.implicits._
     val od = mkZoneOD(sparkSession,input,timeSF,position,ruler,lonlatPath,BMFS).toDF()
-    val date = udf((s:String)=>s.split("T")(0))
+    val date = udf((s:String)=>getDate(s))
     val withDate = od.withColumn("date",date(col("o_time")))
     val odFlow = withDate.groupBy(col("date"),col("o_station"),col("d_station")).count().orderBy(col("date"),col("count").desc)
     odFlow
@@ -289,7 +296,7 @@ class Cal_subway extends Serializable {
     }else{
       data = sparkSession.sparkContext.textFile(input)}
     val usefulData = Subway_Clean().GetFiled(data,timeSF,position,lonlatPath).map(x=>SZT(x.card_id,x.deal_time,Locat10(x.station_id,lonlatPath),x.Type))
-    val station = usefulData.groupBy(x=>x.deal_time.split("T")(0)+","+x.station_id).mapValues(line=>{
+    val station = usefulData.groupBy(x=>getDate(x.deal_time)+","+x.station_id).mapValues(line=>{
       val InFlow = line.count(_.Type.matches("21"))
       val OutFlow = line.count(_.Type.matches("22"))
       (InFlow,OutFlow)
@@ -319,7 +326,7 @@ object Cal_subway{
   def main(args: Array[String]): Unit = {
     val sparkSession = SparkSession
       .builder()
-      .config("spark.yarn.dist.files","C:\\Users\\Lhh\\Documents\\地铁_static\\subway_zdbm_station")
+      //.config("spark.yarn.dist.files","C:\\Users\\Lhh\\Documents\\地铁_static\\subway_zdbm_station")
       .config("spark.sql.warehouse.dir", "F:/Github/IhaveADream/spark-warehouse")
       .master("local[*]").getOrCreate()
     val sc = sparkSession.sparkContext
@@ -327,11 +334,10 @@ object Cal_subway{
     val path = "subway_zdbm_station.txt"
     val file = sc.textFile(path).collect()
     val broadcastvar = sc.broadcast(file)
-    //Cal_subway().everyDayFlow(sparkSession,input,"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'","1,4,6,3","all","utf",broadcastvar).show()
+    Cal_subway().everyDayFlow(sparkSession,input,"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'","1,4,6,3","all","utf",broadcastvar).show()
     /*val data  = Cal_subway().mkOD(sparkSession,input,"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'","1,4,2,3","all","utf",broadcastvar).toDF().select("o_station","card_id")
     val data2 = sparkSession.read.textFile(path).map(_.split(",")).map(s=>(s(0),s(1))).toDF("id","name")
     data2.join(data,data2("name") === data("o_station")).select("name","card_id").rdd.foreach(println)*/
-    file.map(_.split(",")).map(_.slice(0,2).mkString(",")).foreach(println)
 
   }
 }

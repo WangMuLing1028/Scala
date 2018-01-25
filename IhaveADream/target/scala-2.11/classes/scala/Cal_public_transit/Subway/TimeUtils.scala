@@ -189,6 +189,21 @@ import org.joda.time.DateTime
     period
   }
 
+  /**
+    *计算yyyy-MM-dd格式时间增加或者减少（负整数）多少天后的日期
+    */
+  def addtime(date:String,num:Int):String ={
+    val myformat = new SimpleDateFormat("yyyy-MM-dd")
+    var dnow = new Date()
+    if(date !=""){
+      dnow=myformat.parse(date)}
+    var cal = Calendar.getInstance()
+    cal.setTime(dnow)
+    cal.add(Calendar.DAY_OF_MONTH,num)
+    val newday= cal.getTime()
+    myformat.format(newday)
+  }
+
 
 }
 
@@ -196,13 +211,17 @@ object TimeUtils {
   def apply(): TimeUtils = new TimeUtils()
 
   def main(args: Array[String]): Unit = {
-   println(TimeUtils().timePeriod("2017-03-24T12:03:24.000Z","2017-03-25"))
+   /*println(TimeUtils().timePeriod("2017-03-24T12:03:24.000Z","2017-03-25"))
     val timesmp = 423456789456L
     val sf = "yyyy-MM-dd HH:mm:ss"
     val sfm = new SimpleDateFormat(sf)
     val time1 = new DateTime(timesmp).toString(sf)
     val time2 = sfm.format(new Date(timesmp))
     println(time1)
-    println(time2)
+    println(time2)*/
+    //println(new DateTime(new SimpleDateFormat("yyyy-MM-dd").parse("2017-03-24").getTime - 1*60*60*1000).toString("yyyy-MM-dd"))
+    println(TimeUtils().addtime("",0))
+    println(TimeUtils().addtime("",9))
+
   }
 }

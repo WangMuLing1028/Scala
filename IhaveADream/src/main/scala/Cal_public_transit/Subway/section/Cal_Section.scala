@@ -41,7 +41,7 @@ class Cal_Section {
     */
   def SectionFlow(ods:RDD[String], sparkSession: SparkSession, confPath:String):RDD[String] = {
     //section flow
-    val pathtime = PathTIME(ods,sparkSession,confPath)//获取乘客最有可能乘坐的一条路径：数组7以后是该路径的站点和时间，S1，S2,T1,T2,S2,S3,T2,T3.....
+    val pathtime = PathTIME(ods,sparkSession,confPath)//获取乘客最有可能乘坐的一条路径：数组8以后是该路径的站点和时间，S1，S2,T1,T2,S2,S3,T2,T3.....
     SectionFlowCounter.getSectionFlow(pathtime)
   }
 
@@ -52,7 +52,7 @@ class Cal_Section {
   def LineFlow(ods:RDD[String], sparkSession: SparkSession, confPath:String) ={
     val pathtime = PathTIME(ods,sparkSession,confPath)
     val lineConf = sparkSession.sparkContext.textFile(confPath+"/sec2line.csv")
-    LineFlowCounter.getLineCounter(pathtime)
+    LineFlowCounter.getLineCounter2(pathtime,lineConf)
   }
 
   /**
@@ -107,6 +107,6 @@ object Cal_Section{
     val conf1Broadcast = spark.sparkContext.broadcast(confA1)
     val conf2Broadcast = spark.sparkContext.broadcast(confA2)
     val ods = Cal_Section().CleanData(spark,input,"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'","1,4,2,3","utf-8")(conf1Broadcast,conf2Broadcast)
-   Cal_Section().SectionFlow(ods,spark,"SubwayFlowConf").foreach(println)
+   Cal_Section().LineDisPrice(ods,spark,"SubwayFlowConf").foreach(println)
   }
 }
