@@ -38,7 +38,7 @@ object meanDisPrice {
       }).toDF("o","d","price")
       val disAndPrice = distanceFm.join(priceFm,Seq("o","d"))
       dataFm.join(disAndPrice,Seq("o","d")).groupBy("date","line").agg("distance"->"mean","price"->"mean").map(row=>{
-        val line = row.getString(0) match {
+        val line = row.getString(row.fieldIndex("line")) match {
           case "2680" => "一号线(上行)"
           case "2681" => "一号线(下行)"
           case "2600" => "二号线(上行)"
@@ -57,7 +57,7 @@ object meanDisPrice {
           case "2671" => "九号线(下行)"
           case _ => "NoMatch"
         }
-        List(row.getString(1),line,row.getDouble(2).toString,row.getDouble(3).toString).mkString(",")
+        List(row.getString(row.fieldIndex("date")),line,row.getDouble(2).formatted("%.2f"),row.getDouble(3).formatted("%.2f")).mkString(",")
       }).rdd
     }
 

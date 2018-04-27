@@ -146,9 +146,29 @@ Output: false
     tree1
   }
 
+
+  private def ShortestPath(array: Array[String],start:String,end:String,out:String,get: Array[String]): Array[String] ={
+    if (start!=end){
+      var s = start
+      var temOut = out
+      for(temp<-array){
+        if(s==temp.split(" ")(0)){
+          val sum = try{temOut.split(",")(temOut.split(",").length).toInt+temp.split(",")(temp.split(",").length).toInt}catch {case e:Exception=>0}
+          temOut=if(temOut.split(",").length!=1){temOut.split(",").slice(0,temOut.split(",").length-1)+","+s+","+sum}else {temOut+","+s+","+sum}
+          s = temp.split(" ")(1)
+          get++ ShortestPath(array,s,end,temOut,get)
+        }
+      }
+    }else get.+(out)
+    get
+
+  }
+
 }
 object LeetCode{
   def main(args: Array[String]): Unit = {
-
+      val array = Array[String]("1 2 20","1 3 12","1 4 15","2 3 12","1 4 44","2 4 12")
+    val get =  Array[String]()
+  new LeetCode().ShortestPath(array,"1","4","",get).foreach(println)
   }
 }

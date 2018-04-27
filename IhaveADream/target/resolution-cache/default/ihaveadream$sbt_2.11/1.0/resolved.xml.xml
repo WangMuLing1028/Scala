@@ -4,7 +4,7 @@
 		module="ihaveadream$sbt_2.11"
 		revision="1.0"
 		status="integration"
-		publication="20170817200619"
+		publication="20180411155302"
 	/>
 	<configurations>
 		<conf name="default" visibility="public"/>

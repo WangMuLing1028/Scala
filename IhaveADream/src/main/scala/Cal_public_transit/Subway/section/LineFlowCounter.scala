@@ -63,9 +63,10 @@ object LineFlowCounter {
     */
   def getLineCounter2(data:RDD[String],conf:RDD[String])={
     val lineMap = getLineMap(conf)
-    data.flatMap(flatLineMethod2(_,lineMap)).map(x=>{val s =x.split(",");(s(0),s(1))}).countByValue().map(x=>{
-      val date = x._1._1
-      val line = x._1._2
+    data.flatMap(flatLineMethod2(_,lineMap)).countByValue().map(x=>{
+      val s = x._1.split(",")
+      val date = s(0)
+      val line = s(1)
       val lineName = line match {
         case "2680" => "一号线(上行)"
         case "2681" => "一号线(下行)"
@@ -86,7 +87,7 @@ object LineFlowCounter {
         case _ => "NoMatch"
       }
       date+","+lineName+","+x._2
-    })
+    }).toSeq.sortBy(_.split(",")(0))
   }
 
   def flatLineMethod2(x:String,lineMap:scala.collection.mutable.Map[String,String])={

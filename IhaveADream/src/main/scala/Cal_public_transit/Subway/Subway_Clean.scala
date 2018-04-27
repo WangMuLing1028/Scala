@@ -34,13 +34,14 @@ class Subway_Clean extends Serializable{
     val sf = new SimpleDateFormat(timeSF)
     val newSF = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     val usefulFiled =originData.map(line=>{
-      val s = line.split(",")
-      if(Positions.max.toInt <= s.size+1){
+      val s = if(line.split(",").length <2) line.split("\t") else line.split(",")
+      if(Positions.max.toInt <= s.size-1){
       val card_id = s(Positions(0).toInt)
       val deal_time = s(Positions(1).toInt)
-      val new_deal_time = newSF.format(sf.parse(deal_time))
+        var new_deal_time = ""
+   try{    new_deal_time = newSF.format(sf.parse(deal_time)) } catch {case e:java.text.ParseException=> ""}
       val org_station_id = s(Positions(2).toInt)
-        val station_id = ChangeStationName(org_station_id,confFile)
+       val station_id = try {ChangeStationName(org_station_id,confFile)} catch {case e: java.util.NoSuchElementException => ""}
       var Type = s(Positions(3).toInt)
       if (!Type.matches("21|22")){
         Type match {
@@ -50,7 +51,7 @@ class Subway_Clean extends Serializable{
         }
       }
         SZT(card_id,new_deal_time,station_id,Type)}else{
-        SZT(null,null,null,null)
+        SZT("","","","")
       }
     }).filter(szt => !(szt.card_id.isEmpty||szt.station_id.isEmpty||szt.deal_time.isEmpty||szt.Type.isEmpty))
     usefulFiled
@@ -92,7 +93,7 @@ class Subway_Clean extends Serializable{
   }
 
   private def ODRuler(x:SZT,y:SZT,ruler:String) = {
-
+    if(Cal_subway().getDate(x.deal_time) == Cal_subway().getDate(y.deal_time)){
     val difftime = delTime(x.deal_time,y.deal_time)
     ruler match {
       case "all" => {
@@ -132,7 +133,7 @@ class Subway_Clean extends Serializable{
         }
         else None
       }
-    }
+    }}else None
   }
 
   private def MakeOD(x:(String,Iterable[SZT]),ruler:String) = {
@@ -166,11 +167,32 @@ object Subway_Clean{
   def apply(): Subway_Clean = new Subway_Clean()
 
   def main(args: Array[String]): Unit = {
-    val sc = SparkSession.builder().master("local").getOrCreate().sparkContext
+    /*val spark = SparkSession.builder().master("local").getOrCreate()
+    val sc = spark.sparkContext
     val path = "subway_zdbm_station.txt"
     val file = sc.textFile(path).collect()
     val broadcastvar = sc.broadcast(file)
-   println(Subway_Clean().ChangeStationName("1260029000",broadcastvar))
+    val oring_data = sc.textFile("G:\\数据\\深圳通地铁\\20170828\\part-m-00003")
+    Subway_Clean().getOD(spark,"G:\\数据\\深圳通地铁\\20170828\\part-m-00003","yyyy-MM-dd'T'HH:mm:ss.SSS'Z'","1,4,2,3","all","utf",broadcastvar).take(100).foreach(println)*/
+    /*val maped = scala.collection.mutable.Map("i"->"you","he"->"his","she"->"her")
+    val path = "/user/wangjie/SZT/output/get.txt"
+    val file = new File(path)
+    if(!file.exists()){
+      file.getParentFile.mkdirs()
+      try{
+        file.createNewFile()
+      }catch{
+        case e:IOException=> e.printStackTrace()
+      }
+    }
+    val wrieter = new PrintWriter(file)
+    val it = maped.iterator
+    while (it.hasNext){
+      val get = it.next()
+      wrieter.println(get)
+    }
+    wrieter.close()*/
+
   }
 }
 
@@ -181,7 +203,9 @@ object Subway_Clean{
   * @param station_id 站点名称
   * @param Type 进出站类型
   */
-case class SZT(card_id:String,deal_time:String,station_id:String,Type:String)
+case class SZT(card_id:String,deal_time:String,station_id:String,Type:String){
+  override def toString: String = Array(card_id,deal_time,station_id,Type).mkString(",")
+}
 
 /**
   * OD
@@ -192,4 +216,6 @@ case class SZT(card_id:String,deal_time:String,station_id:String,Type:String)
   * @param d_time 到达时间
   * @param time_diff 出行耗时
   */
-case class OD(card_id:String,o_station:String,o_time:String,d_station:String,d_time:String,time_diff:Long)
+case class OD(card_id:String,o_station:String,o_time:String,d_station:String,d_time:String,time_diff:Long){
+  override def toString: String = Array(card_id,o_station,o_time,d_station,d_time,time_diff).mkString(",")
+}

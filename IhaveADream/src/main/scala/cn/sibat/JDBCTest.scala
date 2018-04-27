@@ -18,9 +18,9 @@ object JDBCTest {
       connection = DriverManager.getConnection(url,username,password)
 
       val statement = connection.createStatement()
-      val resultSet = statement.executeQuery("select trip_mile from NewBus_roundtrip limit 10")
+      val resultSet = statement.executeQuery("select * from station_ex limit 10")
       while (resultSet.next()){
-        println(resultSet.getString(1))
+        println(resultSet.first())
       }
     }
   }

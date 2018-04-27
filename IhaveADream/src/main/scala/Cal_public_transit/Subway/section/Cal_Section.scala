@@ -2,11 +2,12 @@ package Cal_public_transit.Subway.section
 
 import java.text.SimpleDateFormat
 
-import Cal_public_transit.Subway.Cal_subway
+import Cal_public_transit.Subway.{Cal_subway, TimeUtils}
 import org.apache.spark.SparkContext
 import org.apache.spark.broadcast.Broadcast
 import org.apache.spark.rdd.RDD
-import org.apache.spark.sql.SparkSession
+import org.apache.spark.sql._
+import org.apache.spark.sql.functions._
 /**
   * Created by WJ on 2017/12/27.
   */
@@ -93,20 +94,132 @@ class Cal_Section {
     })
     clear
   }
+
+
+  /**
+    * 一天的断面客流
+    * @param sparkSession
+    * @param sectionData
+    */
+  def sectionDayFlow(sparkSession: SparkSession,sectionData:RDD[String],conf:Broadcast[Array[String]]): DataFrame ={
+    val NoToName = scala.collection.mutable.Map[String,String]()
+    conf.value.map(_.split(",")).map(line=>{
+      val no = line(0)
+      val name = line(1)
+      NoToName.put(no,name)
+    })
+
+    import sparkSession.implicits._
+    val sectionDF = sectionData.map(x=>{
+      val s = x.split(",")
+      val O = NoToName(s(2))
+      val D = NoToName(s(3))
+      //val before = NoToName(s(4))
+      section(s(0),s(1),O,D,s(4),s(5).toInt,s(6).toInt)
+    }).toDF
+    sectionDF.groupBy("date","O","D").sum("flow").toDF("date","O","D","sectionFlow").orderBy(col("O")+col("D"),col("date"))
+  }
+
+  /**
+    * 断面粒度客流
+    * @param sparkSession
+    * @param size 粒度可选：5min,10min,15min,30min,hour
+    * @return
+    */
+  def sizeFlow(sparkSession: SparkSession,sectionData:RDD[String],size:String,conf:Broadcast[Array[String]]):DataFrame={
+    val NoToName = scala.collection.mutable.Map[String,String]()
+    conf.value.map(_.split(",")).map(line=>{
+      val no = line(0)
+      val name = line(1)
+      NoToName.put(no,name)
+    })
+
+    import sparkSession.implicits._
+    val sectionDF = sectionData.map(x=>{
+      val s = x.split(",")
+      val O = NoToName(s(2))
+      val D = NoToName(s(3))
+      //val before = NoToName(s(4))
+      section(s(0),s(1),O,D,s(4),s(5).toInt,s(6).toInt)
+    }).toDF
+    val sizeTime = sectionDF.map(line=>{
+      val time = line.getString(line.fieldIndex("date"))+"T"+line.getString(line.fieldIndex("time"))
+      val newTime = new TimeUtils().timeChange(time,size)
+      (newTime,line.getString(line.fieldIndex("O")),line.getString(line.fieldIndex("D")),line.getInt(line.fieldIndex("flow")))
+    }).toDF("sizeTime","O","D","flow")
+    val sizeflow = sizeTime.groupBy(col("sizeTime"),col("O"),col("D")).sum("flow").toDF("sizeTime","O","D","flow").orderBy(col("O")+col("D"),col("sizeTime"))
+    sizeflow
+  }
+
+  /**
+    * 一天的换乘客流
+    *
+    */
+  def transferDayFlow(sparkSession: SparkSession,sectionData:RDD[String],conf:Broadcast[Array[String]]): DataFrame ={
+    val NoToName = scala.collection.mutable.Map[String,String]()
+    conf.value.map(_.split(",")).map(line=>{
+      val no = line(0)
+      val name = line(1)
+      NoToName.put(no,name)
+    })
+
+    import sparkSession.implicits._
+    val sectionDF = sectionData.map(x=>{
+      val s = x.split(",")
+      val O = NoToName(s(2))
+      (s(0),O,s(6).toInt)
+    }).toDF("date","station","transfer")
+    sectionDF.groupBy("date","station").sum("transfer").toDF("date","station","transferFlow").orderBy(col("station"),col("date"))
+  }
+
+  /**
+    * 粒度换乘客流
+    * @param sparkSession
+    * @param size 粒度可选：5min,10min,15min,30min,hour
+    * @return
+    */
+  def sizeTransferFlow(sparkSession: SparkSession,sectionData:RDD[String],size:String,conf:Broadcast[Array[String]]):DataFrame={
+    val NoToName = scala.collection.mutable.Map[String,String]()
+    conf.value.map(_.split(",")).map(line=>{
+      val no = line(0)
+      val name = line(1)
+      NoToName.put(no,name)
+    })
+
+    import sparkSession.implicits._
+    val sectionDF = sectionData.map(x=>{
+      val s = x.split(",")
+      val O = NoToName(s(2))
+      val D = NoToName(s(3))
+      //val before = NoToName(s(4))
+      section(s(0),s(1),O,D,s(4),s(5).toInt,s(6).toInt)
+    }).toDF
+    val sizeTime = sectionDF.map(line=>{
+      val time = line.getString(line.fieldIndex("date"))+"T"+line.getString(line.fieldIndex("time"))
+      val newTime = new TimeUtils().timeChange(time,size)
+      (newTime,line.getString(line.fieldIndex("O")),line.getInt(line.fieldIndex("transfer")))
+    }).toDF("sizeTime","station","transfer")
+    val sizeflow = sizeTime.groupBy(col("sizeTime"),col("station")).sum("transfer").toDF("sizeTime","station","transfer").orderBy(col("station"),col("sizeTime"))
+    sizeflow
+  }
+
+
 }
+
 object Cal_Section{
   def apply():Cal_Section = new Cal_Section()
 
   def main(args: Array[String]): Unit = {
     val spark = SparkSession.builder().master("local[*]").config("spark.sql.warehouse.dir", "F:/Github/IhaveADream/spark-warehouse").getOrCreate()
-    val input = "G:\\数据\\深圳通地铁\\20170215"
+    val input = "G:\\数据\\xab"
     val conf1 = "subway_zdbm_station.txt"
     val conf2 = "C:\\Users\\Lhh\\Documents\\地铁_static\\Subway_no2name"
     val confA1 = spark.sparkContext.textFile(conf1).collect()
     val confA2 = spark.sparkContext.textFile(conf2).collect()
     val conf1Broadcast = spark.sparkContext.broadcast(confA1)
     val conf2Broadcast = spark.sparkContext.broadcast(confA2)
-    val ods = Cal_Section().CleanData(spark,input,"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'","1,4,2,3","utf-8")(conf1Broadcast,conf2Broadcast)
-   Cal_Section().LineDisPrice(ods,spark,"SubwayFlowConf").foreach(println)
+    val ods = Cal_Section().CleanData(spark,input,"yyyy-MM-dd HH:mm:ss","1,8,2,4","utf-8")(conf1Broadcast,conf2Broadcast)
+   Cal_Section().LineFlow(ods,spark,"SubwayFlowConf").foreach(println)
   }
 }
+case class section(date:String,time:String,O:String,D:String,before:String,flow:Int,transfer:Int)

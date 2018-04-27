@@ -1,0 +1,13 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="Subway:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/Subway_jar</output-path>
+    <root id="archive" name="IhaveADream.jar">
+      <element id="directory" name="META-INF">
+        <element id="file-copy" path="$PROJECT_DIR$/project/META-INF/MANIFEST.MF" />
+      </element>
+      <element id="module-output" name="ihaveadream" />
+      <element id="module-output" name="ihaveadream-build" />
+      <element id="extracted-dir" path="$USER_HOME$/Documents/jar包/jars_huzhen/Locate2.jar" path-in-jar="/" />
+    </root>
+  </artifact>
+</component>

@@ -1,6 +1,6 @@
 package Cal_public_transit.Subway
 
-import java.text.SimpleDateFormat
+import java.text.{ParseException, SimpleDateFormat}
 import java.util.{Calendar, Date}
 
 import org.joda.time.DateTime
@@ -101,9 +101,9 @@ import org.joda.time.DateTime
         changedTime.append("0:00")
         changedTime.toString
       }
-      case "15min" => {
-        changedTime.append(time.substring(0,14))
-        val temp = time.substring(14,16).toInt
+      case "15min" => {//2017-01-03T04:02:03
+        changedTime.append(time.split(":")(0)+":")
+        val temp = time.split(":")(1).toInt
         if(temp<15){
           changedTime.append("00:00")
         }else if(temp>=15 && temp<30){
@@ -126,7 +126,7 @@ import org.joda.time.DateTime
     * @return
     */
   def isFestival(date:String,format:String,holiday:String):String={
-    var symbol:Int = -1
+   try{var symbol:Int = -1
     val sf = new SimpleDateFormat(format)
     val getDate = sf.parse(date)
     val cal:Calendar = Calendar.getInstance()
@@ -154,6 +154,9 @@ import org.joda.time.DateTime
       case 1 => "weekend"
     }
     isHoliday
+   }catch {
+     case e:ParseException=> "ErrorFormat"
+   }
   }
 
   /**
@@ -220,8 +223,14 @@ object TimeUtils {
     println(time1)
     println(time2)*/
     //println(new DateTime(new SimpleDateFormat("yyyy-MM-dd").parse("2017-03-24").getTime - 1*60*60*1000).toString("yyyy-MM-dd"))
-    println(TimeUtils().addtime("",0))
-    println(TimeUtils().addtime("",9))
-
+    /*println(TimeUtils().addtime("",0))
+    println(TimeUtils().addtime("",9))*/
+    val sf = "yyyy-MM-dd HH:mm:ss"
+    val sfm = new SimpleDateFormat(sf)
+    val sf1 = "yyyy/MM/dd HH:mm:ss"
+    val sfm1 = new SimpleDateFormat(sf1)
+    println(sfm.format(sfm1.parse("2017/2/1 3:05:22")))
+    println("4795637 991581783       99 商务车厢单程票       22地铁消费(结算)        1261018000      布吉    2017/1/28 20:31:14      261018112       000000  900     900     0       0\n4795637        6       4343797 1261006000      福田    2017/1/28 19:57:44      261006112"
+      .replaceAll(" ","!"))
   }
 }

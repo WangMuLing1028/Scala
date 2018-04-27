@@ -46,6 +46,9 @@ class BusClean extends Serializable{
     * 把到站信息的时间戳转化成北京ISO格式时间
     */
   def timeChange(time:Long):String={
+    new DateTime(time*1000).toString("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
+  }
+  def timeChange2(time:Long):String={
     new DateTime((time+8*60*60)*1000).toString("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
   }
 
@@ -74,10 +77,13 @@ class BusClean extends Serializable{
       connection = DriverManager.getConnection(url,username,password)
 
       val statement = connection.createStatement()
-      val resultSet = statement.executeQuery("select l.ref_id,l.directionCode,s.station_id,ss.name,s.stop_order,ss.lat,ss.lon from line l,line_stop s,station ss where l.id=s.line_id AND s.station_id=ss.id")
+      val resultSet = statement.executeQuery("select l.ref_id,l.direction,s.station_id,ss.name,s.stop_order,ss.lat,ss.lon from line l,line_stop s,station ss where l.id=s.line_id AND s.station_id=ss.id")
       while (resultSet.next()){
         val ref_id = resultSet.getString(1)
-        val dir = resultSet.getInt(2)
+        val dir:Int = resultSet.getString(2).toLowerCase match {
+          case "up" => 1
+          case "down"=> 2
+        }
         val s_id = resultSet.getString(3)
         val name = resultSet.getString(4)
         val index = resultSet.getString(5)
@@ -87,8 +93,13 @@ class BusClean extends Serializable{
         val valued = name+","+index+","+lat+","+lon
         if(!getMap.contains(key)) getMap.put(key,valued)
       }
+      if (statement != null) {
+        statement.close()
+      }
     }catch {
       case e:SQLException => e.printStackTrace()
+    }finally {
+      connection.close()
     }
     getMap.toMap
   }
@@ -97,7 +108,6 @@ class BusClean extends Serializable{
     *@param position card_id,car_id,time 的序列，“，”分隔：1,7,4
     */
   def CalBusDeal(data:RDD[String],position:String)={
-    val errorArray = scala.collection.mutable.HashSet[String]()
     val positions = position.split(",")
     data.map(x=>{
      try{ val s = x.split(",")
@@ -127,7 +137,10 @@ class BusClean extends Serializable{
       val arrive_time:String = s(positions(1).toInt).trim
       val leave_time:String = s(positions(2).toInt).trim
       val line = s(positions(3).toInt)
-      val direction = s(positions(4).toInt)
+      val direction:Int = s(positions(4).toInt).trim.toLowerCase match {
+        case "up" => 1
+        case "down"=> 2
+      }
       val devide = s(positions(5).toInt)
       val station_id = s(positions(6).toInt)
       val new_deal_time = if(arrive_time != "null"){
@@ -137,62 +150,95 @@ class BusClean extends Serializable{
         timeChange(leave_time.toLong)
       }else {
         "0"}
-      val new_direction = direction match {
-        case "up" => "1"
-        case "down" => "2"
-        case _ => direction
-      }
       var stationName = ""
       var index =  -1
       var lat = 0.0
       var lon = 0.0
-      if(Info.contains(line+","+new_direction+","+station_id)){val StationInfo = Info(line+","+new_direction+","+station_id).split(",")
+      if(Info.contains(line+","+direction+","+station_id)){
+        val StationInfo = Info(line+","+direction+","+station_id).split(",")
          stationName = StationInfo(0)
          index =  StationInfo(1).toInt
          lat = StationInfo(2).toDouble
          lon = StationInfo(3).toDouble}
-     BusStationGPS(new_car_id,new_deal_time,line,new_direction,devide,station_id,stationName,index,lon,lat)
-    }).filter(gps => !(gps.car_id.isEmpty||gps.time=="0"||gps.direction.isEmpty||gps.devide.isEmpty||gps.station_id.isEmpty||gps.station_name.isEmpty||gps.index== -1||gps.lon == 0.0||gps.lat == 0.0))
+     BusStationGPS(new_car_id,new_deal_time,line,direction,devide,station_id,stationName,index,lon,lat)
+    }).filter(gps => !(gps.car_id.isEmpty||gps.time=="0"||gps.devide.isEmpty||gps.station_id.isEmpty||gps.station_name.isEmpty||gps.index== -1||gps.lon == 0.0||gps.lat == 0.0))
   }
 
 
   /**
     *通过GPS信息和拍卡信息，确定拍卡记录的拍卡站点
+    * deal_position: card_id,car_id,time 的序列，“，”分隔：1,7,4
+    * GPS_position: car_id,arrive_time,leave_time,line,direction,devide,station_id的序列，“，”分隔 ：1,2,3,5,4,10,8
     */
-  def CalBusO(deal:RDD[String],position1:String,StationGPS:RDD[String],position2:String):RDD[BusO] ={
-    val busDeal = CalBusDeal(deal,position1)
-    val busGPS = CalBusStationGPS(StationGPS,position2)
+  def CalBusO(deal:RDD[String],StationGPS:RDD[String],deal_position:String="1,7,4",GPS_position:String="1,2,3,5,4,10,8"):RDD[BusO] ={
+    val busDeal = CalBusDeal(deal,deal_position)
+    val busGPS = CalBusStationGPS(StationGPS,GPS_position)
     val grpDeal = busDeal.groupBy(_.car_id)
     val grpGPS = busGPS.groupBy(_.car_id)
     val joined = grpDeal.join(grpGPS)
     joined.flatMap(x=>{
-      val outSet = scala.collection.mutable.HashSet[BusO]()
-      val it_deal = x._2._1.iterator
-      val it_GPS = x._2._2.iterator
-      while (it_deal.hasNext){
-        var varTimeDiff:Long = 30*60
-        var get_stationInfo:BusStationGPS = null
-        val temp = it_deal.next()
-        while (it_GPS.hasNext){
-          val tempGps = it_GPS.next()
-          val timediff = Math.abs(timeDiff(temp.deal_time,tempGps.time))
-          if(timediff < varTimeDiff){
-            get_stationInfo = tempGps
-            varTimeDiff = timediff
-          }
-        }
-        if(get_stationInfo != null){
-        val out = BusO(temp.card_id,temp.deal_time,get_stationInfo.line,get_stationInfo.car_id,get_stationInfo.direction,get_stationInfo.devide,get_stationInfo.station_id,get_stationInfo.station_name,get_stationInfo.index
-        ,get_stationInfo.lon,get_stationInfo.lat,get_stationInfo.time,varTimeDiff)
-          outSet.add(out)}
+      val deals= x._2._1
+      val GPSS = x._2._2
+      for{
+        i<-deals;
+        out = Rulers2(i,GPSS)
+      } yield out
+    }).filter(_!=null)
+  }
+
+  private def Rulers(i:BusDeal,iterable: Iterable[BusStationGPS]):BusO={
+    var varTimeDiff:Long = 30*60
+    var out:BusO=null
+    var get_stationInfo:BusStationGPS = null
+    val time = i.deal_time
+    val it = iterable.iterator
+    while(it.hasNext){
+      val temp = it.next()
+      val timediff = Math.abs(timeDiff(time,temp.time))
+      if(timediff < varTimeDiff){
+        get_stationInfo = temp
+        varTimeDiff = timediff
       }
-      outSet
-    }).distinct()
+      if(get_stationInfo != null) {
+        out = BusO(i.card_id, i.deal_time, get_stationInfo.line, get_stationInfo.car_id, get_stationInfo.direction, get_stationInfo.devide, get_stationInfo.station_id, get_stationInfo.station_name, get_stationInfo.index
+          , get_stationInfo.lon, get_stationInfo.lat, get_stationInfo.time, varTimeDiff)
+      }
+    }
+    out
+  }
+
+  /***
+    * Ruler2使用二分查找提高效率，运行会在最后一个task卡主?
+    */
+  private def Rulers2(i:BusDeal,iterable: Iterable[BusStationGPS]):BusO={
+    val TimeDiff:Long = 30*60
+    val time = i.deal_time
+    var out:BusO=null
+    val it = iterable.toIndexedSeq.sortWith((x,y)=>x.time<y.time)
+    val get_stationInfo = findMin(0,it.length-1,time,it)
+    val getTimeDiff = Math.abs(timeDiff(time,get_stationInfo.time))
+    if(getTimeDiff<TimeDiff){
+      out = BusO(i.card_id, i.deal_time, get_stationInfo.line, get_stationInfo.car_id, get_stationInfo.direction, get_stationInfo.devide, get_stationInfo.station_id, get_stationInfo.station_name, get_stationInfo.index
+        , get_stationInfo.lon, get_stationInfo.lat, get_stationInfo.time, getTimeDiff)
+    }
+    out
+  }
+  private def findMin(start:Int,end:Int,deal_time:String,data:Seq[BusStationGPS]): BusStationGPS ={
+    if(start+1==end){
+      val timediff1 = Math.abs(timeDiff(deal_time,data(start).time))
+      val timediff2 = Math.abs(timeDiff(deal_time,data(end).time))
+      if(timediff1<=timediff2) data(start) else data(end)
+    }else {
+      val mid = (start+end)/2
+      if(data(mid).time==deal_time) data(mid)
+      else if(data(mid).time<deal_time) findMin(mid,end,deal_time,data)
+      else findMin(start,mid,deal_time,data)
+    }
   }
 }
 case class BusDeal(card_id:String,car_id:String,deal_time:String)
-case class BusStationGPS(car_id:String,time:String,line:String,direction:String,devide:String,station_id:String,station_name:String,index:Int,lon:Double,lat:Double)
-case class BusO(card_id:String,time:String,line:String,car_id:String,direction:String,devide:String,station_id:String,station_name:String,index:Int
+case class BusStationGPS(car_id:String,time:String,line:String,direction:Int,devide:String,station_id:String,station_name:String,index:Int,lon:Double,lat:Double)
+case class BusO(card_id:String,time:String,line:String,car_id:String,direction:Int,devide:String,station_id:String,station_name:String,index:Int
                 ,lon:Double,lat:Double,station_time:String,timediff:Long){
   override def toString: String = Array(card_id,time,line,car_id,direction,devide,station_id,station_name,index.toString,
                                         lon.toString,lat.toString,station_time,timediff.toString).mkString(",")
@@ -202,31 +248,10 @@ object BusClean{
   def apply(): BusClean = new BusClean()
 
   def main(args: Array[String]): Unit = {
-    val spark = SparkSession.builder().master("local[*]").getOrCreate()
+    val spark = SparkSession.builder().master("yarn").getOrCreate()
     val sc = spark.sparkContext
-    val deal = sc.textFile("G:\\数据\\BusO\\20170612")
-    val GPS = sc.textFile("G:\\数据\\BusO\\ARRLEA_Q_2017-06-12,G:\\数据\\BusO\\ARRLEA_Q_2017-06-13")
-  //  val DealRDD =  BusClean().CalBusStationGPS(GPS,"1,2,3,5,4,10,8").foreach(println)//.coalesce(1).saveAsTextFile("G:\\数据\\BusO\\buyaode\\GPS")
-    /*val orginDealRDD = deal.count()
-    val DealRDD = BusClean().CalBusDeal(deal,"1,7,4").count()
-    println("origin:"+orginDealRDD+","+"get:"+DealRDD)
-    println(orginDealRDD-DealRDD)
-    val GPSRDD =  BusClean().CalBusStationGPS(GPS,"1,2,3,5,4,10,8").count()
-    val orginGPSRDD = GPS.count()
-    println("origin:"+orginGPSRDD+","+"get:"+GPSRDD)
-    println(orginGPSRDD-GPSRDD)*/
-    //BusClean().CalBusO(deal,"1,7,4",GPS,"1,2,3,5,4,10,8").coalesce(1).saveAsTextFile("G:\\数据\\BusO\\output\\BusO20170612_3")
-    //car_id,arrive_time,leave_time,line,direction,devide,station_id
-    val DealRDD = BusClean().CalBusDeal(deal,"1,7,4")
-    val grpDeal = DealRDD.groupBy(_.car_id)
-    val DealRDD_o = DealRDD.count()
-    val grpDeal_count = grpDeal.count()
-
-    val GPSRDD =  BusClean().CalBusStationGPS(GPS,"1,2,3,5,4,10,8")
-    val grpGPS = GPSRDD.groupBy(_.car_id)
-    val GPSRDD_o = GPSRDD.count()
-    val grpGPS_count = grpGPS.count()
-    val joined = grpDeal.join(grpGPS).count()
-    println("交易数据原始："+DealRDD_o+","+grpDeal_count+"GPS数据原始："+GPSRDD_o+","+grpGPS_count+"Join数量："+joined)
+    val deal = sc.textFile(args(0))
+    val GPS = sc.textFile(args(1))
+    BusClean().CalBusO(deal,GPS).saveAsTextFile(args(2))
   }
 }
