@@ -1,0 +1,102 @@
+apply plugin: 'java'
+apply plugin: 'scala'
+/*管理版本用的*/
+apply from: 'dependencies.gradle'
+
+/*全局配置*/
+allprojects {
+    /*坐标*/
+    group 'cn.sibat'
+    version '1.0-SNAPSHOT'
+    /*项目插件*/
+    apply plugin: 'java'
+    apply plugin: 'scala'
+    apply plugin: 'application'
+
+    /*jdk环境*/
+    sourceCompatibility = 1.7
+    targetCompatibility = 1.7
+    /*编码*/
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+        options.encoding = false
+    }
+
+    tasks.withType(Javadoc) {
+        options.encoding = 'UTF-8'
+    }
+
+    javadoc {
+        options.charSet = 'UTF-8'
+    }
+}
+
+/** 子项目配置 */
+subprojects {
+//    configurations {
+//        provided
+//        compile.extendsFrom provided
+//        all*.exclude group: 'org.slf4j', module: 'slf4j-log4j12'
+//    }
+    /*类库配置*/
+    repositories {
+        /**maven的私库*/
+        //repositories { maven { url 'http://xxx/' }}
+        // mavenLocal()
+        /*默认库*/
+        mavenCentral()
+    }
+    dependencies {
+        compile "org.scala-lang:scala-library:$scalaVersion"
+        compile "org.scala-lang:scala-compiler:$scalaVersion"
+        compile "org.scala-lang:scala-reflect:$scalaVersion"
+    }
+    /*生成源码jar*/
+    task sourcesJar(type: Jar, dependsOn: classes) {
+        classifier = 'sources'
+        from sourceSets.main.allSource
+    }
+    /*生成javadoc的jar*/
+    task javadocJar(type: Jar, dependsOn: javadoc) {
+        classifier = 'javadoc'
+        from javadoc.destinationDir
+    }
+    /** 有时候会报错，但需要执行 */
+    task createREADME() {
+        file("README.md").createNewFile()
+    }
+    artifacts {
+        archives jar
+        archives sourcesJar
+        archives javadocJar
+    }
+
+    /**上传maven仓库*/
+//    uploadArchives {
+//        repositories {
+//            mavenDeployer {
+//                snapshotRepository(url: "http://xxx/") {
+//                    authentication(userName: "xxx", password: "xxx")
+//                }
+//                repository(url: "http://xxx/") {
+//                    authentication(userName: "xxx", password: "xxx")
+//                }
+//            }
+//        }
+//    }
+
+}
+
+/*生成对应子项目的javadoc，子项目名称详见setting.gradle*/
+//def exportedProjects = [
+//        ":ml",
+//        ":spider"
+//]
+
+//task alljavadoc(type: Javadoc) {
+//    options.charSet = 'UTF-8'
+//    options.memberLevel = JavadocMemberLevel.PRIVATE
+//    source exportedProjects.collect { project(it).sourceSets.main.allJava }
+//    classpath = files(exportedProjects.collect { project(it).sourceSets.main.compileClasspath })
+//    destinationDir = file("${buildDir}/docs/javadoc")
+//}

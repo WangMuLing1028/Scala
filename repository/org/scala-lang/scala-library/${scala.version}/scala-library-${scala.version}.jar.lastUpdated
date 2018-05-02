@@ -1,0 +1,4 @@
+#NOTE: This is an internal implementation file, its format can be changed without prior notice.
+#Wed May 02 10:40:13 CST 2018
+default-http\://maven.aliyun.com/nexus/content/groups/public/.lastUpdated=1525228813360
+http\://maven.aliyun.com/nexus/content/groups/public/.error=Could not transfer artifact org.scala-lang\:scala-library\:jar\:${scala.version} from/to alimaven (http\://maven.aliyun.com/nexus/content/groups/public/)\: Illegal character in path at index 82\: http\://maven.aliyun.com/nexus/content/groups/public/org/scala-lang/scala-library/${scala.version}/scala-library-${scala.version}.jar

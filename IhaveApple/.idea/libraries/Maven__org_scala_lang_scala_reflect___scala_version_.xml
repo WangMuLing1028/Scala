@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="Maven: org.scala-lang:scala-reflect:${scala.version}">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/../repository/org/scala-lang/scala-reflect/${scala.version}/scala-reflect-${scala.version}.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$PROJECT_DIR$/../repository/org/scala-lang/scala-reflect/${scala.version}/scala-reflect-${scala.version}-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../repository/org/scala-lang/scala-reflect/${scala.version}/scala-reflect-${scala.version}-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

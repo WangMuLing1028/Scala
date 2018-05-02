@@ -1,7 +1,9 @@
 package Cal_public_transit.Subway
 
+import java.math.BigDecimal
 import java.text.SimpleDateFormat
 
+import Cal_public_transit.Bus.BusO
 import org.LocationService
 import org.apache.hadoop.io.{LongWritable, Text}
 import org.apache.hadoop.mapred.TextInputFormat
@@ -348,31 +350,56 @@ class Cal_subway extends Serializable {
     *
     */
   def together(data:RDD[OD]) = {
-    val sameIO = data.groupBy(x => x.o_station + "," + x.d_station)
+    subTogether(data)
+  }
 
-    val fuc = (messages: Iterable[OD]) => {
-      val get = scala.collection.mutable.ArrayBuffer[Together]()
-      val mess = messages.toArray.sortWith((x, y) => x.o_time < y.o_time)
-      for (i <- 0 until (mess.length - 2)) {
-        val tempOD = mess(i)
-        val tempOTime = tempOD.o_time
-        var flag = i + 1;
-        while (flag<mess.length && timeDiff(tempOTime, mess(flag).o_time) <= 300) flag += 1
-        for(j <- (i+1) until flag){
-          val nowod = mess(j)
-          val toge = Together(tempOD.card_id,tempOD.o_station,tempOD.o_time,tempOD.d_station,tempOD.d_time,
-            nowod.card_id,nowod.o_station,nowod.o_time,nowod.d_station,nowod.d_time)
-          get.append(toge)
-        }
-      }
-      get.toArray
-    }
-    val InStationIn5min = sameIO.flatMap(x => fuc(x._2))
-    val tongxingka = InStationIn5min.filter(x=> !x.card_id1.equals(x.card_id2)).filter(x=>Math.abs(timeDiff(x.d_time1,x.d_time2))<300)
-    val haveTimes = tongxingka.groupBy(x=>x.card_id1+","+x.card_id2).mapValues(x=>{
-      x.size
+  def busTogether(data:RDD[BusO])={
+
+  }
+
+  /**
+    *
+    * 地铁
+    * @return
+    */
+  private def subTogether(data:RDD[OD])={
+    val o_station = data.groupBy(_.o_station).collect()
+    val d_station = data.groupBy(_.d_station).collect()
+    val have = data.map(line=>{
+      val os = o_station.filter(_._1==line.o_station).map(_._2).map(_.filter(x=>Math.abs(timeDiff(line.o_time,x.o_time))<180)).take(1)(0)
+      val ds = d_station.filter(_._1==line.d_station).map(_._2).map(_.filter(x=>Math.abs(timeDiff(line.d_time,x.d_time))<180)).take(1)(0)
+      (line,os,ds)
     })
-    haveTimes
+    val findTX = (x:OD,y:Iterable[OD])=>{
+      for{
+        i <- y
+        tx = (x.card_id,i.card_id)
+      } yield tx
+    }
+
+    val Allget = have.flatMap(x=>{
+      val od = x._1
+      val sameo = x._2.filter(x=> !x.d_station.equals(od.d_station))
+      val samed = x._3.filter(x=> !x.o_station.equals(od.o_station))
+      val sameod = x._2.filter(x=> x.d_station.equals(od.d_station))
+      val sameO = findTX(od,sameo)
+      val sameD = findTX(od,samed)
+      val sameOD = findTX(od,sameod)
+      sameO.++:(sameD).++:(sameOD)
+    }).groupBy(x=>x._1+","+x._2).map(x=>(x._1.split(",")(0),x._1.split(",")(1)+","+x._2.size)).cache()
+
+    val usersTimes = data.groupBy(_.card_id).mapValues(x=>x.size)
+    Allget.join(usersTimes).map(x=>{
+      val user = x._1
+      val tongxing = x._2._1.split(",")(0)
+      val tongxingTimes = x._2._1.split(",")(1)
+      val sum = x._2._2
+      val persent = tongxingTimes.toDouble / sum * 100
+      val dis1 = new BigDecimal(persent)
+      val result = dis1.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue
+      (user,tongxing,tongxingTimes,sum,result)
+    })
+
   }
 case class Together(card_id1:String,o_station1:String,o_time1:String,d_station1:String,d_time1:String,
                     card_id2:String,o_station2:String,o_time2:String,d_station2:String,d_time2:String)
@@ -400,6 +427,7 @@ object Cal_subway{
       .builder()
       //.config("spark.yarn.dist.files","C:\\Users\\Lhh\\Documents\\地铁_static\\subway_zdbm_station")
       .config("spark.sql.warehouse.dir", "F:/Github/IhaveADream/spark-warehouse")
+        .config("spark.executor.memory","2g")
       .master("local[*]").getOrCreate()
     val sc = sparkSession.sparkContext
     /*val input = "G:\\数据\\深圳通地铁\\20170828"
