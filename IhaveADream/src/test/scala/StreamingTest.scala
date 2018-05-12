@@ -1,19 +1,27 @@
-import org.apache.spark.SparkConf
-import org.apache.spark.storage.StorageLevel
-import org.apache.spark.streaming.{Seconds, StreamingContext}
+import org.apache.spark.sql.SparkSession
 
 /**
   * Created by WJ on 2018/4/25.
   */
 object StreamingTest {
   def main(args: Array[String]): Unit = {
-    val conf = new SparkConf()
-    conf.setAppName("test").setMaster("local")
-    val streamCtx = new StreamingContext(conf,Seconds(2))
-    val line = streamCtx.socketTextStream("localhost",9087,StorageLevel.MEMORY_AND_DISK_SER_2)
-    line.print(20)
-    streamCtx.start()
-    streamCtx.awaitTermination()
+    val spark = SparkSession.builder().master("local")
+        .config("spark.sql.warehouse.dir","F:/Github/IhaveADream/spark-warehouse")
+      .getOrCreate()
+    val lines = spark.readStream
+      .format("socket")
+      .option("host","172.20.104.61")
+      .option("port",65057)
+      .load()
+    import spark.implicits._
+    val words = lines.as[String].flatMap(_.split(" "))
+    val wordCount = words.groupBy("value").count()
+    val query = wordCount.writeStream
+      .outputMode("complete")
+      .format("console")
+      .start()
+    query.awaitTermination()
+
   }
 
 }

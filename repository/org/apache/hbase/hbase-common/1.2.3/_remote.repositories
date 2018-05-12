@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed May 02 14:19:03 CST 2018
+hbase-common-1.2.3.jar>alimaven=
+hbase-common-1.2.3.pom>alimaven=
+hbase-common-1.2.3-tests.jar>alimaven=

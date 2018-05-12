@@ -1,4 +1,5 @@
-#NOTE: This is an internal implementation file, its format can be changed without prior notice.
-#Wed May 02 10:40:13 CST 2018
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed May 02 14:06:57 CST 2018
 default-http\://maven.aliyun.com/nexus/content/groups/public/.lastUpdated=1525228813362
-http\://maven.aliyun.com/nexus/content/groups/public/.error=Could not transfer artifact org.scala-lang\:scala-compiler\:jar\:${scala.version} from/to alimaven (http\://maven.aliyun.com/nexus/content/groups/public/)\: Illegal character in path at index 83\: http\://maven.aliyun.com/nexus/content/groups/public/org/scala-lang/scala-compiler/${scala.version}/scala-compiler-${scala.version}.jar
+http\://maven.aliyun.com/nexus/content/groups/public/.error=
+http\://maven.aliyun.com/nexus/content/groups/public/.lastUpdated=1525241217921

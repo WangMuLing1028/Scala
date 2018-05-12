@@ -3,12 +3,18 @@ package Cal_public_transit.Bus
 import java.util.Date
 
 import Cal_public_transit.Subway.OD
+import org.apache.spark.SparkConf
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql._
 
 
 object Main {
-  def setApp(name:String):SparkSession={SparkSession.builder().appName(name).getOrCreate()}
+  def setApp(name:String):SparkSession={
+    val conf = new SparkConf()
+      .set("spark.serializer","org.apache.spark.serializer.KryoSerializer")
+      .registerKryoClasses(Array(classOf[OD],classOf[BusO],classOf[BusStationGPS],classOf[BusDeal],classOf[UnionData],classOf[BusD],classOf[BusTo],classOf[LineStation]
+        ,classOf[UnionData],classOf[home],classOf[work],classOf[withtimeData],classOf[WithPercent],classOf[WithTimes],classOf[BusONodiff]))
+    SparkSession.builder().appName(name).getOrCreate()}
 
   def main(args: Array[String]): Unit = {
     val time1 = new Date().getTime

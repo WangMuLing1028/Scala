@@ -3,6 +3,7 @@ package Cal_public_transit.Subway
 import java.util.Date
 
 import Cal_public_transit.Subway.section.Cal_Section
+import org.apache.spark.SparkConf
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql._
 
@@ -10,7 +11,13 @@ import org.apache.spark.sql._
   * Created by WJ on 2017/11/30.
   */
 object Main {
-  def setApp(name:String):SparkSession={SparkSession.builder().appName(name).getOrCreate()}
+  def setApp(name:String):SparkSession={
+    val conf = new SparkConf()
+      .set("spark.serializer","org.apache.spark.serializer.KryoSerializer")
+      .registerKryoClasses(Array(classOf[OD],classOf[SZT]))
+    SparkSession.builder().appName(name)
+      .config(conf)
+    .getOrCreate()}
 
   def main(args: Array[String]): Unit = {
     val time1 = new Date().getTime
@@ -67,8 +74,8 @@ object Main {
         case "zoneAvgStationIOFlow" => Cal_subway().zoneAvgStationIOFlow(spark,input,timeSF,position,Holiday,confBroadcast,BMFS)
       }
       get match {
-        case c:RDD[OD] => c.saveAsTextFile(output)
-        case b:DataFrame => b.rdd.map(_.mkString(",")).saveAsTextFile(output)
+        case c:RDD[OD] => c.coalesce(100,true).saveAsTextFile(output)
+        case b:DataFrame => b.rdd.coalesce(100,true).map(_.mkString(",")).saveAsTextFile(output)
         case None =>
       }
       val time2 = new Date().getTime
@@ -94,9 +101,9 @@ object Main {
         case "LineDisPrice" => Cal_Section().LineDisPrice(ods,spark,ConfPath)
       }
       get match {
-        case c:RDD[String] => c.map(x=>x).saveAsTextFile(output)
+        case c:RDD[String] => c.map(x=>x).coalesce(1).saveAsTextFile(output)
         case b:Seq[String] => spark.sparkContext.parallelize(b).map(_.mkString(",")).saveAsTextFile(output)
-        case d:DataFrame => d.rdd.map(_.mkString(",")).saveAsTextFile(output)
+        case d:DataFrame => d.rdd.coalesce(100,true).map(_.mkString(",")).saveAsTextFile(output)
         case None =>
       }
       val time2 = new Date().getTime

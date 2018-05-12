@@ -3,6 +3,9 @@ package test
 import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.hadoop.hbase.HBaseConfiguattion
 
+
+
+
 /**
   * Created by WJ on 2018/4/11.
   */

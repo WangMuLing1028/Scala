@@ -4,7 +4,7 @@
 		module="cet6pass_2.11"
 		revision="1.0"
 		status="integration"
-		publication="20180502091831"
+		publication="20180502151044"
 	>
 		<description>
 		CET6Pass
@@ -32,10 +32,12 @@
 		<artifact name="cet6pass_2.11" type="doc" ext="jar" conf="docs" e:classifier="javadoc"/>
 	</publications>
 	<dependencies>
-		<dependency org="org.scala-lang" name="scala-compiler" rev="2.11.8" conf="scala-tool->default,optional(default)"/>
-		<dependency org="org.scala-lang" name="scala-library" rev="2.11.8" conf="scala-tool->default,optional(default);compile->default(compile)"/>
+		<dependency org="org.scala-lang" name="scala-compiler" rev="2.11.0" conf="scala-tool->default,optional(default)"/>
+		<dependency org="org.scala-lang" name="scala-library" rev="2.11.0" conf="scala-tool->default,optional(default);compile->default(compile)"/>
 		<dependency org="org.apache.spark" name="spark-core_2.11" rev="2.0.2" conf="compile->default(compile)"/>
 		<dependency org="org.apache.spark" name="spark-sql_2.11" rev="2.0.2" conf="compile->default(compile)"/>
-		<dependency org="org.apache.hbase" name="hbase-client" rev="2.0.0-beta-2" conf="compile->default(compile)"/>
+		<dependency org="org.apache.hbase" name="hbase-client" rev="1.2.3" conf="compile->default(compile)"/>
+		<dependency org="org.apache.hbase" name="hbase-server" rev="1.2.3" conf="compile->default(compile)"/>
+		<dependency org="org.apache.spark" name="spark-streaming_2.11" rev="2.1.1" conf="provided->default(compile)"/>
 	</dependencies>
 </ivy-module>

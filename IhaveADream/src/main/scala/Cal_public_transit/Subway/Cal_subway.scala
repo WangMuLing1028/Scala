@@ -1,6 +1,5 @@
 package Cal_public_transit.Subway
 
-import java.math.BigDecimal
 import java.text.SimpleDateFormat
 
 import Cal_public_transit.Bus.BusO
@@ -11,6 +10,8 @@ import org.apache.spark.broadcast.Broadcast
 import org.apache.spark.rdd.RDD
 import org.apache.spark.sql.functions._
 import org.apache.spark.sql.{DataFrame, SparkSession}
+
+import scala.collection.mutable.ListBuffer
 
 /**
   * Created by WJ on 2017/11/8.
@@ -349,8 +350,8 @@ class Cal_subway extends Serializable {
     * 出行伴随卡同行分布
     *
     */
-  def together(data:RDD[OD]) = {
-    subTogether(data)
+  def together(sparkSession: SparkSession,data:RDD[OD]) = {
+    subTogether(sparkSession,data)
   }
 
   def busTogether(data:RDD[BusO])={
@@ -358,51 +359,109 @@ class Cal_subway extends Serializable {
   }
 
   /**
-    *
     * 地铁
     * @return
     */
-  private def subTogether(data:RDD[OD])={
-    val o_station = data.groupBy(_.o_station).collect()
-    val d_station = data.groupBy(_.d_station).collect()
-    val have = data.map(line=>{
-      val os = o_station.filter(_._1==line.o_station).map(_._2).map(_.filter(x=>Math.abs(timeDiff(line.o_time,x.o_time))<180)).take(1)(0)
-      val ds = d_station.filter(_._1==line.d_station).map(_._2).map(_.filter(x=>Math.abs(timeDiff(line.d_time,x.d_time))<180)).take(1)(0)
-      (line,os,ds)
+  private def subTogether(sparkSession: SparkSession,data:RDD[OD])={
+    data.cache()
+    val same_o = data.map(x=>(x.o_station,x)).groupByKey().flatMap(x=> {
+      val output = new ListBuffer[(String)]()
+      val datas = x._2.toList.sortBy(_.o_time)
+      for (i <- datas.indices) {
+        val card = datas(i).card_id
+        val time = datas(i).o_time
+        var start = i
+        var end = i
+        var flag = true
+        for(j<- i.to(0,-1)
+            if flag){
+          if(Math.abs(timeDiff(time, datas(j).o_time)) <= 180){
+            start = j
+          }else{
+            flag=false
+          }
+        }
+        flag = true
+        for(j<- i.to(datas.length-1,1)
+            if flag){
+          if(Math.abs(timeDiff(time, datas(j).o_time)) <= 180){
+            end = j
+          }else{
+            flag=false
+          }
+        }
+
+        if(start!=end){
+          val tempData = datas.slice(start,end+1).filter(_.card_id!=card)
+          val sameOnotD = tempData.filter(_.d_station!=datas(i).d_station).map(x=>x.card_id).mkString("|")
+          val sameOD = tempData.filter(_.d_station==datas(i).d_station).filter(x=> Math.abs(timeDiff(x.d_time, datas(i).d_time)) <= 180).map(x=>x.card_id).mkString("|")
+          if(!sameOnotD.isEmpty) {
+            output.append(card + "," + sameOnotD)
+          }
+          if(!sameOD.isEmpty) {
+            output.append(card + "," + sameOD)
+          }
+        }
+      }
+      output
     })
-    val findTX = (x:OD,y:Iterable[OD])=>{
-      for{
-        i <- y
-        tx = (x.card_id,i.card_id)
-      } yield tx
-    }
 
-    val Allget = have.flatMap(x=>{
-      val od = x._1
-      val sameo = x._2.filter(x=> !x.d_station.equals(od.d_station))
-      val samed = x._3.filter(x=> !x.o_station.equals(od.o_station))
-      val sameod = x._2.filter(x=> x.d_station.equals(od.d_station))
-      val sameO = findTX(od,sameo)
-      val sameD = findTX(od,samed)
-      val sameOD = findTX(od,sameod)
-      sameO.++:(sameD).++:(sameOD)
-    }).groupBy(x=>x._1+","+x._2).map(x=>(x._1.split(",")(0),x._1.split(",")(1)+","+x._2.size)).cache()
 
-    val usersTimes = data.groupBy(_.card_id).mapValues(x=>x.size)
-    Allget.join(usersTimes).map(x=>{
+    val same_d = data.map(x=>(x.d_station,x)).groupByKey().flatMap(x=> {
+      val output = new ListBuffer[(String)]()
+      val datas = x._2.toList.sortBy(_.d_time)
+      for (i <- datas.indices) {
+        val o_station = datas(i).o_station
+        val card = datas(i).card_id
+        val time = datas(i).d_time
+        var start = i
+        var end = i
+        var flag = true
+        for(j<- i.to(0,-1)
+            if flag){
+          if(Math.abs(timeDiff(time, datas(j).d_time)) <= 180){
+            start = j
+          }else{
+            flag=false
+          }
+        }
+        flag = true
+        for(j<- i.to(datas.length-1,1)
+            if flag){
+          if(Math.abs(timeDiff(time, datas(j).d_time)) <= 180){
+            end = j
+          }else{
+            flag=false
+          }
+        }
+
+        if(start!=end){
+          val tempData = datas.slice(start,end+1).filter(_.card_id!=card).filter(x=>o_station != x.o_station).map(x=>x.card_id).mkString("|")
+          if(!tempData.isEmpty) {
+            output.append(card + "," + tempData)
+          }
+        }
+      }
+      output
+    })
+
+
+    val unioned = same_o.union(same_d)
+    unioned
+
+    //val TXTimes = unioned.map(x=>(x,1)).reduceByKey(_+_).map(x=>x._1+","+x._2)//.map(x=>(x._1.split(",")(0),x._1.split(",")(1)+","+x._2))
+
+    /*val usersTimes = data.map(x=>(x.card_id,1)).reduceByKey(_+_)
+    TXTimes.join(usersTimes).map(x=>{
       val user = x._1
       val tongxing = x._2._1.split(",")(0)
-      val tongxingTimes = x._2._1.split(",")(1)
+      val tongxingTimes = x._2._1.split(",")(1).toInt
       val sum = x._2._2
       val persent = tongxingTimes.toDouble / sum * 100
-      val dis1 = new BigDecimal(persent)
-      val result = dis1.setScale(2, BigDecimal.ROUND_HALF_UP).doubleValue
+      val result = persent.formatted("%.2f").toDouble
       (user,tongxing,tongxingTimes,sum,result)
-    })
-
+    })*/
   }
-case class Together(card_id1:String,o_station1:String,o_time1:String,d_station1:String,d_time1:String,
-                    card_id2:String,o_station2:String,o_time2:String,d_station2:String,d_time2:String)
 
   /**
     * 计算两个时间字符串之间的时间差
@@ -415,7 +474,6 @@ case class Together(card_id1:String,o_station1:String,o_time1:String,d_station1:
     val timeDiff = (sdf.parse(olderDate).getTime - sdf.parse(formerDate).getTime) / 1000 //得到秒为单位
     timeDiff
   }
-
 }
 
 
@@ -426,22 +484,58 @@ object Cal_subway{
     val sparkSession = SparkSession
       .builder()
       //.config("spark.yarn.dist.files","C:\\Users\\Lhh\\Documents\\地铁_static\\subway_zdbm_station")
-      .config("spark.sql.warehouse.dir", "F:/Github/IhaveADream/spark-warehouse")
-        .config("spark.executor.memory","2g")
-      .master("local[*]").getOrCreate()
+     .config("spark.sql.warehouse.dir", "F:/Github/IhaveADream/spark-warehouse")
+      .master("local[*]")
+//      .master("yarn")
+      .getOrCreate()
     val sc = sparkSession.sparkContext
-    /*val input = "G:\\数据\\深圳通地铁\\20170828"
-    val path = "subway_zdbm_station.txt"
+    //val input = "G:\\数据\\深圳通地铁\\20170828"
+    /*val input = args(0)
+    val path = "SubwayFlowConf/subway_zdbm_station.txt"
     val file = sc.textFile(path).collect()
     val broadcastvar = sc.broadcast(file)
-    val ods = Cal_subway().mkOD(sparkSession,input,"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'","1,4,2,3","all","utf",broadcastvar)*/
-    val ods = sparkSession.read.json("G:\\数据\\深圳通地铁\\od\\20170828").rdd.map(x=>{
+   // val ods = Cal_subway().mkOD(sparkSession,input,"yyyy-MM-dd'T'HH:mm:ss.SSS'T'","1,8,2,4","all","utf",broadcastvar)
+    val ods = Cal_subway().mkOD(sparkSession,input,"yyyyMMddHHmmss","0,1,5,2","all","utf",broadcastvar)
+    ods.coalesce(100,true).saveAsTextFile(args(1))*/
+    val ods = sparkSession.read.json("G:\\数据\\深圳通地铁\\od\\20170828\\").rdd.map(x=>{
       OD(x.getString(0),x.getString(1),x.getString(2),x.getString(3),x.getString(4),x.getLong(5))
     })
-    Cal_subway().together(ods).foreach(println)
+    /*val getods = sc.textFile(args(0)).map(x=>{
+      val xx = x.split("""[\(\)]""")(1)
+      val s = xx.split(",")
+      if(s.length==6){
+      OD(s(0),s(1),s(2),s(3),s(4),s(5).toLong)}else{
+        OD("","","","","",-1)
+      }
+    }).filter(x=> x.card_id!="")*/
+    //Cal_subway().together(sparkSession,getods).saveAsTextFile(args(1))
+    val someboday = ods.filter(_.card_id.matches("281248119")).map(_.toString).collect()
+    val followMe = new FollowMe()
+
+    val tx = ods.filter(x=>{
+      val ostation = x.o_station
+      val o_time =  x.o_time
+      val dstation = x.d_station
+      val d_time = x.d_time
+      for(temp<-someboday){
+        val s = temp.split(",")
+        val tempo = s(1)
+        val tempd = s(3)
+        val tempoTime =s(2)
+        val tempdTime = s(4)
+        if(tempo==ostation){
+          if(Math.abs(Cal_subway().timeDiff(o_time, tempoTime)) <= 180) {
+            return true
+          }
+        }else if(tempd==dstation && Math.abs(Cal_subway().timeDiff(o_time, tempoTime)) <= 180){
+          return true
+        }
+      }
+      false
+    })
+    tx.filter(_.card_id.matches("281248119")).foreach(println)
     /*val data  = Cal_subway().mkOD(sparkSession,input,"yyyy-MM-dd'T'HH:mm:ss.SSS'Z'","1,4,2,3","all","utf",broadcastvar).toDF().select("o_station","card_id")
     val data2 = sparkSession.read.textFile(path).map(_.split(",")).map(s=>(s(0),s(1))).toDF("id","name")
-    data2.join(data,data2("name") === data("o_station")).select("name","card_id").rdd.foreach(println)*/
-
+    data2.join(data,data2("name") === data("o_station")).s elect("name","card_id").rdd.foreach(println)*/
   }
 }

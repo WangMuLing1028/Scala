@@ -1,66 +1,146 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="hbase_insert:jar" />
+    </artifacts-to-build>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="19ceb651-7906-4586-b675-e5f78c268bef" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_github_stephenc_findbugs_findbugs_annotations_1_3_9_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_2_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_11_0_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_jcraft_jsch_0_1_54.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_thoughtworks_paranamer_paranamer_2_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_cli_commons_cli_1_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_collections_commons_collections_3_2_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_lang_commons_lang_2_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_dropwizard_metrics_metrics_core_3_2_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_4_12.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_avro_avro_1_7_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_collections4_4_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_crypto_1_0_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_6.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_curator_curator_client_2_7_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_curator_curator_framework_2_7_1.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_directory_api_api_asn1_api_1_0_0_M20.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_directory_api_api_util_1_0_0_M20.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_directory_server_apacheds_i18n_2_0_0_M15.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_directory_server_apacheds_kerberos_codec_2_0_0_M15.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hadoop_hadoop_annotations_2_7_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hadoop_hadoop_auth_2_7_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hadoop_hadoop_common_2_7_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hbase_hbase_client_2_0_0_beta_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hbase_hbase_common_2_0_0_beta_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hbase_hbase_hadoop2_compat_2_0_0_beta_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hbase_hbase_hadoop_compat_2_0_0_beta_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hbase_hbase_metrics_2_0_0_beta_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hbase_hbase_metrics_api_2_0_0_beta_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hbase_hbase_protocol_2_0_0_beta_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hbase_hbase_protocol_shaded_2_0_0_beta_2.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hbase_thirdparty_hbase_shaded_miscellaneous_2_0_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hbase_thirdparty_hbase_shaded_netty_2_0_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hbase_thirdparty_hbase_shaded_protobuf_2_0_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_htrace_htrace_core4_4_2_0_incubating.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpclient_4_2_5.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_httpcomponents_httpcore_4_2_4.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_yetus_audience_annotations_0_5_0.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_zookeeper_zookeeper_3_4_10.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_hamcrest_hamcrest_core_1_3.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jruby_jcodings_jcodings_1_0_18.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jruby_joni_joni_2_1_11.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mortbay_jetty_jetty_sslengine_6_1_26.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_scala_lang_scala_compiler___scala_version_.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_scala_lang_scala_library___scala_version_.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_scala_lang_scala_reflect___scala_version_.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/temp.scala" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$29$$anonfun$30.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$29$$anonfun$apply$1$$anonfun$apply$mcVI$sp$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$29$$anonfun$apply$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$31.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$32.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$33.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$34.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$35.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$36.class" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__asm_asm_3_1_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__com_github_stephenc_findbugs_findbugs_annotations_1_3_9_1_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__com_lmax_disruptor_3_3_0_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__com_sun_jersey_jersey_core_1_9_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__com_sun_jersey_jersey_server_1_9_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__com_yammer_metrics_metrics_core_2_2_0_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__commons_el_commons_el_1_0_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__commons_logging_commons_logging_1_2_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__io_netty_netty_all_4_0_42_Final_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__net_sf_py4j_py4j_0_10_4_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_apache_commons_commons_lang3_3_3_2_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_apache_hbase_hbase_prefix_tree_1_2_3_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_apache_hbase_hbase_procedure_1_2_3_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_apache_hbase_hbase_server_1_2_3_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_apache_spark_spark_core_2_11_2_1_1_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_apache_spark_spark_launcher_2_11_2_1_1_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_apache_spark_spark_network_common_2_11_2_1_1_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_apache_spark_spark_network_shuffle_2_11_2_1_1_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_apache_spark_spark_streaming_2_11_2_1_1_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_apache_spark_spark_tags_2_11_2_1_1_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_apache_spark_spark_unsafe_2_11_2_1_1_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_codehaus_jackson_jackson_jaxrs_1_9_13_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_jamon_jamon_runtime_2_4_1_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_mortbay_jetty_jetty_6_1_26_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_mortbay_jetty_jetty_sslengine_6_1_26_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_mortbay_jetty_jsp_2_1_6_1_14_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_mortbay_jetty_jsp_api_2_1_6_1_14_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_mortbay_jetty_servlet_api_2_5_6_1_14_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__tomcat_jasper_compiler_5_5_23_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__tomcat_jasper_runtime_5_5_23_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../IhaveADream/.idea/artifacts/TX_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../IhaveADream/src/main/java/TX/META-INF/MANIFEST.MF" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../IhaveADream/src/main/scala/Cal_public_transit/Subway/FollowMe.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/hbase_insert_jar.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__asm_asm_3_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_inject_extensions_guice_servlet_3_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_lmax_disruptor_3_3_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_jersey_contribs_jersey_guice_1_9.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_jersey_jersey_client_1_9.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_jersey_jersey_core_1_9.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_jersey_jersey_json_1_9.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_jersey_jersey_server_1_9.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_sun_xml_bind_jaxb_impl_2_2_3_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_yammer_metrics_metrics_core_2_2_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_daemon_commons_daemon_1_0_13.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_el_commons_el_1_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_activation_activation_1_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_servlet_api_2_5.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_bind_jaxb_api_2_2_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_xml_stream_stax_api_1_0_2.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hbase_hbase_client_1_0_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hbase_hbase_common_1_0_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hbase_hbase_common_tests_1_0_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hbase_hbase_protocol_1_0_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hbase_hbase_server_1_0_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_htrace_htrace_core_3_1_0_incubating.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_spark_spark_streaming_2_11_2_1_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jackson_jackson_jaxrs_1_8_8.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jackson_jackson_xc_1_8_3.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jettison_jettison_1_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jamon_jamon_runtime_2_3_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mortbay_jetty_jetty_6_1_26.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mortbay_jetty_jsp_2_1_6_1_14.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mortbay_jetty_jsp_api_2_1_6_1_14.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mortbay_jetty_servlet_api_2_5_6_1_14.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_scala_lang_modules_scala_parser_combinators_2_11_1_0_1.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_scala_lang_scala_library_2_11_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__tomcat_jasper_compiler_5_5_23.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__tomcat_jasper_runtime_5_5_23.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/temp/META-INF/MANIFEST.MF" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/test/testForshu.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/hbase.properties" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/hbase/TestHBase2.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/hbase/other.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/scala/hbase/temp.scala" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/test.scala" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_apache_hbase_thirdparty_hbase_shaded_miscellaneous_2_0_0_jar.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_apache_hbase_thirdparty_hbase_shaded_netty_2_0_0_jar.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_apache_hbase_thirdparty_hbase_shaded_protobuf_2_0_0_jar.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_apache_yetus_audience_annotations_0_5_0_jar.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CET6Pass/project/target/config-classes/$ee007e74ac3835407853$$anonfun$$sbtdef$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CET6Pass/project/target/config-classes/$ee007e74ac3835407853$.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CET6Pass/project/target/config-classes/$ee007e74ac3835407853.cache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CET6Pass/project/target/config-classes/$ee007e74ac3835407853.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CET6Pass/project/target/config-classes/$f56c791d10a2d02f6241$$anonfun$$sbtdef$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CET6Pass/project/target/config-classes/$f56c791d10a2d02f6241$.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CET6Pass/project/target/config-classes/$f56c791d10a2d02f6241.cache" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../CET6Pass/project/target/config-classes/$f56c791d10a2d02f6241.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$30$$anonfun$31.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$30$$anonfun$32.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$30$$anonfun$33$$anonfun$apply$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$30$$anonfun$33.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$30$$anonfun$34.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$30$$anonfun$35.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$30$$anonfun$36$$anonfun$apply$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$30$$anonfun$36.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$30.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$37$$anonfun$apply$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$37$$anonfun$apply$4.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$38$$anonfun$40.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$38$$anonfun$41.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$42.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$subTogether$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$Together$.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$Together.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Main$$anonfun$Section$1$3.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/test-classes/noNeedSave$$anonfun$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/test-classes/noNeedSave$$anonfun$2.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/test-classes/noNeedSave$$typecreator2$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_code_gson_gson_2_2_4.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_collections4_4_1.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hbase_hbase_hadoop2_compat_2_0_0_beta_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hbase_hbase_hadoop_compat_2_0_0_beta_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hbase_hbase_metrics_api_2_0_0_beta_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hbase_hbase_protocol_shaded_2_0_0_beta_2.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hbase_thirdparty_hbase_shaded_miscellaneous_2_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hbase_thirdparty_hbase_shaded_netty_2_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hbase_thirdparty_hbase_shaded_protobuf_2_0_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_htrace_htrace_core4_4_2_0_incubating.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_yetus_audience_annotations_0_5_0.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_scala_lang_scala_compiler___scala_version_.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/scala/temp.scala" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/temp$$anonfun$main$1.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/temp$.class" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/temp.class" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.11/input_dsp" afterPath="$PROJECT_DIR$/../CET6Pass/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.11/input_dsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.11/output_dsp" afterPath="$PROJECT_DIR$/../CET6Pass/target/streams/$global/dependencyPositions/$global/streams/update_cache_2.11/output_dsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/streams/$global/update/$global/streams/update_cache_2.11/inputs" afterPath="$PROJECT_DIR$/../CET6Pass/target/streams/$global/update/$global/streams/update_cache_2.11/inputs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/streams/$global/update/$global/streams/update_cache_2.11/output" afterPath="$PROJECT_DIR$/../CET6Pass/target/streams/$global/update/$global/streams/update_cache_2.11/output" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Bus/Main$$anonfun$1.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Bus/Main$$anonfun$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Bus/Main$$anonfun$2.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Bus/Main$$anonfun$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Bus/Main$$anonfun$functions$1$1.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Bus/Main$$anonfun$functions$1$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Bus/Main$.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Bus/Main$.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$1.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$10.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$10.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$11.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$11.class" />
@@ -84,7 +164,14 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$28.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$28.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$29.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$29.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$3.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$37.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$37.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$38$$anonfun$39.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$38$$anonfun$39.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$38.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$38.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$4.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$43.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$43.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$44.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$44.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$45.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$45.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$46.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$46.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$5.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$5.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$6$$anonfun$7.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$6$$anonfun$7.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$6$$anonfun$8.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$anonfun$6$$anonfun$8.class" />
@@ -137,19 +224,213 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$typecreator7$1.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$typecreator7$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$typecreator9$1.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$$typecreator9$1.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$Together$.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$Together$.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$Together.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway$Together.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Cal_subway.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/test-classes/others$$anonfun$1.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/test-classes/others$$anonfun$1.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/test-classes/others$.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/test-classes/others$.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/test-classes/others.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/test-classes/others.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Main$$anonfun$Section$1$1.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Main$$anonfun$Section$1$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Main$$anonfun$Section$1$2.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Main$$anonfun$Section$1$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Main$$anonfun$functions$1$1.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Main$$anonfun$functions$1$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Main$.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/classes/Cal_public_transit/Subway/Main$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/test-classes/StreamingTest$.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/test-classes/StreamingTest$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/test-classes/noNeedSave$.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/test-classes/noNeedSave$.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/test-classes/others$$anonfun$5.class" afterPath="$PROJECT_DIR$/../IhaveADream/target/scala-2.11/test-classes/others$$anonfun$5.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../bus" afterPath="$PROJECT_DIR$/../bus" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../pythonTest/SmallReptileTraining" afterPath="$PROJECT_DIR$/../pythonTest/SmallReptileTraining" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../template" afterPath="$PROJECT_DIR$/../template" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CalTaxi/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../CalTaxi/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/.idea/modules/cet6pass.iml" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/modules/cet6pass.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/build.sbt" afterPath="$PROJECT_DIR$/../CET6Pass/build.sbt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/src/main/scala-2.11/test/nothingToshow.scala" afterPath="$PROJECT_DIR$/../CET6Pass/src/main/scala-2.11/test/nothingToshow.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/default/cet6pass$sbt_2.11/1.0/resolved.xml.properties" afterPath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/default/cet6pass$sbt_2.11/1.0/resolved.xml.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/default/cet6pass$sbt_2.11/1.0/resolved.xml.xml" afterPath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/default/cet6pass$sbt_2.11/1.0/resolved.xml.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/default/cet6pass$sources_2.11/1.0/resolved.xml.properties" afterPath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/default/cet6pass$sources_2.11/1.0/resolved.xml.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/default/cet6pass$sources_2.11/1.0/resolved.xml.xml" afterPath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/default/cet6pass$sources_2.11/1.0/resolved.xml.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/default/cet6pass_2.11/1.0/resolved.xml.properties" afterPath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/default/cet6pass_2.11/1.0/resolved.xml.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/default/cet6pass_2.11/1.0/resolved.xml.xml" afterPath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/default/cet6pass_2.11/1.0/resolved.xml.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass$sbt_2.11-default.xml" afterPath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass$sbt_2.11-default.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass$sources_2.11-compile-internal.xml" afterPath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass$sources_2.11-compile-internal.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass$sources_2.11-compile.xml" afterPath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass$sources_2.11-compile.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass$sources_2.11-docs.xml" afterPath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass$sources_2.11-docs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass$sources_2.11-optional.xml" afterPath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass$sources_2.11-optional.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass$sources_2.11-plugin.xml" afterPath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass$sources_2.11-plugin.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass$sources_2.11-pom.xml" afterPath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass$sources_2.11-pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass$sources_2.11-provided.xml" afterPath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass$sources_2.11-provided.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass$sources_2.11-runtime-internal.xml" afterPath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass$sources_2.11-runtime-internal.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass$sources_2.11-runtime.xml" afterPath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass$sources_2.11-runtime.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass$sources_2.11-scala-tool.xml" afterPath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass$sources_2.11-scala-tool.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass$sources_2.11-sources.xml" afterPath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass$sources_2.11-sources.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass$sources_2.11-test-internal.xml" afterPath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass$sources_2.11-test-internal.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass$sources_2.11-test.xml" afterPath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass$sources_2.11-test.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass_2.11-compile-internal.xml" afterPath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass_2.11-compile-internal.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass_2.11-compile.xml" afterPath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass_2.11-compile.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass_2.11-docs.xml" afterPath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass_2.11-docs.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass_2.11-optional.xml" afterPath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass_2.11-optional.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass_2.11-plugin.xml" afterPath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass_2.11-plugin.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass_2.11-pom.xml" afterPath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass_2.11-pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass_2.11-provided.xml" afterPath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass_2.11-provided.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass_2.11-runtime-internal.xml" afterPath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass_2.11-runtime-internal.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass_2.11-runtime.xml" afterPath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass_2.11-runtime.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass_2.11-scala-tool.xml" afterPath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass_2.11-scala-tool.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass_2.11-sources.xml" afterPath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass_2.11-sources.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass_2.11-test-internal.xml" afterPath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass_2.11-test-internal.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass_2.11-test.xml" afterPath="$PROJECT_DIR$/../CET6Pass/target/resolution-cache/reports/default-cet6pass_2.11-test.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/streams/$global/ivyConfiguration/$global/streams/out" afterPath="$PROJECT_DIR$/../CET6Pass/target/streams/$global/ivyConfiguration/$global/streams/out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/streams/$global/ssExtractDependencies/$global/streams/out" afterPath="$PROJECT_DIR$/../CET6Pass/target/streams/$global/ssExtractDependencies/$global/streams/out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/streams/$global/update/$global/streams/out" afterPath="$PROJECT_DIR$/../CET6Pass/target/streams/$global/update/$global/streams/out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/streams/$global/updateClassifiers/$global/streams/out" afterPath="$PROJECT_DIR$/../CET6Pass/target/streams/$global/updateClassifiers/$global/streams/out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/streams/$global/updateSbtClassifiers/$global/streams/out" afterPath="$PROJECT_DIR$/../CET6Pass/target/streams/$global/updateSbtClassifiers/$global/streams/out" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/streams/compile/externalDependencyClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/../CET6Pass/target/streams/compile/externalDependencyClasspath/$global/streams/export" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/streams/compile/managedClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/../CET6Pass/target/streams/compile/managedClasspath/$global/streams/export" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/streams/runtime/externalDependencyClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/../CET6Pass/target/streams/runtime/externalDependencyClasspath/$global/streams/export" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/streams/runtime/managedClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/../CET6Pass/target/streams/runtime/managedClasspath/$global/streams/export" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/streams/test/externalDependencyClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/../CET6Pass/target/streams/test/externalDependencyClasspath/$global/streams/export" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../CET6Pass/target/streams/test/managedClasspath/$global/streams/export" afterPath="$PROJECT_DIR$/../CET6Pass/target/streams/test/managedClasspath/$global/streams/export" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../IhaveADream/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/src/main/scala/Cal_public_transit/Bus/Main.scala" afterPath="$PROJECT_DIR$/../IhaveADream/src/main/scala/Cal_public_transit/Bus/Main.scala" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/src/main/scala/Cal_public_transit/Subway/Cal_subway.scala" afterPath="$PROJECT_DIR$/../IhaveADream/src/main/scala/Cal_public_transit/Subway/Cal_subway.scala" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/src/test/scala/others.scala" afterPath="$PROJECT_DIR$/../IhaveADream/src/test/scala/others.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/src/main/scala/Cal_public_transit/Subway/Main.scala" afterPath="$PROJECT_DIR$/../IhaveADream/src/main/scala/Cal_public_transit/Subway/Main.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/src/test/scala/StreamingTest.scala" afterPath="$PROJECT_DIR$/../IhaveADream/src/test/scala/StreamingTest.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../IhaveADream/src/test/scala/noNeedSave.scala" afterPath="$PROJECT_DIR$/../IhaveADream/src/test/scala/noNeedSave.scala" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/IhaveApple.iml" afterPath="$PROJECT_DIR$/IhaveApple.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/asm/asm/3.1/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/asm/asm/3.1/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/com/fasterxml/jackson/core/jackson-annotations/2.6.5/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/com/fasterxml/jackson/core/jackson-annotations/2.6.5/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/com/fasterxml/jackson/core/jackson-databind/2.3.1/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/com/fasterxml/jackson/core/jackson-databind/2.3.1/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/com/fasterxml/jackson/core/jackson-databind/2.4.2/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/com/fasterxml/jackson/core/jackson-databind/2.4.2/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/com/fasterxml/jackson/core/jackson-databind/2.9.2/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/com/fasterxml/jackson/core/jackson-databind/2.9.2/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/com/google/code/findbugs/jsr305/3.0.0/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/com/google/code/findbugs/jsr305/3.0.0/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/com/google/guava/guava/14.0.1/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/com/google/guava/guava/14.0.1/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/com/google/guava/guava/16.0.1/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/com/google/guava/guava/16.0.1/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/com/sparkjava/spark-core/2.0.2/spark-core-2.0.2.jar.lastUpdated" afterPath="$PROJECT_DIR$/../repository/com/sparkjava/spark-core/2.0.2/spark-core-2.0.2.jar.lastUpdated" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/com/sparkjava/spark-core/2.0.2/spark-core-2.0.2.pom.lastUpdated" afterPath="$PROJECT_DIR$/../repository/com/sparkjava/spark-core/2.0.2/spark-core-2.0.2.pom.lastUpdated" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/com/sun/jersey/jersey-core/1.9/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/com/sun/jersey/jersey-core/1.9/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/com/sun/jersey/jersey-json/1.9/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/com/sun/jersey/jersey-json/1.9/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/com/sun/jersey/jersey-server/1.9/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/com/sun/jersey/jersey-server/1.9/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/com/sun/xml/bind/jaxb-impl/2.2.3-1/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/com/sun/xml/bind/jaxb-impl/2.2.3-1/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/com/thoughtworks/paranamer/paranamer/2.6/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/com/thoughtworks/paranamer/paranamer/2.6/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/commons-codec/commons-codec/1.2/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/commons-codec/commons-codec/1.2/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/commons-codec/commons-codec/1.4/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/commons-codec/commons-codec/1.4/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/commons-codec/commons-codec/1.5/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/commons-codec/commons-codec/1.5/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/commons-codec/commons-codec/1.6/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/commons-codec/commons-codec/1.6/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/commons-io/commons-io/2.1/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/commons-io/commons-io/2.1/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/commons-io/commons-io/2.4/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/commons-io/commons-io/2.4/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/commons-lang/commons-lang/2.4/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/commons-lang/commons-lang/2.4/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/commons-logging/commons-logging/1.0.3/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/commons-logging/commons-logging/1.0.3/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/commons-logging/commons-logging/1.0.4/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/commons-logging/commons-logging/1.0.4/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/commons-logging/commons-logging/1.1.1/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/commons-logging/commons-logging/1.1.1/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/commons-logging/commons-logging/1.1/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/commons-logging/commons-logging/1.1/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/commons-net/commons-net/3.1/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/commons-net/commons-net/3.1/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/io/dropwizard/metrics/metrics-core/3.1.2/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/io/dropwizard/metrics/metrics-core/3.1.2/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/javax/activation/activation/1.1/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/javax/activation/activation/1.1/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/javax/xml/bind/jaxb-api/2.2.2/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/javax/xml/bind/jaxb-api/2.2.2/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/javax/xml/stream/stax-api/1.0-2/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/javax/xml/stream/stax-api/1.0-2/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/log4j/log4j/1.2.12/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/log4j/log4j/1.2.12/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/log4j/log4j/1.2.16/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/log4j/log4j/1.2.16/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/net/java/dev/jets3t/jets3t/0.9.0/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/net/java/dev/jets3t/jets3t/0.9.0/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/apache/avro/avro/1.7.7/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/apache/avro/avro/1.7.7/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/apache/commons/commons-lang3/3.3.2/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/apache/commons/commons-lang3/3.3.2/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/apache/commons/commons-math3/3.1.1/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/apache/commons/commons-math3/3.1.1/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/apache/curator/curator-client/2.4.0/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/apache/curator/curator-client/2.4.0/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/apache/curator/curator-framework/2.4.0/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/apache/curator/curator-framework/2.4.0/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/apache/curator/curator-recipes/2.7.1/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/apache/curator/curator-recipes/2.7.1/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/apache/hadoop/hadoop-annotations/2.2.0/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/apache/hadoop/hadoop-annotations/2.2.0/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/apache/hadoop/hadoop-common/2.2.0/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/apache/hadoop/hadoop-common/2.2.0/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/apache/zookeeper/zookeeper/3.4.5/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/apache/zookeeper/zookeeper/3.4.5/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/apache/zookeeper/zookeeper/3.4.6/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/apache/zookeeper/zookeeper/3.4.6/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/codehaus/jackson/jackson-core-asl/1.8.3/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/codehaus/jackson/jackson-core-asl/1.8.3/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/codehaus/jackson/jackson-core-asl/1.8.8/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/codehaus/jackson/jackson-core-asl/1.8.8/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/codehaus/jackson/jackson-core-asl/1.9.13/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/codehaus/jackson/jackson-core-asl/1.9.13/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/codehaus/jackson/jackson-jaxrs/1.8.3/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/codehaus/jackson/jackson-jaxrs/1.8.3/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/codehaus/jackson/jackson-mapper-asl/1.8.3/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/codehaus/jackson/jackson-mapper-asl/1.8.3/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/codehaus/jackson/jackson-mapper-asl/1.8.8/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/codehaus/jackson/jackson-mapper-asl/1.8.8/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/codehaus/jackson/jackson-mapper-asl/1.9.13/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/codehaus/jackson/jackson-mapper-asl/1.9.13/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/codehaus/jackson/jackson-xc/1.8.3/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/codehaus/jackson/jackson-xc/1.8.3/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/codehaus/jettison/jettison/1.1/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/codehaus/jettison/jettison/1.1/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/jruby/jcodings/jcodings/1.0.13/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/jruby/jcodings/jcodings/1.0.13/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/mortbay/jetty/jetty/6.1.26/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/mortbay/jetty/jetty/6.1.26/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/scala-lang/modules/scala-parser-combinators_2.11/1.0.1/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/scala-lang/modules/scala-parser-combinators_2.11/1.0.1/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/scala-lang/modules/scala-xml_2.11/1.0.1/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/scala-lang/modules/scala-xml_2.11/1.0.1/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/scala-lang/scala-compiler/${scala.version}/scala-compiler-${scala.version}.jar.lastUpdated" afterPath="$PROJECT_DIR$/../repository/org/scala-lang/scala-compiler/${scala.version}/scala-compiler-${scala.version}.jar.lastUpdated" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/scala-lang/scala-compiler/2.11.0/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/scala-lang/scala-compiler/2.11.0/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/scala-lang/scala-library/${scala.version}/scala-library-${scala.version}.jar.lastUpdated" afterPath="$PROJECT_DIR$/../repository/org/scala-lang/scala-library/${scala.version}/scala-library-${scala.version}.jar.lastUpdated" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/scala-lang/scala-library/2.11.0/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/scala-lang/scala-library/2.11.0/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/scala-lang/scala-library/2.11.1/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/scala-lang/scala-library/2.11.1/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/scala-lang/scala-library/2.11.7/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/scala-lang/scala-library/2.11.7/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/scala-lang/scala-library/2.11.8/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/scala-lang/scala-library/2.11.8/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/scala-lang/scala-reflect/${scala.version}/scala-reflect-${scala.version}.jar.lastUpdated" afterPath="$PROJECT_DIR$/../repository/org/scala-lang/scala-reflect/${scala.version}/scala-reflect-${scala.version}.jar.lastUpdated" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/scala-lang/scala-reflect/2.11.0/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/scala-lang/scala-reflect/2.11.0/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/scala-lang/scala-reflect/2.11.7/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/scala-lang/scala-reflect/2.11.7/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/scala-lang/scala-reflect/2.11.8/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/scala-lang/scala-reflect/2.11.8/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/slf4j/slf4j-api/1.6.1/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/slf4j/slf4j-api/1.6.1/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/slf4j/slf4j-api/1.6.4/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/slf4j/slf4j-api/1.6.4/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/slf4j/slf4j-api/1.7.10/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/slf4j/slf4j-api/1.7.10/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/slf4j/slf4j-api/1.7.16/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/slf4j/slf4j-api/1.7.16/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/slf4j/slf4j-api/1.7.22/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/slf4j/slf4j-api/1.7.22/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/slf4j/slf4j-api/1.7.5/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/slf4j/slf4j-api/1.7.5/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/slf4j/slf4j-api/1.7.6/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/slf4j/slf4j-api/1.7.6/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/slf4j/slf4j-api/1.7.7/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/slf4j/slf4j-api/1.7.7/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/slf4j/slf4j-log4j12/1.6.1/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/slf4j/slf4j-log4j12/1.6.1/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/slf4j/slf4j-log4j12/1.7.10/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/slf4j/slf4j-log4j12/1.7.10/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/slf4j/slf4j-log4j12/1.7.5/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/slf4j/slf4j-log4j12/1.7.5/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/xerial/snappy/snappy-java/1.0.4.1/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/xerial/snappy/snappy-java/1.0.4.1/_remote.repositories" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../repository/org/xerial/snappy/snappy-java/1.1.1.6/_remote.repositories" afterPath="$PROJECT_DIR$/../repository/org/xerial/snappy/snappy-java/1.1.1.6/_remote.repositories" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__com_fasterxml_jackson_core_jackson_annotations_2_9_0_jar.xml" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__com_fasterxml_jackson_core_jackson_annotations_2_6_5_jar.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__com_fasterxml_jackson_core_jackson_core_2_9_2_jar.xml" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__com_fasterxml_jackson_core_jackson_core_2_6_5_jar.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__com_fasterxml_jackson_core_jackson_databind_2_9_2_jar.xml" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__com_fasterxml_jackson_core_jackson_databind_2_6_5_jar.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__commons_collections_commons_collections_3_2_1_jar.xml" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__commons_collections_commons_collections_3_2_2_jar.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__commons_io_commons_io_2_5_jar.xml" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__commons_io_commons_io_2_4_jar.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__commons_lang_commons_lang_2_5_jar.xml" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__commons_lang_commons_lang_2_6_jar.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__io_dropwizard_metrics_metrics_core_3_2_1_jar.xml" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__io_dropwizard_metrics_metrics_core_3_1_2_jar.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__io_netty_netty_3_10_5_Final_jar.xml" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__io_netty_netty_3_8_0_Final_jar.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_apache_commons_commons_lang3_3_6_jar.xml" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_apache_commons_commons_lang3_3_5_jar.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_apache_commons_commons_math_2_1_jar.xml" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_apache_commons_commons_math_2_2_jar.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_apache_hbase_hbase_client_2_0_0_beta_2_jar.xml" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_apache_hbase_hbase_client_1_2_3_jar.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_apache_hbase_hbase_protocol_2_0_0_beta_2_jar.xml" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_apache_hbase_hbase_protocol_1_2_3_jar.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_apache_hbase_hbase_protocol_shaded_2_0_0_beta_2_jar.xml" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_apache_hbase_hbase_annotations_1_2_3_jar.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_apache_htrace_htrace_core4_4_2_0_incubating_jar.xml" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_apache_htrace_htrace_core_3_1_0_incubating_jar.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_apache_zookeeper_zookeeper_3_4_10_jar.xml" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_apache_zookeeper_zookeeper_3_4_6_jar.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_jruby_jcodings_jcodings_1_0_18_jar.xml" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_jruby_jcodings_jcodings_1_0_8_jar.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_jruby_joni_joni_2_1_11_jar.xml" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_jruby_joni_joni_2_1_2_jar.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_slf4j_slf4j_api_1_7_25_jar.xml" afterPath="$PROJECT_DIR$/../CET6Pass/.idea/libraries/SBT__org_slf4j_slf4j_api_1_7_16_jar.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_11_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_google_guava_guava_12_0_1.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__com_jcraft_jsch_0_1_54.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_jcraft_jsch_0_1_42.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_cli_commons_cli_1_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_cli_commons_cli_1_2.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_10.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_codec_commons_codec_1_9.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_5.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_io_commons_io_2_4.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_1_3.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__commons_logging_commons_logging_1_2.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_dropwizard_metrics_metrics_core_3_2_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_dropwizard_metrics_metrics_core_3_1_2.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_all_4_0_29_Final.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__io_netty_netty_all_4_0_23_Final.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_crypto_1_0_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_3_2.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_lang3_3_6.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_commons_commons_math_2_2.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_curator_curator_client_2_7_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_curator_curator_client_2_4_0.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_curator_curator_framework_2_7_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_curator_curator_framework_2_4_0.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hadoop_hadoop_annotations_2_7_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hadoop_hadoop_yarn_common_2_5_1.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hadoop_hadoop_auth_2_7_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hadoop_hadoop_hdfs_2_5_1.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hadoop_hadoop_client_2_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hadoop_hadoop_client_2_5_1.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hadoop_hadoop_common_2_7_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hadoop_hadoop_common_2_5_1.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hadoop_hadoop_hdfs_2_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hadoop_hadoop_auth_2_5_1.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hadoop_hadoop_mapreduce_client_app_2_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hadoop_hadoop_mapreduce_client_app_2_5_1.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hadoop_hadoop_mapreduce_client_common_2_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hadoop_hadoop_mapreduce_client_common_2_5_1.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hadoop_hadoop_mapreduce_client_core_2_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hadoop_hadoop_mapreduce_client_core_2_5_1.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hadoop_hadoop_mapreduce_client_jobclient_2_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hadoop_hadoop_mapreduce_client_jobclient_2_5_1.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hadoop_hadoop_mapreduce_client_shuffle_2_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hadoop_hadoop_mapreduce_client_shuffle_2_5_1.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hadoop_hadoop_yarn_api_2_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hadoop_hadoop_yarn_api_2_5_1.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hadoop_hadoop_yarn_client_2_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hadoop_hadoop_annotations_2_5_1.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hadoop_hadoop_yarn_common_2_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hadoop_hadoop_yarn_client_2_5_1.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hadoop_hadoop_yarn_server_common_2_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hadoop_hadoop_yarn_server_common_2_5_1.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hbase_hbase_client_2_0_0_beta_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hbase_hbase_hadoop_compat_1_0_3.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hbase_hbase_common_2_0_0_beta_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hbase_hbase_annotations_1_0_3.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hbase_hbase_metrics_2_0_0_beta_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hbase_hbase_hadoop2_compat_1_0_3.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hbase_hbase_protocol_2_0_0_beta_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_hbase_hbase_prefix_tree_1_0_3.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_zookeeper_zookeeper_3_4_10.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_apache_zookeeper_zookeeper_3_4_6.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jackson_jackson_core_asl_1_9_11.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jackson_jackson_core_asl_1_8_8.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jackson_jackson_mapper_asl_1_9_11.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_codehaus_jackson_jackson_mapper_asl_1_8_8.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jruby_jcodings_jcodings_1_0_18.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jruby_jcodings_jcodings_1_0_8.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jruby_joni_joni_2_1_11.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jruby_joni_joni_2_1_2.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_scala_lang_modules_scala_xml_2_11_1_0_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_scala_lang_modules_scala_xml_2_11_1_0_1.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_scala_lang_scala_library___scala_version_.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_scala_lang_scala_compiler_2_11_0.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_scala_lang_scala_reflect___scala_version_.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_scala_lang_scala_reflect_2_11_0.xml" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_25.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_slf4j_slf4j_api_1_7_16.xml" />
     </list>
     <ignored path="IhaveApple.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -171,28 +452,75 @@
     <favorites_list name="IhaveApple" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/pom.xml">
+    <leaf>
+      <file leaf-file-name="temp.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/hbase/temp.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+            <state relative-caret-position="-1463">
+              <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="temp.scala" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/scala/temp.scala">
+      <file leaf-file-name="other.scala" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/scala/hbase/other.scala">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="152">
-              <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+            <state relative-caret-position="513">
+              <caret line="32" column="6" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="test.scala" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/test/java/test.scala">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="342">
+              <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Math.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_101/src.zip!/java/lang/Math.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="434">
+              <caret line="680" column="57" selection-start-line="680" selection-start-column="57" selection-end-line="680" selection-end-column="57" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IhaveApple.iml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/IhaveApple.iml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="0">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="pom.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/pom.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-513">
+              <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
     </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -211,8 +539,14 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/scala/temp.scala" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/scala/hbase/other.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/hbase/TestHBase2.scala" />
+        <option value="$PROJECT_DIR$/src/main/scala/hbase/temp.scala" />
+        <option value="$PROJECT_DIR$/src/main/resources/hbase.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/test/testForshu.java" />
+        <option value="$PROJECT_DIR$/src/test/java/test.scala" />
       </list>
     </option>
   </component>
@@ -269,18 +603,13 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
             <PATH_ELEMENT>
               <option name="myItemId" value="IhaveApple" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -304,6 +633,14 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -328,6 +665,10 @@
               <option name="myItemId" value="scala" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hbase" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -347,29 +688,138 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="IhaveApple" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="IhaveApple" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="test" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="IhaveApple" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="IhaveApple" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
-    <property name="project.structure.last.edited" value="Modules" />
-    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Artifacts" />
+    <property name="project.structure.proportion" value="0.15400553" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="js-jscs-nodeInterpreter" value="C:\Program Files\nodejs\node.exe" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../template-master" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Application.temp">
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="F:\Github\IhaveApple\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.test">
     <configuration default="false" name="temp" type="Application" factoryName="Application" temporary="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
-      <option name="MAIN_CLASS_NAME" value="temp" />
+      <option name="MAIN_CLASS_NAME" value="hbase.temp" />
       <option name="VM_PARAMETERS" value="-Xms512m -Xmx1024m" />
       <option name="PROGRAM_PARAMETERS" value="" />
       <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="IhaveApple" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="other" type="Application" factoryName="Application" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="hbase.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="hbase.other" />
+      <option name="VM_PARAMETERS" value="-Xms512m -Xmx1024m" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="IhaveApple" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="TestHBase2" type="Application" factoryName="Application" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="hbase.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="MAIN_CLASS_NAME" value="hbase.TestHBase2" />
+      <option name="VM_PARAMETERS" value="-Xmx512m -Xmx1024m" />
+      <option name="PROGRAM_PARAMETERS" value="" />
+      <option name="WORKING_DIRECTORY" value="file://$PROJECT_DIR$" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="ENABLE_SWING_INSPECTOR" value="false" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <module name="IhaveApple" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="test" type="Application" factoryName="Application" temporary="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea" />
+      <option name="MAIN_CLASS_NAME" value="test" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
@@ -854,12 +1304,18 @@
       <envs />
       <method />
     </configuration>
-    <list size="1">
+    <list size="4">
       <item index="0" class="java.lang.String" itemvalue="Application.temp" />
+      <item index="1" class="java.lang.String" itemvalue="Application.other" />
+      <item index="2" class="java.lang.String" itemvalue="Application.TestHBase2" />
+      <item index="3" class="java.lang.String" itemvalue="Application.test" />
     </list>
     <recent_temporary>
-      <list size="1">
-        <item index="0" class="java.lang.String" itemvalue="Application.temp" />
+      <list size="4">
+        <item index="0" class="java.lang.String" itemvalue="Application.test" />
+        <item index="1" class="java.lang.String" itemvalue="Application.temp" />
+        <item index="2" class="java.lang.String" itemvalue="Application.TestHBase2" />
+        <item index="3" class="java.lang.String" itemvalue="Application.other" />
       </list>
     </recent_temporary>
   </component>
@@ -871,6 +1327,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="19ceb651-7906-4586-b675-e5f78c268bef" name="Default" comment="" />
@@ -880,26 +1339,37 @@
       <updated>1525226267432</updated>
       <workItem from="1525226289613" duration="994000" />
       <workItem from="1525227357977" duration="1989000" />
+      <workItem from="1525231673099" duration="47482000" />
+      <workItem from="1525850753636" duration="8093000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2983000" />
+    <option name="totallyTimeSpent" value="58558000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20111732" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5021322" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.21117319" sideWeight="0.4978678" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -931,7 +1401,9 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="3" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="antWorkspaceConfiguration">
@@ -939,10 +1411,26 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/scala/hbase/other.scala">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        <state relative-caret-position="513">
+          <caret line="32" column="6" selection-start-line="32" selection-start-column="6" selection-end-line="32" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/scala/hbase/temp.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1463">
+          <caret line="14" column="7" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/test/testForshu.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="114">
+          <caret line="6" column="0" selection-start-line="6" selection-start-column="0" selection-end-line="6" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -957,16 +1445,32 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" column="33" selection-start-line="10" selection-start-column="33" selection-end-line="10" selection-end-column="33" />
+        <state relative-caret-position="-513">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/scala/temp.scala">
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_101/src.zip!/java/lang/StrictMath.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="4" selection-start-line="8" selection-start-column="4" selection-end-line="8" selection-end-column="4" />
+        <state relative-caret-position="2277">
+          <caret line="631" column="35" selection-start-line="631" selection-start-column="35" selection-end-line="631" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files (x86)/Java/jdk1.8.0_101/src.zip!/java/lang/Math.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="434">
+          <caret line="680" column="57" selection-start-line="680" selection-start-column="57" selection-end-line="680" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/test.scala">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="18" column="0" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -977,10 +1481,12 @@
       <state key="ArtifactsStructureConfigurable.UI">
         <settings>
           <artifact-editor />
+          <last-edited>hbase_insert:jar</last-edited>
           <splitter-proportions>
             <option name="proportions">
               <list>
                 <option value="0.2" />
+                <option value="0.5" />
               </list>
             </option>
           </splitter-proportions>
